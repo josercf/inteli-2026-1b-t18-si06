@@ -36,8 +36,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: '.'
+          # Serve apenas a pasta aulas, que contem o index.html do site
+          path: './aulas'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
