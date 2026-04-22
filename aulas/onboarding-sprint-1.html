@@ -1,0 +1,2022 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1280, initial-scale=1.0" />
+  <title>Onboarding e Sprint Planning 1, Módulo 6 SI T18</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/theme/white.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css" />
+  <link rel="stylesheet" href="assets/css/inteli-theme.css" />
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ========== 01. CAPA ========== -->
+      <section class="title-slide">
+        <span class="brand-mark">inteli</span>
+        <h1>Onboarding e<br />Sprint Planning 1</h1>
+        <p class="subtitle">Módulo 6 de Sistemas de Informação, Turma T18, 2026/1B</p>
+        <div class="aula-meta">
+          <span class="aula-number">Encontro 01</span>
+          <span class="aula-date">22 de abril de 2026</span>
+        </div>
+      </section>
+
+      <!-- ========== 02. AGENDA ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Agenda do encontro</h2>
+        </div>
+        <div class="slide-body">
+          <ol class="agenda-list">
+            <li>Boas-vindas, coordenação e docentes do módulo</li>
+            <li>O problema do projeto, visão a partir do TAP</li>
+            <li>Cronograma do módulo, as cinco sprints</li>
+            <li>Composição de notas e escala de atribuição</li>
+            <li>Avaliação individual, critérios e observações</li>
+            <li>Detalhamento da Sprint 1 e próximos passos</li>
+          </ol>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Onboarding, Sprint Planning 1, SI T18</div>
+          <div class="footer-page">02</div>
+        </div>
+      </section>
+
+      <!-- ========== 03. COORDENAÇÃO ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Coordenação e apoio</h2>
+        </div>
+        <div class="slide-body">
+          <p>Quem acompanha a jornada do curso e dá suporte à turma além das aulas.</p>
+          <div class="coord-grid">
+            <div class="coord-card">
+              <img src="assets/img/docentes/renato-penha.jpeg" alt="Foto de Renato Penha" />
+              <div class="coord-info">
+                <p class="coord-nome">Renato Penha</p>
+                <span class="coord-papel">Coordenação do curso</span>
+              </div>
+            </div>
+            <div class="coord-card">
+              <img src="assets/img/docentes/gabriela-valente.jpeg" alt="Foto de Gabriela Valente" />
+              <div class="coord-info">
+                <p class="coord-nome">Gabriela Valente</p>
+                <span class="coord-papel">Especialista de carreiras</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Onboarding, Sprint Planning 1, SI T18</div>
+          <div class="footer-page">03</div>
+        </div>
+      </section>
+
+      <!-- ========== 04. DOCENTES DO MÓDULO ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Docentes do módulo</h2>
+        </div>
+        <div class="slide-body">
+          <p>Seis eixos correm em paralelo durante as dez semanas. Cada docente olha para o projeto pela lente do seu eixo.</p>
+
+          <div class="docentes-grid col-4">
+            <div class="docente-card eixo-ori">
+              <img src="assets/img/docentes/jose-romualdo.png" alt="Foto de José Romualdo" />
+              <p class="docente-nome">José Romualdo<br />da Costa Filho</p>
+              <span class="docente-eixo">Orientador T18</span>
+            </div>
+            <div class="docente-card eixo-com">
+              <img src="assets/img/docentes/bryan.jpeg" alt="Foto de Bryan Kano" />
+              <p class="docente-nome">Bryan Kano<br />Ferreira</p>
+              <span class="docente-eixo">Computação</span>
+            </div>
+            <div class="docente-card eixo-mtf">
+              <img src="assets/img/docentes/cristina.jpeg" alt="Foto de Maria Cristina Gramani" />
+              <p class="docente-nome">Maria Cristina<br />N. Gramani</p>
+              <span class="docente-eixo">Matemática</span>
+            </div>
+            <div class="docente-card eixo-neg">
+              <img src="assets/img/docentes/rafael-jacomossi.jpeg" alt="Foto de Rafael Jacomossi" />
+              <p class="docente-nome">Rafael Ricardo<br />Jacomossi</p>
+              <span class="docente-eixo">Negócios</span>
+            </div>
+            <div class="docente-card eixo-uex">
+              <img src="assets/img/docentes/Heloisa.jpeg" alt="Foto de Heloisa Candello" />
+              <p class="docente-nome">Heloisa C. de S. P.<br />Candello</p>
+              <span class="docente-eixo">User Experience</span>
+            </div>
+            <div class="docente-card eixo-lid">
+              <img src="assets/img/docentes/laiza.png" alt="Foto de Laíza Ribeiro" />
+              <p class="docente-nome">Laíza Ribeiro<br />Silva</p>
+              <span class="docente-eixo">Liderança</span>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Onboarding, Sprint Planning 1, SI T18</div>
+          <div class="footer-page">04</div>
+        </div>
+      </section>
+
+      <!-- ========== 05. SEPARADOR, PROBLEMA ========== -->
+      <section class="section-slide">
+        <span class="section-number">Bloco 01, Problema</span>
+        <h2>O que vamos resolver juntos?</h2>
+        <p class="section-description">Contexto, parceiro de negócio e desafio que guia as cinco sprints do módulo.</p>
+      </section>
+
+      <!-- ========== 06. PARCEIRO, ZAMP ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>ZAMP, nosso parceiro</h2>
+        </div>
+        <div class="slide-body">
+          <div class="parceiro-grid">
+            <div class="parceiro-bio">
+              <span class="parceiro-tag">Empresa</span>
+              <h4>ZAMP</h4>
+              <p>
+                Uma das maiores operadoras de restaurantes do Brasil, com foco em fast food e em expansão para um
+                modelo de house of brands. É máster franqueada de Burger King e Popeyes, assumiu a operação do
+                Subway no país e opera lojas Starbucks.
+              </p>
+              <div class="parceiro-brands">
+                <span>Burger King</span>
+                <span>Popeyes</span>
+                <span>Subway Brasil</span>
+                <span>Starbucks</span>
+              </div>
+            </div>
+            <div>
+              <div class="parceiro-lead">
+                <h5>Líder do projeto</h5>
+                <span class="lead-nome">Alexsandro Santos</span>
+                <span class="lead-papel">Ponto focal da ZAMP no dia a dia do projeto</span>
+              </div>
+              <div class="parceiro-lead">
+                <h5>Líder executivo, onboarding</h5>
+                <span class="lead-nome">Augusto Knijnik</span>
+                <span class="lead-papel">Patrocínio executivo e abertura do projeto</span>
+              </div>
+              <div class="callout">
+                <strong>Área do negócio:</strong> tecnologia aplicada à operação de marcas de food service.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Onboarding, Sprint Planning 1, SI T18</div>
+          <div class="footer-page">06</div>
+        </div>
+      </section>
+
+      <!-- ========== 07. PROBLEMA ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>O problema a resolver</h2>
+        </div>
+        <div class="slide-body">
+          <div class="problema-dor">
+            <span class="dor-tag">Dor central</span>
+            <p>
+              O alto volume de menções à marca, produtos, concorrentes e temas estratégicos nas redes sociais torna
+              inviável a análise manual pela ZAMP.
+            </p>
+          </div>
+          <p style="margin-top: 0.8rem; font-size: 0.7em;"><strong>Consequências que a ZAMP sente hoje:</strong></p>
+          <div class="consequencias">
+            <div class="consequencia-card">
+              <h5>Falta de visibilidade em tempo real</h5>
+              <p>Crises reputacionais e oportunidades de mercado passam sem detecção precoce.</p>
+            </div>
+            <div class="consequencia-card">
+              <h5>Feedback fragmentado em múltiplos canais</h5>
+              <p>Google Avaliações, Twitter, Instagram, Reclame Aqui, fóruns e reviews vivem em silos.</p>
+            </div>
+            <div class="consequencia-card">
+              <h5>Decisão estratégica com pouca base qualitativa</h5>
+              <p>Risco financeiro, perda de reputação e insatisfação do cliente aumentam.</p>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Onboarding, Sprint Planning 1, SI T18</div>
+          <div class="footer-page">07</div>
+        </div>
+      </section>
+
+      <!-- ========== 08. OBJETIVO E BENEFÍCIOS ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Objetivo do projeto</h2>
+        </div>
+        <div class="slide-body">
+          <div class="objetivo-box">
+            <span class="objetivo-tag">Objetivo</span>
+            <p>
+              Desenvolver uma solução baseada em Processamento de Linguagem Natural capaz de coletar, analisar,
+              classificar e monitorar, em tempo quase real, o sentimento expresso por usuários em redes sociais,
+              gerando insights acionáveis para marketing, atendimento, produto e estratégia.
+            </p>
+          </div>
+          <p style="margin-top: 0.8rem; font-size: 0.7em;"><strong>Benefícios esperados para o parceiro:</strong></p>
+          <div class="beneficios-row">
+            <div class="beneficio"><strong>Monitoramento contínuo</strong> da reputação das marcas da ZAMP.</div>
+            <div class="beneficio"><strong>Detecção antecipada</strong> de crises reputacionais.</div>
+            <div class="beneficio"><strong>Consolidação de feedback</strong> qualitativo em um único ambiente.</div>
+            <div class="beneficio"><strong>Decisão baseada em dados</strong>, com menos achismo.</div>
+            <div class="beneficio"><strong>Redução de custo</strong> com análise manual de menções.</div>
+            <div class="beneficio"><strong>Mais eficiência</strong> para marketing e atendimento ao cliente.</div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Onboarding, Sprint Planning 1, SI T18</div>
+          <div class="footer-page">08</div>
+        </div>
+      </section>
+
+      <!-- ========== 09. ESCOPO, ENTREGÁVEIS E RESTRIÇÕES ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Escopo, entregáveis e restrições</h2>
+        </div>
+        <div class="slide-body">
+          <div class="escopo-grid">
+            <div class="escopo-card">
+              <span class="escopo-tag">Escopo do MVP</span>
+              <h4>O que vamos construir</h4>
+              <ul>
+                <li>Coleta de textos de redes sociais</li>
+                <li>Pré-processamento dos dados textuais</li>
+                <li>Modelo de PLN para classificação de sentimento, positivo, negativo ou neutro</li>
+                <li>Armazenamento estruturado dos resultados</li>
+                <li>Relatórios analíticos simples com métricas do modelo</li>
+                <li>Base de amostra com 50 avaliações BK e base completa com mais de 50 mil registros</li>
+              </ul>
+            </div>
+            <div class="escopo-card">
+              <span class="escopo-tag">Entregáveis</span>
+              <h4>Três blocos, cinco sprints</h4>
+              <ul>
+                <li>Solução de negócio: personas, jornada, fluxos, regras e casos de teste</li>
+                <li>Modelo de PLN: análise da base, pré-processamento, treino, validação e avaliação</li>
+                <li>Implementação técnica: código-fonte, repositório público e documentação</li>
+                <li>Desejável: acesso às redes sociais das marcas ZAMP via API</li>
+              </ul>
+            </div>
+            <div class="escopo-card restrito">
+              <span class="escopo-tag">Fora do escopo</span>
+              <h4>O projeto não contempla</h4>
+              <ul>
+                <li>Dashboards executivos derivados do modelo</li>
+                <li>Múltiplos modelos de PLN em paralelo</li>
+                <li>Aquisição de hardware, software ou licenças exclusivas</li>
+                <li>Tratamento de situações de ironia nos textos</li>
+              </ul>
+            </div>
+          </div>
+          <div class="callout">
+            <strong>Público-alvo da solução:</strong> analistas de marketing, times de atendimento ao cliente e product managers.
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Onboarding, Sprint Planning 1, SI T18</div>
+          <div class="footer-page">09</div>
+        </div>
+      </section>
+
+      <!-- ========== 07. SEPARADOR, CRONOGRAMA ========== -->
+      <section class="section-slide">
+        <span class="section-number">Bloco 02, Cronograma</span>
+        <h2>Cinco sprints, dez semanas</h2>
+        <p class="section-description">Visão de voo alto do módulo e o que cada sprint entrega para o projeto.</p>
+      </section>
+
+      <!-- ========== 08. CRONOGRAMA, VISÃO GERAL ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Visão geral do módulo</h2>
+        </div>
+        <div class="slide-body">
+          <p>Cada sprint dura duas semanas e termina com Review e Retrospective. Abaixo, o foco de cada bloco.</p>
+          <div class="sprint-overview">
+            <div class="sprint-mini s1">
+              <h4>Sprint 1</h4>
+              <div class="sprint-dates">22/04 a 30/04</div>
+              <ul>
+                <li>Entendimento do negócio</li>
+                <li>Entendimento de UX</li>
+                <li>Representação vetorial</li>
+                <li>Intro a PLN</li>
+              </ul>
+            </div>
+            <div class="sprint-mini s2">
+              <h4>Sprint 2</h4>
+              <div class="sprint-dates">04/05 a 15/05</div>
+              <ul>
+                <li>NLTK e spaCy</li>
+                <li>Bag of Words</li>
+                <li>Naive Bayes</li>
+                <li>Word2Vec e Gensim</li>
+              </ul>
+            </div>
+            <div class="sprint-mini s3">
+              <h4>Sprint 3</h4>
+              <div class="sprint-dates">18/05 a 29/05</div>
+              <ul>
+                <li>Redes Neurais e Keras</li>
+                <li>Word2Vec com NN</li>
+                <li>TF, TF-IDF, LSA</li>
+                <li>Extração de features</li>
+              </ul>
+            </div>
+            <div class="sprint-mini s4">
+              <h4>Sprint 4</h4>
+              <div class="sprint-dates">01/06 a 12/06</div>
+              <ul>
+                <li>Matemática das NN</li>
+                <li>Sumarização</li>
+                <li>Bayes para classificação</li>
+                <li>Interfaces com Gradio</li>
+              </ul>
+            </div>
+            <div class="sprint-mini s5">
+              <h4>Sprint 5</h4>
+              <div class="sprint-dates">15/06 a 26/06</div>
+              <ul>
+                <li>Prova 2</li>
+                <li>Entropia e árvores</li>
+                <li>Masterclass Watson</li>
+                <li>Apresentação final</li>
+              </ul>
+            </div>
+          </div>
+          <div class="callout">
+            <strong>Rituais semanais:</strong> planning às segundas, daily nas manhãs, review e retrospective ao fim de cada sprint.
+            Avaliação individual em três momentos: Sprint 3, Sprint 5 e fechamento.
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Onboarding, Sprint Planning 1, SI T18</div>
+          <div class="footer-page">11</div>
+        </div>
+      </section>
+
+      <!-- ========== 09. SPRINT 1 ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Sprint 1, fundamentos do projeto</h2>
+        </div>
+        <div class="slide-body">
+          <div class="sprint-detail">
+            <div class="sprint-meta">
+              <span class="sprint-tag">Semanas 01 e 02</span>
+              <h3>Sprint 1</h3>
+              <div class="sprint-range">22 de abril a 30 de abril</div>
+              <p class="sprint-focus">
+                A turma conhece o parceiro, mapeia o problema, estrutura personas e user stories e toca no primeiro
+                bloco técnico de PLN. É o que abre o caminho para o resto do módulo.
+              </p>
+              <div class="sprint-artefatos">
+                <h5>Artefatos da sprint</h5>
+                <ul>
+                  <li>Entendimento do negócio</li>
+                  <li>Entendimento da experiência do usuário</li>
+                </ul>
+              </div>
+            </div>
+            <div class="aulas-lista">
+              <table>
+                <thead>
+                  <tr><th>Data</th><th>Aula</th><th>Eixo</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td class="data">22/04</td><td>Onboarding, Sprint Planning 1</td><td><span class="eixo-tag eixo-ori">ORI</span></td></tr>
+                  <tr><td class="data">23/04</td><td>Representação vetorial de texto com álgebra linear</td><td><span class="eixo-tag eixo-mtf">MTF</span></td></tr>
+                  <tr><td class="data">24/04</td><td>Workshop com parceiro de negócios</td><td><span class="eixo-tag eixo-ori">ORI</span></td></tr>
+                  <tr><td class="data">27/04</td><td>Introdução ao PLN</td><td><span class="eixo-tag eixo-com">COM</span></td></tr>
+                  <tr><td class="data">28/04</td><td>Gestão de social media</td><td><span class="eixo-tag eixo-neg">NEG</span></td></tr>
+                  <tr><td class="data">29/04</td><td>Processamento de texto, métricas e técnicas</td><td><span class="eixo-tag eixo-com">COM</span></td></tr>
+                  <tr><td class="data">30/04</td><td>Sprint Review e Retrospective 1</td><td><span class="eixo-tag eixo-ori">ORI</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Onboarding, Sprint Planning 1, SI T18</div>
+          <div class="footer-page">12</div>
+        </div>
+      </section>
+
+      <!-- ========== 10. SPRINT 2 ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Sprint 2, primeiras representações</h2>
+        </div>
+        <div class="slide-body">
+          <div class="sprint-detail">
+            <div class="sprint-meta">
+              <span class="sprint-tag">Semanas 03 e 04</span>
+              <h3>Sprint 2</h3>
+              <div class="sprint-range">4 de maio a 15 de maio</div>
+              <p class="sprint-focus">
+                Probabilidade e estatística básica entram para apoiar as primeiras representações de texto. A sprint
+                fecha com um modelo de Bag of Words documentado em notebook.
+              </p>
+              <div class="sprint-artefatos">
+                <h5>Artefatos da sprint</h5>
+                <ul>
+                  <li>Modelo de Bag of Words (IPYNB)</li>
+                  <li>Documentação do modelo BoW</li>
+                </ul>
+              </div>
+            </div>
+            <div class="aulas-lista">
+              <table>
+                <thead>
+                  <tr><th>Data</th><th>Aula</th><th>Eixo</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td class="data">04/05</td><td>Sprint Planning 2</td><td><span class="eixo-tag eixo-ori">ORI</span></td></tr>
+                  <tr><td class="data">05/05</td><td>PLN no auxílio de UX</td><td><span class="eixo-tag eixo-uex">UEX</span></td></tr>
+                  <tr><td class="data">06/05</td><td>Bibliotecas NLTK e spaCy</td><td><span class="eixo-tag eixo-com">COM</span></td></tr>
+                  <tr><td class="data">07/05</td><td>Visualização de dados para análise de conteúdos, parte 1</td><td><span class="eixo-tag eixo-uex">UEX</span></td></tr>
+                  <tr><td class="data">08/05</td><td>Probabilidade aplicada à frequência de palavras</td><td><span class="eixo-tag eixo-mtf">MTF</span></td></tr>
+                  <tr><td class="data">11/05</td><td>Representação de palavras e Bag of Words</td><td><span class="eixo-tag eixo-com">COM</span></td></tr>
+                  <tr><td class="data">12/05</td><td>Gestão de relacionamento e Customer Experience</td><td><span class="eixo-tag eixo-neg">NEG</span></td></tr>
+                  <tr><td class="data">13/05</td><td>NLTK, BoW e Naive Bayes para análise de conteúdo</td><td><span class="eixo-tag eixo-com">COM</span></td></tr>
+                  <tr><td class="data">14/05</td><td>Vetores multidimensionais: Word2Vec e Gensim</td><td><span class="eixo-tag eixo-com">COM</span></td></tr>
+                  <tr><td class="data">15/05</td><td>Sprint Review e Retrospective 2</td><td><span class="eixo-tag eixo-ori">ORI</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Onboarding, Sprint Planning 1, SI T18</div>
+          <div class="footer-page">13</div>
+        </div>
+      </section>
+
+      <!-- ========== 11. SPRINT 3 ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Sprint 3, redes neurais entram em cena</h2>
+        </div>
+        <div class="slide-body">
+          <div class="sprint-detail">
+            <div class="sprint-meta">
+              <span class="sprint-tag">Semanas 05 e 06</span>
+              <h3>Sprint 3</h3>
+              <div class="sprint-range">18 de maio a 29 de maio</div>
+              <p class="sprint-focus">
+                Primeira avaliação individual e virada para Word2Vec em rede neural. A sprint amarra o conceito de
+                embedding e entrega um modelo Word2Vec documentado.
+              </p>
+              <div class="sprint-artefatos">
+                <h5>Artefatos da sprint</h5>
+                <ul>
+                  <li>Modelo utilizando Word2Vec (IPYNB)</li>
+                  <li>Documentação do modelo Word2Vec</li>
+                  <li>Avaliação individual, rodada 1</li>
+                </ul>
+              </div>
+            </div>
+            <div class="aulas-lista">
+              <table>
+                <thead>
+                  <tr><th>Data</th><th>Aula</th><th>Eixo</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td class="data">18/05</td><td>Sprint Planning 3 e Avaliação Individual</td><td><span class="eixo-tag eixo-ori">ORI</span></td></tr>
+                  <tr><td class="data">19/05</td><td>Introdução a rede neural</td><td><span class="eixo-tag eixo-com">COM</span></td></tr>
+                  <tr><td class="data">20/05</td><td>Rede neural com Keras</td><td><span class="eixo-tag eixo-com">COM</span></td></tr>
+                  <tr><td class="data">21/05</td><td>Negociação: eu e o outro</td><td><span class="eixo-tag eixo-lid">LID</span></td></tr>
+                  <tr><td class="data">22/05</td><td>Word2Vec aplicado com redes neurais</td><td><span class="eixo-tag eixo-com">COM</span></td></tr>
+                  <tr><td class="data">25/05</td><td>Modelos de extração de características e APIs</td><td><span class="eixo-tag eixo-com">COM</span></td></tr>
+                  <tr><td class="data">26/05</td><td>Visualização de dados para análise de conteúdos, parte 2</td><td><span class="eixo-tag eixo-uex">UEX</span></td></tr>
+                  <tr><td class="data">27/05</td><td>TF, TF-IDF e LSA</td><td><span class="eixo-tag eixo-com">COM</span></td></tr>
+                  <tr><td class="data">28/05</td><td>Satisfação, reputação e fidelidade</td><td><span class="eixo-tag eixo-neg">NEG</span></td></tr>
+                  <tr><td class="data">29/05</td><td>Sprint Review e Retrospective 3</td><td><span class="eixo-tag eixo-ori">ORI</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Onboarding, Sprint Planning 1, SI T18</div>
+          <div class="footer-page">14</div>
+        </div>
+      </section>
+
+      <!-- ========== 12. SPRINT 4 ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Sprint 4, modelo encontra interface</h2>
+        </div>
+        <div class="slide-body">
+          <div class="sprint-detail">
+            <div class="sprint-meta">
+              <span class="sprint-tag">Semanas 07 e 08</span>
+              <h3>Sprint 4</h3>
+              <div class="sprint-range">1 de junho a 12 de junho</div>
+              <p class="sprint-focus">
+                A sprint junta teoria e produto: fundamentos matemáticos das redes neurais, sumarização, Bayes e
+                interface de consumo do modelo via Gradio. Fecha com API documentada.
+              </p>
+              <div class="sprint-artefatos">
+                <h5>Artefatos da sprint</h5>
+                <ul>
+                  <li>Implementação da API (IPYNB)</li>
+                  <li>Documentação da API</li>
+                  <li>Apresentação parcial</li>
+                </ul>
+              </div>
+            </div>
+            <div class="aulas-lista">
+              <table>
+                <thead>
+                  <tr><th>Data</th><th>Aula</th><th>Eixo</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td class="data">01/06</td><td>Sprint Planning 4</td><td><span class="eixo-tag eixo-ori">ORI</span></td></tr>
+                  <tr><td class="data">02/06</td><td>Fundamentos matemáticos das redes neurais em PLN</td><td><span class="eixo-tag eixo-mtf">MTF</span></td></tr>
+                  <tr><td class="data">03/06</td><td>Sumarização de texto e engenharia de software</td><td><span class="eixo-tag eixo-com">COM</span></td></tr>
+                  <tr><td class="data">08/06</td><td>Argumentação, falácias e correlações espúrias</td><td><span class="eixo-tag eixo-lid">LID</span></td></tr>
+                  <tr><td class="data">09/06</td><td>Gerenciamento de funil de leads</td><td><span class="eixo-tag eixo-neg">NEG</span></td></tr>
+                  <tr><td class="data">10/06</td><td>Classificação de texto com teorema de Bayes</td><td><span class="eixo-tag eixo-mtf">MTF</span></td></tr>
+                  <tr><td class="data">11/06</td><td>Interfaces para modelos PLN</td><td><span class="eixo-tag eixo-uex">UEX</span></td></tr>
+                  <tr><td class="data">12/06</td><td>Sprint Review e Retrospective 4</td><td><span class="eixo-tag eixo-ori">ORI</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Onboarding, Sprint Planning 1, SI T18</div>
+          <div class="footer-page">15</div>
+        </div>
+      </section>
+
+      <!-- ========== 13. SPRINT 5 ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Sprint 5, deploy e fechamento</h2>
+        </div>
+        <div class="slide-body">
+          <div class="sprint-detail">
+            <div class="sprint-meta">
+              <span class="sprint-tag">Semanas 09 e 10</span>
+              <h3>Sprint 5</h3>
+              <div class="sprint-range">15 de junho a 26 de junho</div>
+              <p class="sprint-focus">
+                Fechamento do módulo: Prova 2, masterclass com Watson, deploy do melhor modelo, avaliação individual
+                final e apresentação para o parceiro.
+              </p>
+              <div class="sprint-artefatos">
+                <h5>Artefatos da sprint</h5>
+                <ul>
+                  <li>Apresentação final</li>
+                  <li>Deploy do melhor modelo</li>
+                  <li>Documentação da solução</li>
+                </ul>
+              </div>
+            </div>
+            <div class="aulas-lista">
+              <table>
+                <thead>
+                  <tr><th>Data</th><th>Aula</th><th>Eixo</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td class="data">15/06</td><td>Sprint Planning 5</td><td><span class="eixo-tag eixo-ori">ORI</span></td></tr>
+                  <tr><td class="data">16/06</td><td>Computação com Bryan</td><td><span class="eixo-tag eixo-com">COM</span></td></tr>
+                  <tr><td class="data">17/06</td><td>Métricas de marketing digital</td><td><span class="eixo-tag eixo-neg">NEG</span></td></tr>
+                  <tr><td class="data">18/06</td><td>Masterclass, IA com Watson</td><td><span class="eixo-tag eixo-ori">ORI</span></td></tr>
+                  <tr><td class="data">19/06</td><td>Prova 2</td><td><span class="eixo-tag eixo-ori">ORI</span></td></tr>
+                  <tr><td class="data">22/06</td><td>Entropia, ganho de informação e PLN</td><td><span class="eixo-tag eixo-mtf">MTF</span></td></tr>
+                  <tr><td class="data">23/06</td><td>Ética e gestão do conhecimento</td><td><span class="eixo-tag eixo-lid">LID</span></td></tr>
+                  <tr><td class="data">24/06</td><td>Novos modelos: marketplace e two sided market</td><td><span class="eixo-tag eixo-neg">NEG</span></td></tr>
+                  <tr><td class="data">25/06</td><td>Avaliação individual da Sprint 5 e revisão</td><td><span class="eixo-tag eixo-ori">ORI</span></td></tr>
+                  <tr><td class="data">26/06</td><td>Apresentação final e Retrospective 5</td><td><span class="eixo-tag eixo-ori">ORI</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Onboarding, Sprint Planning 1, SI T18</div>
+          <div class="footer-page">16</div>
+        </div>
+      </section>
+
+      <!-- ========== 14. SEPARADOR, NOTAS ========== -->
+      <section class="section-slide">
+        <span class="section-number">Bloco 03, Avaliação</span>
+        <h2>Como somos avaliados</h2>
+        <p class="section-description">Composição de notas, escala de atribuição e critérios individuais.</p>
+      </section>
+
+      <!-- ========== 15. COMPOSIÇÃO DE NOTAS ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Critérios de avaliação</h2>
+        </div>
+        <div class="slide-body">
+          <div class="notas-wrap">
+            <p class="notas-label">Pesos base do módulo</p>
+            <div class="pesos-row">
+              <div class="peso-card prova">
+                <p class="peso-nome">Prova</p>
+                <p class="peso-percent">20%</p>
+              </div>
+              <div class="peso-card projeto">
+                <p class="peso-nome">Projeto</p>
+                <p class="peso-percent">45%</p>
+              </div>
+              <div class="peso-card auto">
+                <p class="peso-nome">Autoestudos</p>
+                <p class="peso-percent">35%</p>
+              </div>
+            </div>
+            <div class="fator-card fator-performance">
+              Fator de Performance
+              <span class="fator-sub">multiplica o Projeto</span>
+            </div>
+            <div class="fator-card fator-participacao">
+              Fator de Participação
+              <span class="fator-sub">multiplica a Nota Final do Módulo</span>
+            </div>
+          </div>
+          <p class="notas-nota">Os dois fatores assumem valores no intervalo [0, 1] e traduzem a percepção de performance individual e de participação nos rituais.</p>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Onboarding, Sprint Planning 1, SI T18</div>
+          <div class="footer-page">18</div>
+        </div>
+      </section>
+
+      <!-- ========== 16. ESCALA DE NOTAS ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Escala de atribuição de nota</h2>
+        </div>
+        <div class="slide-body">
+          <div class="escala-wrap">
+            <div class="escala-row excelente">
+              <div class="escala-nivel">Excelente</div>
+              <div class="escala-faixa">9,1 a 10,0</div>
+              <div class="escala-desc">Superou o esperado, com alta consistência, clareza e maturidade na construção do artefato. Todos os itens completos, bem desenvolvidos, claros, corretos e coerentes.</div>
+            </div>
+            <div class="escala-row otimo">
+              <div class="escala-nivel">Ótimo</div>
+              <div class="escala-faixa">8,1 a 9,0</div>
+              <div class="escala-desc">Muito boa, atende bem ao objetivo do artefato. Todos os itens elaborados com clareza e coerência, poucos pontos de melhoria, sem comprometimento relevante.</div>
+            </div>
+            <div class="escala-row bom">
+              <div class="escala-nivel">Bom</div>
+              <div class="escala-faixa">7,1 a 8,0</div>
+              <div class="escala-desc">Boa, com atendimento adequado ao artefato. Maior parte da entrega cumpre o solicitado, com pontos pouco desenvolvidos ou lacunas pontuais.</div>
+            </div>
+            <div class="escala-row regular">
+              <div class="escala-nivel">Regular</div>
+              <div class="escala-faixa">4,1 a 7,0</div>
+              <div class="escala-desc">Regular, com esforço perceptível, mas lacunas relevantes comprometem a qualidade geral. Falhas significativas em conteúdo, execução ou organização.</div>
+            </div>
+            <div class="escala-row insuf">
+              <div class="escala-nivel">Insuficiente</div>
+              <div class="escala-faixa">0,0 a 4,0</div>
+              <div class="escala-desc">Insuficiente, não atinge o nível mínimo esperado. Não houve entrega, entrega incompatível, erros graves de compreensão ou execução. Plágio também cai nesta faixa.</div>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Onboarding, Sprint Planning 1, SI T18</div>
+          <div class="footer-page">19</div>
+        </div>
+      </section>
+
+      <!-- ========== 17. AVALIAÇÃO INDIVIDUAL, CRITÉRIOS ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Avaliação individual, Fator de Performance</h2>
+        </div>
+        <div class="slide-body">
+          <p>A cada sprint, o Fator de Performance Individual é atribuído ao aluno a partir de três observações:</p>
+          <div class="criterios-grid">
+            <div class="criterio-card aprendizagem">
+              <span class="criterio-peso">60%</span>
+              <h4>Demonstração de aprendizagem</h4>
+              <p>Compreensão do conteúdo dos artefatos da sprint, com embasamento nas teorias estudadas no módulo. Avaliado por arguição oral, escrita, vídeo ou uso de ferramenta de IA, no mesmo formato para toda a turma.</p>
+            </div>
+            <div class="criterio-card planejamento">
+              <span class="criterio-peso">20%</span>
+              <h4>Planejamento equilibrado</h4>
+              <p>Criação e refinamento de tarefas, DoR e DoD, execução alinhada ao planejamento, fluxo contínuo de trabalho sem picos na quinta e sexta à noite. Evidências extraídas do GitLab.</p>
+            </div>
+            <div class="criterio-card contribuicao">
+              <span class="criterio-peso">20%</span>
+              <h4>Contribuição</h4>
+              <p>Volume e qualidade das entregas visíveis no GitLab. Commits são a referência usual, com ajustes caso a caso quando a sprint demanda menos commits, como em módulos associados a robótica ou ADM tech.</p>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Onboarding, Sprint Planning 1, SI T18</div>
+          <div class="footer-page">20</div>
+        </div>
+      </section>
+
+      <!-- ========== 18. AVALIAÇÃO INDIVIDUAL, OBSERVAÇÕES ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Avaliação individual, como conduzimos</h2>
+        </div>
+        <div class="slide-body">
+          <div class="two-col">
+            <div>
+              <h5>Feedback</h5>
+              <ul>
+                <li>Percepção clara sobre aprendizado e performance nos três eixos é essencial em todo feedback</li>
+                <li>Ajustes finais refletindo eventos específicos são permitidos, desde que sinalizados ao aluno</li>
+                <li>Autoavaliação e avaliação por pares não geram pontuação, entram como insumo para a leitura do orientador</li>
+                <li>Presença em rituais não desconta nota, mas alimenta a percepção sobre planejamento e qualidade</li>
+              </ul>
+            </div>
+            <div>
+              <h5>Métodos e métricas</h5>
+              <ul>
+                <li>Arguição no mesmo formato para toda a turma, cobrindo todos os artefatos da sprint</li>
+                <li>Métricas de fluxo extraídas do GitLab: CFD, throughput, lead time</li>
+                <li>Para análise de commits, apoio do trabalho do Jefferson</li>
+                <li>Para análise de planejamento, apoio do trabalho da Ana Cristina</li>
+              </ul>
+            </div>
+          </div>
+          <div class="callout">
+            <strong>Evolução ao longo dos módulos:</strong> começamos pelo conceito de fluxo de trabalho e WIP e vamos incorporando métricas de fluxo à medida que a turma amadurece.
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Onboarding, Sprint Planning 1, SI T18</div>
+          <div class="footer-page">21</div>
+        </div>
+      </section>
+
+      <!-- ========== 19. SEPARADOR, SPRINT 1 ========== -->
+      <section class="section-slide">
+        <span class="section-number">Bloco 04, Sprint 1</span>
+        <h2>Detalhamento dos artefatos</h2>
+        <p class="section-description">Entendimento do negócio e entendimento da experiência do usuário.</p>
+      </section>
+
+      <!-- ========== 20. ARTEFATOS SPRINT 1, NEGÓCIO ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Entendimento do negócio</h2>
+        </div>
+        <div class="slide-body">
+          <div class="artefatos-grid">
+            <div class="artefato-card a1">
+              <span class="artefato-tag">Artefato 1</span>
+              <h4>Matriz Oceano Azul</h4>
+              <ul>
+                <li>Oito atributos relevantes para os clientes</li>
+                <li>Ações de Reduzir, Eliminar, Aumentar e Criar</li>
+                <li>Origem de cada atributo: observado, inferido ou suposto</li>
+                <li>Evidências coletadas junto ao parceiro ou análise de concorrentes reais</li>
+                <li>Escala de 0 a 10, coerente com a justificativa</li>
+                <li>Descartar ao menos um atributo, com justificativa</li>
+              </ul>
+            </div>
+            <div class="artefato-card a2">
+              <span class="artefato-tag">Artefato 2</span>
+              <h4>Matriz de Risco</h4>
+              <ul>
+                <li>Mínimo de dez riscos, vinculados ao contexto do projeto</li>
+                <li>Classificação: técnico, negócio, operacional ou humano</li>
+                <li>Origem, cenário concreto e simulação de impacto em duas semanas</li>
+                <li>Responsável pelo acompanhamento e plano de ação</li>
+                <li>Um risco considerado e removido, com justificativa</li>
+                <li>Dois riscos com impacto financeiro ligados à análise financeira</li>
+              </ul>
+            </div>
+            <div class="artefato-card a3">
+              <span class="artefato-tag">Artefato 3</span>
+              <h4>Canvas Proposta de Valor</h4>
+              <ul>
+                <li>Persona específica, nome fictício e contexto de rotina</li>
+                <li>Dores, ganhos e tarefas com origem observada, inferida ou suposta</li>
+                <li>Coerência com atributos da Matriz Oceano Azul</li>
+                <li>Uma dor relevante respondida: o que acontece se não for resolvida</li>
+                <li>Elementos da proposta ligados às ações Criar e Aumentar</li>
+              </ul>
+            </div>
+            <div class="artefato-card a4">
+              <span class="artefato-tag">Artefato 4</span>
+              <h4>Análise financeira</h4>
+              <ul>
+                <li>Investimento, custos e receitas projetados para um ano</li>
+                <li>Premissas explícitas e lógica de cálculo descrita</li>
+                <li>Cenário alternativo, pessimista ou otimista, com comparação</li>
+                <li>Limitação ou fragilidade da análise apontada</li>
+                <li>Dois riscos da Matriz com impacto financeiro direto no projeto</li>
+              </ul>
+            </div>
+          </div>
+          <div class="callout">
+            <strong>Atenção:</strong> respostas genéricas, inconsistência entre artefatos e ausência de trade-offs serão penalizadas. Templates disponíveis no Google Drive do módulo.
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Onboarding, Sprint Planning 1, SI T18</div>
+          <div class="footer-page">23</div>
+        </div>
+      </section>
+
+      <!-- ========== 21. ARTEFATOS SPRINT 1, UX ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Entendimento da experiência do usuário</h2>
+        </div>
+        <div class="slide-body">
+          <div class="artefatos-grid">
+            <div class="artefato-card a5">
+              <span class="artefato-tag">Artefato 5</span>
+              <h4>Personas</h4>
+              <ul>
+                <li>Identificação: nome fictício, idade e ocupação</li>
+                <li>Contexto de uso e relação da persona com o problema</li>
+                <li>Dores específicas, com origem observada, inferida ou suposta</li>
+                <li>Necessidades traduzíveis em funcionalidades</li>
+                <li>Evidência de construção: conversa, observação, benchmark ou hipótese</li>
+                <li>Uma persona descartada, com justificativa registrada</li>
+                <li>Teste de consistência: o que acontece se uma dor não for resolvida</li>
+              </ul>
+            </div>
+            <div class="artefato-card a6">
+              <span class="artefato-tag">Artefato 6</span>
+              <h4>User Stories</h4>
+              <ul>
+                <li>Mínimo de cinco histórias, no formato "como [Persona], eu quero [ação], para [objetivo]"</li>
+                <li>Cada história ligada a uma dor ou necessidade da persona</li>
+                <li>Ação clara e específica, objetivo com valor real para o usuário</li>
+                <li>Aplicação do INVEST, com foco em independência e testabilidade</li>
+                <li>Refinamento documentado: versão original, refinada e justificativa</li>
+                <li>Teste de utilidade: o que acontece se a história não for implementada</li>
+              </ul>
+            </div>
+          </div>
+          <div class="callout">
+            <strong>Não são aceitas:</strong> histórias com termos vagos como melhorar, otimizar ou facilitar sem explicação, personas genéricas sem contexto real e dores desconectadas do problema do projeto.
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Onboarding, Sprint Planning 1, SI T18</div>
+          <div class="footer-page">24</div>
+        </div>
+      </section>
+
+      <!-- ========== 22. SEPARADOR, MÉTRICAS ========== -->
+      <section class="section-slide">
+        <span class="section-number">Bloco 05, Como medimos a entrega</span>
+        <h2>Métricas de projeto ágil</h2>
+        <p class="section-description">O que olhamos para avaliar o ritmo do grupo, a contribuição individual e o fluxo do backlog.</p>
+      </section>
+
+      <!-- ========== 23. MÉTRICA, COMMITS ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Commits por pessoa</h2>
+        </div>
+        <div class="slide-body">
+          <div class="metric-head">
+            <div class="metric-badge">Métrica 1</div>
+            <p>Quantidade e cadência dos commits que cada integrante envia ao repositório do grupo, com mensagem descritiva e vínculo com uma issue do backlog.</p>
+            <div class="metric-viz">
+              <svg viewBox="0 0 230 86" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <g font-family="Space Mono, monospace" font-size="6" fill="#B9C5E9">
+                  <text x="6" y="10">Commits por dia</text>
+                </g>
+                <line x1="6" y1="72" x2="222" y2="72" stroke="#7B84A5" stroke-width="0.5" />
+                <g fill="#FF4545">
+                  <rect x="14"  y="52" width="18" height="20" rx="2" />
+                  <rect x="40"  y="44" width="18" height="28" rx="2" />
+                  <rect x="66"  y="38" width="18" height="34" rx="2" />
+                  <rect x="92"  y="46" width="18" height="26" rx="2" />
+                  <rect x="118" y="30" width="18" height="42" rx="2" />
+                  <rect x="144" y="24" width="18" height="48" rx="2" />
+                  <rect x="170" y="34" width="18" height="38" rx="2" />
+                  <rect x="196" y="18" width="18" height="54" rx="2" />
+                </g>
+                <g font-family="Space Mono, monospace" font-size="5" fill="#B9C5E9" text-anchor="middle">
+                  <text x="23" y="82">D1</text>
+                  <text x="49" y="82">D2</text>
+                  <text x="75" y="82">D3</text>
+                  <text x="101" y="82">D4</text>
+                  <text x="127" y="82">D5</text>
+                  <text x="153" y="82">D6</text>
+                  <text x="179" y="82">D7</text>
+                  <text x="205" y="82">D8</text>
+                </g>
+              </svg>
+            </div>
+          </div>
+          <div class="metric-grid">
+            <div class="metric-card impact">
+              <span class="metric-step">Impacto</span>
+              <h4>Avaliação individual</h4>
+              <ul>
+                <li>Entra no critério de contribuição ao grupo, peso 20</li>
+                <li>Frequência baixa ou concentrada na véspera da review reduz a nota</li>
+                <li>Serve de evidência em casos de discussão de fator de participação</li>
+              </ul>
+            </div>
+            <div class="metric-card read">
+              <span class="metric-step">Leitura</span>
+              <h4>O que observamos</h4>
+              <ul>
+                <li>Distribuição ao longo da sprint, não só nos dois últimos dias</li>
+                <li>Mensagens no padrão &lt;tipo&gt;: &lt;descrição&gt;, com referência à issue</li>
+                <li>Equilíbrio entre integrantes, sem ninguém dominando o histórico</li>
+              </ul>
+            </div>
+            <div class="metric-card collect">
+              <span class="metric-step">Coleta</span>
+              <h4>Onde encontrar</h4>
+              <ul>
+                <li>Aba Repositório, Commits, com filtro por autor no GitLab</li>
+                <li>Painel Analytics, Contributors, agregação por pessoa</li>
+                <li>Planilha Entrega Contínua preenchida ao fim de cada sprint</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Onboarding, Sprint Planning 1, SI T18</div>
+          <div class="footer-page">26</div>
+        </div>
+      </section>
+
+      <!-- ========== 24. MÉTRICA, MERGE REQUESTS ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Merge Requests</h2>
+        </div>
+        <div class="slide-body">
+          <div class="metric-head">
+            <div class="metric-badge">Métrica 2</div>
+            <p>MRs abertos, revisados pelos pares e mergeados na branch principal. Indicam que o trabalho passou por olhares diferentes antes de virar versão oficial do projeto.</p>
+            <div class="metric-viz">
+              <svg viewBox="0 0 230 86" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <g font-family="Space Mono, monospace" font-size="6" fill="#B9C5E9">
+                  <text x="6" y="10">Fluxo dos MRs</text>
+                </g>
+                <g>
+                  <rect x="12" y="24" width="60" height="38" rx="6" fill="#90A5E5" />
+                  <rect x="86" y="28" width="56" height="30" rx="6" fill="#FF4545" />
+                  <rect x="158" y="32" width="52" height="22" rx="6" fill="#89CEA5" />
+                </g>
+                <g fill="#2E2640" font-family="Manrope, sans-serif" font-size="6" font-weight="700" text-anchor="middle">
+                  <text x="42" y="41">Aberto</text>
+                  <text x="42" y="51">24</text>
+                  <text x="114" y="45">Review</text>
+                  <text x="114" y="53">14</text>
+                  <text x="184" y="45">Merged</text>
+                  <text x="184" y="53">11</text>
+                </g>
+                <g stroke="#B9C5E9" stroke-width="0.8" fill="none">
+                  <path d="M72 43 L86 43" marker-end="url(#arr)" />
+                  <path d="M142 43 L158 43" marker-end="url(#arr)" />
+                </g>
+                <defs>
+                  <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+                    <path d="M0,0 L10,5 L0,10 z" fill="#B9C5E9" />
+                  </marker>
+                </defs>
+                <g font-family="Space Mono, monospace" font-size="5" fill="#B9C5E9" text-anchor="middle">
+                  <text x="114" y="78">afunilamento indica gargalo</text>
+                </g>
+              </svg>
+            </div>
+          </div>
+          <div class="metric-grid">
+            <div class="metric-card impact">
+              <span class="metric-step">Impacto</span>
+              <h4>Maturidade do grupo</h4>
+              <ul>
+                <li>Reforça a nota de planejamento, peso 20, pela disciplina de processo</li>
+                <li>Aponta quem revisa, quem só abre MR e quem só recebe aprovação</li>
+                <li>MRs sem revisor ou mergeados por quem abriu viram ponto de atenção</li>
+              </ul>
+            </div>
+            <div class="metric-card read">
+              <span class="metric-step">Leitura</span>
+              <h4>O que observamos</h4>
+              <ul>
+                <li>Tamanho do MR, preferimos muitos pequenos a poucos gigantes</li>
+                <li>Quem abriu, quem revisou e quem aprovou, com comentários construtivos</li>
+                <li>Tempo em revisão, alvo abaixo de 48 horas</li>
+              </ul>
+            </div>
+            <div class="metric-card collect">
+              <span class="metric-step">Coleta</span>
+              <h4>Onde encontrar</h4>
+              <ul>
+                <li>Aba Merge Requests do projeto, filtro por estado Merged</li>
+                <li>Detalhe do MR, autor e revisores aparecem no cabeçalho</li>
+                <li>Relatório no board da sprint, coluna Review</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Onboarding, Sprint Planning 1, SI T18</div>
+          <div class="footer-page">27</div>
+        </div>
+      </section>
+
+      <!-- ========== 25. MÉTRICA, ISSUES ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Issues movimentadas</h2>
+        </div>
+        <div class="slide-body">
+          <div class="metric-head">
+            <div class="metric-badge">Métrica 3</div>
+            <p>Issues que saíram do To Do e chegaram ao Done durante a sprint. Revela a cadência de entrega do backlog e quem empurrou cada item pelo board.</p>
+            <div class="metric-viz">
+              <svg viewBox="0 0 230 86" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <g font-family="Space Mono, monospace" font-size="6" fill="#B9C5E9" text-anchor="middle">
+                  <text x="29" y="10">To Do</text>
+                  <text x="86" y="10">Doing</text>
+                  <text x="143" y="10">Review</text>
+                  <text x="200" y="10">Done</text>
+                </g>
+                <g fill="rgba(255,255,255,0.08)">
+                  <rect x="6" y="14" width="46" height="66" rx="4" />
+                  <rect x="63" y="14" width="46" height="66" rx="4" />
+                  <rect x="120" y="14" width="46" height="66" rx="4" />
+                  <rect x="177" y="14" width="46" height="66" rx="4" />
+                </g>
+                <g fill="#90A5E5">
+                  <rect x="10" y="18" width="38" height="8" rx="2" />
+                  <rect x="10" y="28" width="38" height="8" rx="2" />
+                </g>
+                <g fill="#FF4545">
+                  <rect x="67" y="18" width="38" height="8" rx="2" />
+                  <rect x="67" y="28" width="38" height="8" rx="2" />
+                  <rect x="67" y="38" width="38" height="8" rx="2" />
+                </g>
+                <g fill="#F2B24A">
+                  <rect x="124" y="18" width="38" height="8" rx="2" />
+                  <rect x="124" y="28" width="38" height="8" rx="2" />
+                </g>
+                <g fill="#89CEA5">
+                  <rect x="181" y="18" width="38" height="8" rx="2" />
+                  <rect x="181" y="28" width="38" height="8" rx="2" />
+                  <rect x="181" y="38" width="38" height="8" rx="2" />
+                  <rect x="181" y="48" width="38" height="8" rx="2" />
+                  <rect x="181" y="58" width="38" height="8" rx="2" />
+                </g>
+              </svg>
+            </div>
+          </div>
+          <div class="metric-grid">
+            <div class="metric-card impact">
+              <span class="metric-step">Impacto</span>
+              <h4>Execução da sprint</h4>
+              <ul>
+                <li>Alimenta a nota de aprendizagem, peso 60, via evidência de entrega</li>
+                <li>Sustenta a conversa na review, o que o grupo realmente fechou</li>
+                <li>Base para retro, gargalos aparecem nas colunas com fila</li>
+              </ul>
+            </div>
+            <div class="metric-card read">
+              <span class="metric-step">Leitura</span>
+              <h4>O que observamos</h4>
+              <ul>
+                <li>Número de issues fechadas versus abertas, proporção saudável acima de 0,8</li>
+                <li>Issues paradas mais de 3 dias em Doing, sinal de bloqueio</li>
+                <li>Tamanho estimado dos cards, 1 a 5 SP, muito grande é para quebrar</li>
+              </ul>
+            </div>
+            <div class="metric-card collect">
+              <span class="metric-step">Coleta</span>
+              <h4>Onde encontrar</h4>
+              <ul>
+                <li>Aba Plan, Issues, com filtro por milestone da sprint</li>
+                <li>Board da sprint, movimento entre colunas To Do, Doing, Review, Done</li>
+                <li>Relatórios Iteration Report no GitLab Premium, quando disponível</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Onboarding, Sprint Planning 1, SI T18</div>
+          <div class="footer-page">28</div>
+        </div>
+      </section>
+
+      <!-- ========== 26. MÉTRICA, USER STORIES ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>User Stories entregues</h2>
+        </div>
+        <div class="slide-body">
+          <div class="metric-head">
+            <div class="metric-badge">Métrica 4</div>
+            <p>Histórias que fecharam com critério de aceite atendido e com o cliente interno ou parceiro validando o resultado. Diferente de issue qualquer, a US carrega valor para uma persona.</p>
+            <div class="metric-viz">
+              <svg viewBox="0 0 230 86" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <g font-family="Space Mono, monospace" font-size="6" fill="#B9C5E9">
+                  <text x="6" y="10">Aceitas vs iniciadas</text>
+                </g>
+                <g transform="translate(55, 48)">
+                  <circle r="28" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="8" />
+                  <circle r="28" fill="none" stroke="#89CEA5" stroke-width="8"
+                          stroke-dasharray="125 176" stroke-dashoffset="44" transform="rotate(-90)" />
+                  <text x="0" y="2" text-anchor="middle" font-family="Space Mono, monospace"
+                        font-size="11" fill="#FFFFFF" font-weight="700">71%</text>
+                  <text x="0" y="11" text-anchor="middle" font-family="Space Mono, monospace"
+                        font-size="4.5" fill="#B9C5E9">aceitas</text>
+                </g>
+                <g transform="translate(110, 22)" font-family="Manrope, sans-serif" font-size="6" fill="#FFFFFF">
+                  <rect x="0" y="0" width="8" height="8" fill="#89CEA5" rx="1" />
+                  <text x="12" y="7">Aceitas (10)</text>
+                  <rect x="0" y="14" width="8" height="8" fill="rgba(255,255,255,0.2)" rx="1" />
+                  <text x="12" y="21">Iniciadas (14)</text>
+                  <rect x="0" y="28" width="8" height="8" fill="#FF4545" rx="1" />
+                  <text x="12" y="35">Abandonadas (4)</text>
+                </g>
+                <g font-family="Space Mono, monospace" font-size="4.8" fill="#B9C5E9">
+                  <text x="110" y="72">Alvo ≥ 0,7</text>
+                </g>
+              </svg>
+            </div>
+          </div>
+          <div class="metric-grid">
+            <div class="metric-card impact">
+              <span class="metric-step">Impacto</span>
+              <h4>Valor percebido</h4>
+              <ul>
+                <li>Conecta a entrega técnica ao Sprint Goal e ao usuário final</li>
+                <li>Ajusta a nota de projeto, peso 45, pela qualidade do que foi aceito</li>
+                <li>Histórias abandonadas no meio puxam a nota para baixo na review</li>
+              </ul>
+            </div>
+            <div class="metric-card read">
+              <span class="metric-step">Leitura</span>
+              <h4>O que observamos</h4>
+              <ul>
+                <li>Proporção de US iniciadas versus aceitas, alvo acima de 0,7</li>
+                <li>Aderência ao INVEST, em especial independência e testabilidade</li>
+                <li>Rastreabilidade da US até o MR que a fechou</li>
+              </ul>
+            </div>
+            <div class="metric-card collect">
+              <span class="metric-step">Coleta</span>
+              <h4>Onde encontrar</h4>
+              <ul>
+                <li>Issues com a label user-story no GitLab</li>
+                <li>Coluna Done do board, filtrada por tipo user-story</li>
+                <li>Demo registrada em ata ou vídeo curto anexado ao milestone</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Onboarding, Sprint Planning 1, SI T18</div>
+          <div class="footer-page">29</div>
+        </div>
+      </section>
+
+      <!-- ========== 27. MÉTRICA, CFD ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Cumulative Flow Diagram</h2>
+        </div>
+        <div class="slide-body">
+          <div class="metric-head">
+            <div class="metric-badge">Métrica 5</div>
+            <p>Gráfico de áreas empilhadas que mostra, dia a dia, quantas issues estão em cada coluna do board. Serve para ver se o trabalho avança de forma equilibrada ou se empoça numa coluna.</p>
+            <div class="metric-viz">
+              <svg viewBox="0 0 230 86" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <g font-family="Space Mono, monospace" font-size="6" fill="#B9C5E9">
+                  <text x="6" y="10">CFD por coluna</text>
+                </g>
+                <g stroke="rgba(255,255,255,0.12)" stroke-width="0.4">
+                  <line x1="20" y1="20" x2="222" y2="20" />
+                  <line x1="20" y1="40" x2="222" y2="40" />
+                  <line x1="20" y1="60" x2="222" y2="60" />
+                </g>
+                <path d="M20,72 L60,64 L100,54 L140,42 L180,30 L222,20 L222,72 Z" fill="#89CEA5" opacity="0.9" />
+                <path d="M20,72 L60,70 L100,66 L140,60 L180,56 L222,52 L222,72 Z" fill="#F2B24A" opacity="0.9" />
+                <path d="M20,72 L60,72 L100,72 L140,72 L180,70 L222,68 L222,72 Z" fill="#FF4545" opacity="0.9" />
+                <line x1="20" y1="72" x2="222" y2="72" stroke="#B9C5E9" stroke-width="0.6" />
+                <line x1="20" y1="14" x2="20" y2="72" stroke="#B9C5E9" stroke-width="0.6" />
+                <g font-family="Space Mono, monospace" font-size="4.5" fill="#B9C5E9">
+                  <rect x="152" y="14" width="5" height="5" fill="#89CEA5" />
+                  <text x="160" y="18.5">Done</text>
+                  <rect x="182" y="14" width="5" height="5" fill="#F2B24A" />
+                  <text x="190" y="18.5">Review</text>
+                  <rect x="214" y="14" width="5" height="5" fill="#FF4545" />
+                </g>
+                <g font-family="Space Mono, monospace" font-size="4.5" fill="#B9C5E9" text-anchor="middle">
+                  <text x="20" y="82">D1</text>
+                  <text x="121" y="82">D5</text>
+                  <text x="222" y="82">D10</text>
+                </g>
+              </svg>
+            </div>
+          </div>
+          <div class="metric-grid">
+            <div class="metric-card impact">
+              <span class="metric-step">Impacto</span>
+              <h4>Diagnóstico de fluxo</h4>
+              <ul>
+                <li>Expõe gargalos, por exemplo muitas issues paradas em Review</li>
+                <li>Ajuda a retro a encontrar causas, não só sintomas</li>
+                <li>Mostra o efeito de decisões tomadas durante a sprint</li>
+              </ul>
+            </div>
+            <div class="metric-card read">
+              <span class="metric-step">Leitura</span>
+              <h4>Como interpretar</h4>
+              <ul>
+                <li>Faixa crescendo em Doing e parada em Done, time iniciando demais e terminando pouco</li>
+                <li>Faixa de Done subindo em inclinação constante, fluxo saudável</li>
+                <li>Degraus em Done, entregas concentradas em um único dia</li>
+              </ul>
+            </div>
+            <div class="metric-card collect">
+              <span class="metric-step">Coleta</span>
+              <h4>Onde encontrar</h4>
+              <ul>
+                <li>Analytics, Value Stream, Cumulative Flow no GitLab Premium</li>
+                <li>Alternativa, exportar issues por estado e dia para um Google Sheets</li>
+                <li>Planilha do módulo com snapshot diário do board</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Onboarding, Sprint Planning 1, SI T18</div>
+          <div class="footer-page">30</div>
+        </div>
+      </section>
+
+      <!-- ========== 28. MÉTRICA, THROUGHPUT ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Throughput</h2>
+        </div>
+        <div class="slide-body">
+          <div class="metric-head">
+            <div class="metric-badge">Métrica 6</div>
+            <p>Número de issues concluídas por unidade de tempo, normalmente por semana ou por sprint. Responde à pergunta quantas coisas este grupo fecha por ciclo.</p>
+            <div class="metric-viz">
+              <svg viewBox="0 0 230 86" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <g font-family="Space Mono, monospace" font-size="6" fill="#B9C5E9">
+                  <text x="6" y="10">Issues fechadas / sprint</text>
+                </g>
+                <line x1="20" y1="72" x2="224" y2="72" stroke="#B9C5E9" stroke-width="0.5" />
+                <line x1="20" y1="14" x2="20" y2="72" stroke="#B9C5E9" stroke-width="0.5" />
+                <g fill="#90A5E5">
+                  <rect x="30"  y="52" width="28" height="20" rx="2" />
+                  <rect x="70"  y="42" width="28" height="30" rx="2" />
+                  <rect x="110" y="36" width="28" height="36" rx="2" />
+                  <rect x="150" y="58" width="28" height="14" rx="2" />
+                  <rect x="190" y="32" width="28" height="40" rx="2" />
+                </g>
+                <line x1="22" y1="40" x2="224" y2="40" stroke="#89CEA5" stroke-width="0.8" stroke-dasharray="2 2" />
+                <text x="224" y="38" font-family="Space Mono, monospace" font-size="4.5" fill="#89CEA5" text-anchor="end">média 14</text>
+                <g font-family="Space Mono, monospace" font-size="5" fill="#B9C5E9" text-anchor="middle">
+                  <text x="44" y="82">S1</text>
+                  <text x="84" y="82">S2</text>
+                  <text x="124" y="82">S3</text>
+                  <text x="164" y="82">S4</text>
+                  <text x="204" y="82">S5</text>
+                </g>
+              </svg>
+            </div>
+          </div>
+          <div class="metric-grid">
+            <div class="metric-card impact">
+              <span class="metric-step">Impacto</span>
+              <h4>Capacidade do grupo</h4>
+              <ul>
+                <li>Base para o grupo calibrar quanto pega na próxima sprint</li>
+                <li>Identifica sprints fora da curva para conversar na retro</li>
+                <li>Ajuda a comparar o plano versus o real no review</li>
+              </ul>
+            </div>
+            <div class="metric-card read">
+              <span class="metric-step">Leitura</span>
+              <h4>Como interpretar</h4>
+              <ul>
+                <li>Throughput estável de sprint em sprint indica processo maduro</li>
+                <li>Queda abrupta, investigar férias, bloqueios técnicos ou retrabalho</li>
+                <li>Subida brusca pode ser issue pequena demais, não mais trabalho</li>
+              </ul>
+            </div>
+            <div class="metric-card collect">
+              <span class="metric-step">Coleta</span>
+              <h4>Onde encontrar</h4>
+              <ul>
+                <li>Contagem de issues fechadas por sprint no relatório do milestone</li>
+                <li>Issue Analytics, filtro por data de fechamento</li>
+                <li>Histórico acumulado no rodapé da planilha Entrega Contínua</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Onboarding, Sprint Planning 1, SI T18</div>
+          <div class="footer-page">31</div>
+        </div>
+      </section>
+
+      <!-- ========== 29. MÉTRICA, LEAD TIME ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Lead Time</h2>
+        </div>
+        <div class="slide-body">
+          <div class="metric-head">
+            <div class="metric-badge">Métrica 7</div>
+            <p>Tempo que uma issue leva desde a criação até o fechamento. Quando calculado a partir de Doing, vira Cycle Time. Ambos respondem em quanto tempo uma demanda atravessa o processo.</p>
+            <div class="metric-viz">
+              <svg viewBox="0 0 230 86" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <g font-family="Space Mono, monospace" font-size="6" fill="#B9C5E9">
+                  <text x="6" y="10">Distribuição do lead time</text>
+                </g>
+                <line x1="20" y1="72" x2="224" y2="72" stroke="#B9C5E9" stroke-width="0.5" />
+                <line x1="20" y1="14" x2="20" y2="72" stroke="#B9C5E9" stroke-width="0.5" />
+                <g fill="#FF4545">
+                  <rect x="26"  y="58" width="22" height="14" />
+                  <rect x="50"  y="46" width="22" height="26" />
+                  <rect x="74"  y="30" width="22" height="42" />
+                  <rect x="98"  y="42" width="22" height="30" />
+                  <rect x="122" y="52" width="22" height="20" />
+                  <rect x="146" y="62" width="22" height="10" />
+                  <rect x="170" y="66" width="22" height="6" />
+                  <rect x="194" y="68" width="22" height="4" />
+                </g>
+                <line x1="85" y1="14" x2="85" y2="72" stroke="#89CEA5" stroke-width="1" stroke-dasharray="2 2" />
+                <text x="85" y="12" font-family="Space Mono, monospace" font-size="4.5" fill="#89CEA5" text-anchor="middle">mediana</text>
+                <g font-family="Space Mono, monospace" font-size="4.5" fill="#B9C5E9" text-anchor="middle">
+                  <text x="37" y="82">1d</text>
+                  <text x="85" y="82">3d</text>
+                  <text x="133" y="82">5d</text>
+                  <text x="181" y="82">7d</text>
+                </g>
+              </svg>
+            </div>
+          </div>
+          <div class="metric-grid">
+            <div class="metric-card impact">
+              <span class="metric-step">Impacto</span>
+              <h4>Previsibilidade</h4>
+              <ul>
+                <li>Ajuda a estimar quando uma issue nova vai ficar pronta</li>
+                <li>Denuncia etapas com fila longa, por exemplo review travada</li>
+                <li>Entra no diagnóstico do Fator de Performance na retro</li>
+              </ul>
+            </div>
+            <div class="metric-card read">
+              <span class="metric-step">Leitura</span>
+              <h4>Como interpretar</h4>
+              <ul>
+                <li>Lead time alto com poucos itens, issues estão muito grandes</li>
+                <li>Lead time baixo com retrabalho indica DoR ou DoD fraco</li>
+                <li>Olhar a mediana e o desvio, não apenas a média</li>
+              </ul>
+            </div>
+            <div class="metric-card collect">
+              <span class="metric-step">Coleta</span>
+              <h4>Onde encontrar</h4>
+              <ul>
+                <li>Issue Analytics, campo Lead Time por item</li>
+                <li>Coluna de data de criação e data de fechamento na exportação CSV</li>
+                <li>Cálculo manual, fechamento menos criação, em dias corridos</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Onboarding, Sprint Planning 1, SI T18</div>
+          <div class="footer-page">32</div>
+        </div>
+      </section>
+
+      <!-- ========== 30. SEPARADOR, QUALIDADE DO BACKLOG ========== -->
+      <section class="section-slide">
+        <span class="section-number">Bloco 06, Higiene do backlog</span>
+        <h2>Higiene de issue e de MR</h2>
+        <p class="section-description">Regras que deixam a sprint rastreável e evitam retrabalho na review.</p>
+      </section>
+
+      <!-- ========== 31. REGRAS DE ISSUE BEM ESCRITA ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Issue bem escrita, 8 regras</h2>
+        </div>
+        <div class="slide-body">
+          <div class="metric-head">
+            <div class="metric-badge">Regras</div>
+            <p>Toda issue aberta no GitLab passa por um checklist simples antes de entrar no board. Isso garante rastreabilidade e critério de aceite mensurável.</p>
+            <div class="metric-viz">
+              <svg viewBox="0 0 230 86" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <g font-family="Space Mono, monospace" font-size="6" fill="#B9C5E9">
+                  <text x="6" y="10">Ciclo de vida da issue</text>
+                </g>
+                <g font-family="Manrope, sans-serif" font-size="6" fill="#FFFFFF" font-weight="700">
+                  <rect x="10" y="28" width="46" height="28" rx="5" fill="#90A5E5" />
+                  <text x="33" y="45" text-anchor="middle" fill="#2E2640">Draft</text>
+                  <rect x="65" y="28" width="46" height="28" rx="5" fill="#F2B24A" />
+                  <text x="88" y="45" text-anchor="middle" fill="#2E2640">Refine</text>
+                  <rect x="120" y="28" width="46" height="28" rx="5" fill="#FF4545" />
+                  <text x="143" y="45" text-anchor="middle" fill="#FFFFFF">Pronta</text>
+                  <rect x="175" y="28" width="48" height="28" rx="5" fill="#89CEA5" />
+                  <text x="199" y="45" text-anchor="middle" fill="#2E2640">Done</text>
+                </g>
+                <g stroke="#B9C5E9" stroke-width="0.8" fill="none" marker-end="url(#arr2)">
+                  <path d="M56 42 L65 42" />
+                  <path d="M111 42 L120 42" />
+                  <path d="M166 42 L175 42" />
+                </g>
+                <defs>
+                  <marker id="arr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto">
+                    <path d="M0,0 L10,5 L0,10 z" fill="#B9C5E9" />
+                  </marker>
+                </defs>
+                <g font-family="Space Mono, monospace" font-size="4.5" fill="#B9C5E9" text-anchor="middle">
+                  <text x="33" y="68">DoR</text>
+                  <text x="143" y="68">DoR ok</text>
+                  <text x="199" y="68">DoD ok</text>
+                </g>
+              </svg>
+            </div>
+          </div>
+          <div class="rules-grid">
+            <div class="rule-card">
+              <span class="rule-num">Regra 1</span>
+              <h5>Título no infinitivo</h5>
+              <p>Verbo + objeto claro, exemplo: "Implementar validação de CPF no formulário de cadastro".</p>
+            </div>
+            <div class="rule-card">
+              <span class="rule-num">Regra 2</span>
+              <h5>Descrição estruturada</h5>
+              <p>Contexto, objetivo da mudança e referência à persona ou artefato de origem.</p>
+            </div>
+            <div class="rule-card">
+              <span class="rule-num">Regra 3</span>
+              <h5>Critérios de aceite</h5>
+              <p>Lista verificável em formato Given, When, Then ou checklist objetivo.</p>
+            </div>
+            <div class="rule-card">
+              <span class="rule-num">Regra 4</span>
+              <h5>Estimativa em SP</h5>
+              <p>Valor entre 1 e 5, definido no refinement. Maior que 5, quebrar em sub-issues.</p>
+            </div>
+            <div class="rule-card">
+              <span class="rule-num">Regra 5</span>
+              <h5>Labels e milestone</h5>
+              <p>Tipo, prioridade, artefato associado e sprint alvo marcados desde a criação.</p>
+            </div>
+            <div class="rule-card">
+              <span class="rule-num">Regra 6</span>
+              <h5>Responsável único</h5>
+              <p>Assignee definido antes de puxar o card para Doing, ainda que outros apoiem.</p>
+            </div>
+            <div class="rule-card">
+              <span class="rule-num">Regra 7</span>
+              <h5>DoR antes de Doing</h5>
+              <p>Refinada, estimada, com aceite. Sem isso, fica na coluna de backlog, não entra na sprint.</p>
+            </div>
+            <div class="rule-card">
+              <span class="rule-num">Regra 8</span>
+              <h5>DoD antes de Done</h5>
+              <p>MR mergeado, artefato atualizado na wiki e aceite validado pelo par ou professor.</p>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Onboarding, Sprint Planning 1, SI T18</div>
+          <div class="footer-page">33</div>
+        </div>
+      </section>
+
+      <!-- ========== 32. EXEMPLO DE ISSUE, BOA VS RUIM ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Issue boa vs issue ruim</h2>
+        </div>
+        <div class="slide-body">
+          <div class="quality-grid">
+            <div class="quality-card warn">
+              <span class="q-tag">Evitar</span>
+              <h4>Exemplo ruim</h4>
+              <div class="issue-example"><span class="label">Título:</span> <span class="title-bad">arrumar tela de login</span>
+<span class="label">Descrição:</span> tela tá meio bugada, ver o que dá pra melhorar. fica aberto pra discussão.
+<span class="label">Aceite:</span> quando ficar ok
+<span class="label">SP:</span> não estimado · <span class="label">Assignee:</span> ninguém
+<span class="label">Labels:</span> (vazio)</div>
+              <ul class="checklist x" style="margin-top:0.35rem">
+                <li>Título vago, sem verbo no infinitivo</li>
+                <li>Descrição não diz o que mudar ou por quê</li>
+                <li>Critério subjetivo, inverificável</li>
+                <li>Nenhuma estimativa, nenhum dono, nenhuma label</li>
+              </ul>
+            </div>
+            <div class="quality-card ok">
+              <span class="q-tag">Modelo</span>
+              <h4>Exemplo bom</h4>
+              <div class="issue-example"><span class="label">Título:</span> <span class="title-ok">Validar CPF no cadastro e bloquear duplicidade</span>
+<span class="label">Descrição:</span> Persona Ana relatou cadastro duplicado por erro de digitação. Proteger o fluxo e dar feedback claro.
+<span class="label">Aceite:</span>
+ · Given CPF já existente, When submeter, Then exibir aviso e manter dados
+ · Given CPF inválido, When submeter, Then desabilitar botão
+<span class="label">SP:</span> 3 · <span class="label">Assignee:</span> @maria
+<span class="label">Labels:</span> user-story, frontend, sprint-1</div>
+              <ul class="checklist" style="margin-top:0.35rem">
+                <li>Título começa com verbo, descreve o resultado</li>
+                <li>Contexto traz persona e motivação</li>
+                <li>Aceite verificável, com dois cenários</li>
+                <li>SP, assignee e labels preenchidos</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Onboarding, Sprint Planning 1, SI T18</div>
+          <div class="footer-page">34</div>
+        </div>
+      </section>
+
+      <!-- ========== 33. TEMPLATE DE MR ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Template do Merge Request</h2>
+        </div>
+        <div class="slide-body">
+          <div class="metric-head">
+            <div class="metric-badge">Template</div>
+            <p>Salve como <code style="background:rgba(255,255,255,0.1);padding:0.1rem 0.3rem;border-radius:3px;font-family:var(--inteli-mono);font-size:0.95em">.gitlab/merge_request_templates/Default.md</code> no repositório. O GitLab carrega automaticamente no corpo de todo MR aberto.</p>
+            <div class="metric-viz">
+              <svg viewBox="0 0 230 86" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <g font-family="Space Mono, monospace" font-size="5" fill="#B9C5E9">
+                  <text x="6" y="12">.gitlab/</text>
+                  <text x="16" y="26">merge_request_templates/</text>
+                  <text x="26" y="40" fill="#FF4545">Default.md</text>
+                  <text x="16" y="54">issue_templates/</text>
+                  <text x="26" y="68" fill="#89CEA5">UserStory.md</text>
+                  <text x="26" y="80" fill="#89CEA5">Bug.md</text>
+                </g>
+              </svg>
+              <span class="viz-caption">Convenções do GitLab</span>
+            </div>
+          </div>
+          <div class="mr-template" style="margin-top:0.5rem">
+<span class="mr-head">## O que foi feito</span>
+Resumo objetivo da mudança, em 2 a 4 linhas. Evitar "refatorei" e "ajustei", trocar por verbos concretos.
+
+<span class="mr-head">## Issue relacionada</span>
+<span class="mr-key">Closes</span> #42, <span class="mr-key">Related</span> #38
+
+<span class="mr-head">## Como testar</span>
+- Passo 1, passo 2, passo 3
+- Dado esperado, dado obtido, evidência anexada (print ou trecho de log)
+
+<span class="mr-head">## Checklist do autor</span>
+- [ ] Código roda localmente sem erro
+- [ ] Testes automatizados passam
+- [ ] Documentação do artefato atualizada
+- [ ] Commits com mensagem padrão e referência à issue
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Onboarding, Sprint Planning 1, SI T18</div>
+          <div class="footer-page">35</div>
+        </div>
+      </section>
+
+      <!-- ========== 34. TÉCNICAS PARA ABRIR UM BOM MR ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Como abrir um bom MR</h2>
+        </div>
+        <div class="slide-body">
+          <div class="technique-grid">
+            <div class="technique-card">
+              <span class="t-tag">Escopo</span>
+              <h4>Pequeno e focado</h4>
+              <ul>
+                <li>Uma issue por MR, sem misturar refatoração com feature</li>
+                <li>Alvo de até 400 linhas alteradas, fora arquivos gerados</li>
+                <li>Se passou disso, quebrar em MRs sequenciais</li>
+              </ul>
+            </div>
+            <div class="technique-card">
+              <span class="t-tag">Título</span>
+              <h4>Verbo no infinitivo</h4>
+              <ul>
+                <li>Começa com o que o MR faz, não com ticket ou nome de pasta</li>
+                <li>Exemplo: "Bloquear cadastro com CPF duplicado"</li>
+                <li>Evitar WIP como título final, usar Draft do GitLab</li>
+              </ul>
+            </div>
+            <div class="technique-card">
+              <span class="t-tag">Descrição</span>
+              <h4>Responde o porquê</h4>
+              <ul>
+                <li>Usa o template do repositório e preenche todas as seções</li>
+                <li>Print ou GIF da tela sempre que for mudança visual</li>
+                <li>Referência direta à issue com Closes #N</li>
+              </ul>
+            </div>
+            <div class="technique-card">
+              <span class="t-tag">Commits</span>
+              <h4>Histórico legível</h4>
+              <ul>
+                <li>Mensagem padrão tipo: descrição, exemplo feat, fix, docs</li>
+                <li>Um commit por ideia, evita "ajustes" agrupando 10 coisas</li>
+                <li>Rebase ou squash antes do merge, sem merge commits ruidosos</li>
+              </ul>
+            </div>
+            <div class="technique-card">
+              <span class="t-tag">CI e testes</span>
+              <h4>Verde antes de pedir review</h4>
+              <ul>
+                <li>Pipeline verde, com lint e testes passando</li>
+                <li>Evidência de teste manual descrita em Como testar</li>
+                <li>Breaking change marcada na descrição com destaque</li>
+              </ul>
+            </div>
+            <div class="technique-card">
+              <span class="t-tag">Revisores</span>
+              <h4>Peça revisão com critério</h4>
+              <ul>
+                <li>Indica 1 ou 2 revisores, não deixa o grupo inteiro</li>
+                <li>Aponta o ponto que mais preocupa para olhar com atenção</li>
+                <li>Responde comentários no mesmo dia útil</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Onboarding, Sprint Planning 1, SI T18</div>
+          <div class="footer-page">36</div>
+        </div>
+      </section>
+
+      <!-- ========== 35. TÉCNICAS DE REVIEW ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Review de MR</h2>
+        </div>
+        <div class="slide-body">
+          <div class="technique-grid">
+            <div class="technique-card">
+              <span class="t-tag">Entender antes</span>
+              <h4>Ler a issue primeiro</h4>
+              <ul>
+                <li>Abrir a issue e reler o critério de aceite</li>
+                <li>Conferir se o MR cobre o que foi prometido</li>
+                <li>Rodar o branch localmente quando o escopo é visual</li>
+              </ul>
+            </div>
+            <div class="technique-card">
+              <span class="t-tag">Diff</span>
+              <h4>Ler arquivo por arquivo</h4>
+              <ul>
+                <li>Começar por testes e documentação, dão a intenção</li>
+                <li>Olhar arquivos grandes com calma, pequenos em ritmo</li>
+                <li>Comentar linha a linha, não em bloco solto</li>
+              </ul>
+            </div>
+            <div class="technique-card">
+              <span class="t-tag">Tom</span>
+              <h4>Comentário construtivo</h4>
+              <ul>
+                <li>Sugerir, não ordenar. "E se usássemos..." em vez de "troque para..."</li>
+                <li>Separar pedido obrigatório de sugestão, usa prefixo nit:</li>
+                <li>Elogiar trecho bem resolvido, review não é só apontar erro</li>
+              </ul>
+            </div>
+            <div class="technique-card">
+              <span class="t-tag">O que cobrar</span>
+              <h4>Qualidade essencial</h4>
+              <ul>
+                <li>Nomes claros, função com responsabilidade única, erro tratado</li>
+                <li>Testes do caso feliz e ao menos um caso de borda</li>
+                <li>Segurança básica, entrada validada, segredo fora do código</li>
+              </ul>
+            </div>
+            <div class="technique-card">
+              <span class="t-tag">Fechamento</span>
+              <h4>Aprovar com intenção</h4>
+              <ul>
+                <li>Aprovar só depois de ter rodado o branch e lido com atenção</li>
+                <li>Request changes se tem bloqueio, nunca aprovar por cordialidade</li>
+                <li>Registrar quem aprovou, o GitLab guarda o histórico</li>
+              </ul>
+            </div>
+            <div class="technique-card">
+              <span class="t-tag">Tempo</span>
+              <h4>Não deixar ao relento</h4>
+              <ul>
+                <li>Revisar em até 24 horas para sprint de 1 semana</li>
+                <li>Se não puder hoje, avisar o autor no canal do grupo</li>
+                <li>MR parado em review mais de 2 dias, sinal de retro</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Onboarding, Sprint Planning 1, SI T18</div>
+          <div class="footer-page">37</div>
+        </div>
+      </section>
+
+      <!-- ========== 36. VINCULAR ISSUE A COMMIT E MR ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Vincular issue, commit e MR</h2>
+        </div>
+        <div class="slide-body">
+          <div class="metric-head">
+            <div class="metric-badge">GitLab</div>
+            <p>O GitLab reconhece palavras-chave na mensagem do commit e na descrição do MR. Quando usadas corretamente, a issue aparece no painel, muda de estado e o MR fecha automaticamente.</p>
+            <div class="metric-viz">
+              <svg viewBox="0 0 230 86" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <g font-family="Space Mono, monospace" font-size="6" fill="#FFFFFF" font-weight="700">
+                  <rect x="12" y="22" width="56" height="38" rx="6" fill="#90A5E5" />
+                  <text x="40" y="38" text-anchor="middle" fill="#2E2640">Commit</text>
+                  <text x="40" y="50" text-anchor="middle" fill="#2E2640" font-size="4.5">#42</text>
+                  <rect x="86" y="22" width="56" height="38" rx="6" fill="#F2B24A" />
+                  <text x="114" y="38" text-anchor="middle" fill="#2E2640">MR</text>
+                  <text x="114" y="50" text-anchor="middle" fill="#2E2640" font-size="4.5">Closes #42</text>
+                  <rect x="160" y="22" width="58" height="38" rx="6" fill="#89CEA5" />
+                  <text x="189" y="38" text-anchor="middle" fill="#2E2640">Issue</text>
+                  <text x="189" y="50" text-anchor="middle" fill="#2E2640" font-size="4.5">Closed</text>
+                </g>
+                <g stroke="#B9C5E9" stroke-width="0.8" fill="none" marker-end="url(#arr3)">
+                  <path d="M68 41 L86 41" />
+                  <path d="M142 41 L160 41" />
+                </g>
+                <defs>
+                  <marker id="arr3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto">
+                    <path d="M0,0 L10,5 L0,10 z" fill="#B9C5E9" />
+                  </marker>
+                </defs>
+                <g font-family="Space Mono, monospace" font-size="4.5" fill="#B9C5E9" text-anchor="middle">
+                  <text x="77" y="72">refs</text>
+                  <text x="151" y="72">merge</text>
+                </g>
+              </svg>
+            </div>
+          </div>
+          <div class="link-flow">
+            <div class="link-step">
+              <span class="step-num">1</span>
+              <h4>Commit referenciando a issue</h4>
+              <div class="code-snippet"><span class="kw">git commit</span> -m "feat: validar CPF duplicado
+
+<span class="ref">Refs #42</span>"</div>
+              <p>Use <strong>Refs #N</strong> no corpo da mensagem para aparecer no histórico da issue sem fechá-la. Toda contribuição fica rastreável.</p>
+            </div>
+            <div class="link-step">
+              <span class="step-num">2</span>
+              <h4>MR que fecha a issue</h4>
+              <div class="code-snippet"><span class="kw">## Issue relacionada</span>
+<span class="ref">Closes #42</span>, <span class="ref">Related #38</span></div>
+              <p>Palavras-chave aceitas: <strong>Closes, Fixes, Resolves</strong>. Quando o MR é mergeado na branch default, o GitLab fecha a issue automaticamente.</p>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Onboarding, Sprint Planning 1, SI T18</div>
+          <div class="footer-page">38</div>
+        </div>
+      </section>
+
+      <!-- ========== 37. SEPARADOR, PLANEJAMENTO ========== -->
+      <section class="section-slide">
+        <span class="section-number">Bloco 07, Planejamento</span>
+        <h2>Exemplo de Sprint 1 montada</h2>
+        <p class="section-description">Backlog de referência para um grupo de 5 a 6 pessoas, cobrindo os 6 artefatos da sprint em 7 dias úteis.</p>
+      </section>
+
+      <!-- ========== 31. BACKLOG DA SPRINT 1 ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Backlog da Sprint 1</h2>
+        </div>
+        <div class="slide-body">
+          <div class="backlog-meta">
+            <div class="backlog-kpi">
+              <span class="kpi-num">14</span>
+              <span class="kpi-label">Issues planejadas</span>
+            </div>
+            <div class="backlog-kpi">
+              <span class="kpi-num">54</span>
+              <span class="kpi-label">Story points</span>
+            </div>
+            <div class="backlog-kpi">
+              <span class="kpi-num">6</span>
+              <span class="kpi-label">Artefatos alvo</span>
+            </div>
+            <div class="backlog-kpi">
+              <span class="kpi-num">~9</span>
+              <span class="kpi-label">SP por pessoa</span>
+            </div>
+          </div>
+          <div class="papeis-row">
+            <div class="papel-chip"><strong>A</strong>Oceano Azul</div>
+            <div class="papel-chip"><strong>B</strong>Matriz Risco</div>
+            <div class="papel-chip"><strong>C</strong>Canvas PV</div>
+            <div class="papel-chip"><strong>D</strong>Financeira</div>
+            <div class="papel-chip"><strong>E</strong>Personas</div>
+            <div class="papel-chip"><strong>F</strong>User Stories</div>
+          </div>
+          <table class="backlog-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Artefato</th>
+                <th>Tarefa</th>
+                <th>Resp.</th>
+                <th>SP</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="id">01</td><td class="artefato">Oceano Azul</td><td>Pesquisa dos 3 concorrentes relevantes, matrizes BK, Popeyes, Subway</td><td class="resp">A</td><td class="sp">3</td></tr>
+              <tr><td class="id">02</td><td class="artefato">Oceano Azul</td><td>8 atributos selecionados + avaliação + aplicação de ERRC</td><td class="resp">A + D</td><td class="sp">5</td></tr>
+              <tr><td class="id">03</td><td class="artefato">Matriz Risco</td><td>10 riscos classificados por categoria, probabilidade e impacto</td><td class="resp">B</td><td class="sp">5</td></tr>
+              <tr><td class="id">04</td><td class="artefato">Matriz Risco</td><td>Plano de ação, donos definidos e 1 risco removido com justificativa</td><td class="resp">B + F</td><td class="sp">3</td></tr>
+              <tr><td class="id">05</td><td class="artefato">Canvas PV</td><td>Mapeamento de dores, ganhos e tarefas da persona central</td><td class="resp">C</td><td class="sp">4</td></tr>
+              <tr><td class="id">06</td><td class="artefato">Canvas PV</td><td>Produtos, serviços, analgésicos e geradores, conexão com Oceano Azul</td><td class="resp">C + E</td><td class="sp">3</td></tr>
+              <tr><td class="id">07</td><td class="artefato">Financeira</td><td>Levantamento de premissas, custos fixos e variáveis documentados</td><td class="resp">D</td><td class="sp">3</td></tr>
+              <tr><td class="id">08</td><td class="artefato">Financeira</td><td>Projeção de receita e ponto de equilíbrio em 12 meses</td><td class="resp">D</td><td class="sp">5</td></tr>
+              <tr><td class="id">09</td><td class="artefato">Financeira</td><td>Cenário alternativo, com vínculo a 2 riscos da matriz</td><td class="resp">D + B</td><td class="sp">3</td></tr>
+              <tr><td class="id">10</td><td class="artefato">Personas</td><td>Coleta de insights via conversa, benchmark ou observação</td><td class="resp">E</td><td class="sp">4</td></tr>
+              <tr><td class="id">11</td><td class="artefato">Personas</td><td>2 personas documentadas + 1 descartada, com justificativa</td><td class="resp">E + C</td><td class="sp">3</td></tr>
+              <tr><td class="id">12</td><td class="artefato">User Stories</td><td>Épicos, mínimo 5 histórias no formato canônico, ligadas às dores</td><td class="resp">F</td><td class="sp">5</td></tr>
+              <tr><td class="id">13</td><td class="artefato">User Stories</td><td>Critérios de aceite e aplicação do INVEST, com refinamento</td><td class="resp">F + A</td><td class="sp">3</td></tr>
+              <tr><td class="id">14</td><td class="artefato">Integração</td><td>Revisão cruzada entre artefatos, fechamento para a review</td><td class="resp">Todos</td><td class="sp">5</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Onboarding, Sprint Planning 1, SI T18</div>
+          <div class="footer-page">39</div>
+        </div>
+      </section>
+
+      <!-- ========== 32. FECHAMENTO ========== -->
+      <section class="title-slide">
+        <span class="brand-mark">inteli</span>
+        <h1>Bora construir!</h1>
+        <p class="subtitle">
+          Próximos passos: ler o TAP, alinhar personas com o parceiro e abrir as tarefas da Sprint 1 no GitLab.
+        </p>
+        <div class="aula-meta">
+          <span class="aula-number">Onboarding</span>
+          <span class="aula-date">Sprint Planning 1</span>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/zoom/zoom.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/notes/notes.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/search/search.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/highlight/highlight.min.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      plugins: [RevealZoom, RevealNotes, RevealSearch, RevealHighlight],
+      transition: 'slide',
+      transitionSpeed: 'default',
+      width: 1280,
+      height: 800,
+      margin: 0.04,
+    });
+  </script>
+</body>
+</html>
