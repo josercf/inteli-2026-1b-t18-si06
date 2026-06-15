@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1280, initial-scale=1.0" />
+  <title>Guia de Estudos, Prova 2, Módulo 6 SI T18</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/theme/white.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css" />
+  <link rel="stylesheet" href="assets/css/inteli-theme.css" />
+
+  <style>
+    /* ---------- Fórmula em destaque ---------- */
+    .reveal .formula-box {
+      background: var(--inteli-purple);
+      color: var(--inteli-white);
+      border-radius: 12px;
+      padding: 0.8rem 1.1rem;
+      font-family: var(--inteli-mono);
+      font-size: 0.8em;
+      letter-spacing: 0.02em;
+      margin: 0.6rem 0;
+      border-left: 5px solid var(--inteli-coral);
+    }
+    .reveal .formula-box .fx-label {
+      display: block;
+      font-family: var(--inteli-font);
+      font-size: 0.7em;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--inteli-lilac);
+      margin-bottom: 0.25rem;
+    }
+    /* ---------- Cartões "saiba fazer" / "revise" ---------- */
+    .reveal .study-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 0.4rem;
+    }
+    .reveal .study-grid.col-3 { grid-template-columns: repeat(3, 1fr); }
+    .reveal .study-card {
+      background: var(--inteli-white);
+      border: 2px solid var(--inteli-gray-light);
+      border-radius: 12px;
+      padding: 0.9rem 1rem;
+      border-top: 4px solid var(--accent, var(--inteli-coral));
+    }
+    .reveal .study-card .sc-tag {
+      font-size: 0.58em;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent, var(--inteli-coral));
+    }
+    .reveal .study-card h4 {
+      margin: 0.25rem 0 0.4rem 0;
+      font-size: 0.9em;
+      color: var(--inteli-purple);
+    }
+    .reveal .study-card ul { margin: 0; padding-left: 1.05rem; }
+    .reveal .study-card ul li { font-size: 0.68em; line-height: 1.4; margin-bottom: 0.2rem; }
+    .reveal .study-card.a-com { --accent: var(--inteli-dark-green); }
+    .reveal .study-card.a-mtf { --accent: var(--inteli-lilac); }
+    .reveal .study-card.a-neg { --accent: var(--inteli-coral); }
+    .reveal .study-card.a-lid { --accent: var(--inteli-purple); }
+    .reveal .study-card.a-uex { --accent: var(--inteli-green); }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ========== 01. CAPA ========== -->
+      <section class="title-slide">
+        <span class="brand-mark">inteli</span>
+        <h1>Guia de Estudos<br />Prova 2</h1>
+        <p class="subtitle">Módulo 6 de Sistemas de Informação, Turma T18, 2026/1B</p>
+        <div class="aula-meta">
+          <span class="aula-number">Mapa de revisão</span>
+          <span class="aula-date">Prova em 19 de junho de 2026</span>
+        </div>
+      </section>
+
+      <!-- ========== 02. COMO USAR ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Como usar este guia</h2>
+        </div>
+        <div class="slide-body">
+          <p>Este é um mapa de revisão, não um simulado. Ele aponta os temas e conceitos que você precisa dominar para a Prova 2, eixo por eixo.</p>
+          <div class="two-col">
+            <div>
+              <h5>O que este guia faz</h5>
+              <ul>
+                <li>Lista os tópicos cobrados em cada eixo</li>
+                <li>Indica fórmulas e conceitos para revisar</li>
+                <li>Mostra que tipo de raciocínio cada tema exige</li>
+                <li>Conecta a prova aos autoestudos das semanas 09 e 10</li>
+              </ul>
+            </div>
+            <div>
+              <h5>O que este guia não faz</h5>
+              <ul>
+                <li>Não traz as questões da prova</li>
+                <li>Não traz respostas nem gabarito</li>
+                <li>Não substitui os materiais das aulas</li>
+                <li>Não garante nota, estudo é com você</li>
+              </ul>
+            </div>
+          </div>
+          <div class="callout">
+            <strong>Dica de método:</strong> para cada tópico, tente explicar o conceito em voz alta e resolver um exemplo do zero. Se travar, volte ao material da aula correspondente.
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Guia de Estudos, Prova 2, SI T18</div>
+          <div class="footer-page">02</div>
+        </div>
+      </section>
+
+      <!-- ========== 03. VISÃO GERAL ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>A prova de relance</h2>
+        </div>
+        <div class="slide-body">
+          <div class="concept-cards">
+            <div class="concept-card"><h4>Computação</h4><p>O eixo mais extenso. PLN do pré-processamento às redes neurais, com cálculo e teoria.</p></div>
+            <div class="concept-card"><h4>Matemática</h4><p>Probabilidade, Bayes, vetores e avaliação de modelos. Exige conta e interpretação.</p></div>
+            <div class="concept-card"><h4>Negócios</h4><p>Funil, CRM, experiência do cliente e modelos de plataforma.</p></div>
+            <div class="concept-card"><h4>Liderança</h4><p>Argumentação, falácias e negociação.</p></div>
+            <div class="concept-card"><h4>User Experience</h4><p>Visualização de dados e comunicação de resultados.</p></div>
+            <div class="concept-card"><h4>Formato</h4><p>Múltipla escolha e dissertativas. Leia o enunciado inteiro antes de decidir.</p></div>
+          </div>
+          <div class="callout">
+            <strong>Estratégia geral:</strong> nas questões de cálculo, escreva a fórmula antes dos números. Nas dissertativas, responda exatamente o que cada item pede, com exemplos. Nas de múltipla escolha, descarte primeiro as alternativas claramente erradas.
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Guia de Estudos, Prova 2, SI T18</div>
+          <div class="footer-page">03</div>
+        </div>
+      </section>
+
+      <!-- ========== 04. SEPARADOR COMPUTAÇÃO ========== -->
+      <section class="section-slide">
+        <span class="section-number">Eixo 01, Computação</span>
+        <h2>PLN, do texto ao modelo</h2>
+        <p class="section-description">Do pré-processamento à rede neural, passando por vetorização, Naive Bayes e avaliação.</p>
+      </section>
+
+      <!-- ========== 05. COM, TEXTO E VETORIZAÇÃO ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Computação, texto e representação</h2>
+        </div>
+        <div class="slide-body">
+          <div class="study-grid col-3">
+            <div class="study-card a-com">
+              <span class="sc-tag">Revise</span>
+              <h4>Pré-processamento</h4>
+              <ul>
+                <li>Tokenização, normalização, stemming e lematização</li>
+                <li>Stopwords, e quando remover uma palavra muda o sentido</li>
+                <li>Efeito de remover negações como "não" na polaridade</li>
+                <li>Por que cada etapa ajuda ou prejudica certos modelos</li>
+              </ul>
+            </div>
+            <div class="study-card a-com">
+              <span class="sc-tag">Saiba comparar</span>
+              <h4>Técnicas de vetorização</h4>
+              <ul>
+                <li>Bag of Words, contagem pura de termos</li>
+                <li>TF-IDF, pondera termos raros e frequentes</li>
+                <li>Word2Vec, embeddings que aproximam sinônimos</li>
+                <li>Embeddings de Transformer, sensíveis ao contexto</li>
+              </ul>
+            </div>
+            <div class="study-card a-com">
+              <span class="sc-tag">Entenda o porquê</span>
+              <h4>Similaridade semântica</h4>
+              <ul>
+                <li>Por que BoW e TF-IDF não captam sinônimos</li>
+                <li>Como embeddings aproximam palavras relacionadas</li>
+                <li>Diferença entre representação esparsa e densa</li>
+                <li>Contexto, por que o mesmo termo muda de vetor</li>
+              </ul>
+            </div>
+          </div>
+          <div class="callout">
+            <strong>Conexão com a prática:</strong> são as mesmas técnicas que você usou nas Sprints 2 a 4. Reveja seus notebooks de BoW, Naive Bayes e Word2Vec.
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Guia de Estudos, Prova 2, SI T18</div>
+          <div class="footer-page">05</div>
+        </div>
+      </section>
+
+      <!-- ========== 06. COM, NAIVE BAYES E REDES NEURAIS ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Computação, classificadores</h2>
+        </div>
+        <div class="slide-body">
+          <div class="study-grid">
+            <div class="study-card a-com">
+              <span class="sc-tag">Saiba calcular</span>
+              <h4>Naive Bayes multinomial</h4>
+              <ul>
+                <li>Probabilidade a priori de cada classe a partir do corpus</li>
+                <li>Verossimilhança de cada palavra dada a classe</li>
+                <li>Suavização de Laplace, por que somar 1 e o tamanho do vocabulário</li>
+                <li>Comparar o score de cada classe para decidir a predição</li>
+              </ul>
+            </div>
+            <div class="study-card a-com">
+              <span class="sc-tag">Saiba calcular</span>
+              <h4>Neurônio e redes neurais</h4>
+              <ul>
+                <li>Soma ponderada das entradas mais o viés</li>
+                <li>Função de ativação, em especial ReLU igual a max(0, z)</li>
+                <li>Quando o neurônio é ativado ou não</li>
+                <li>Forward pass de um neurônio simples, passo a passo</li>
+              </ul>
+            </div>
+          </div>
+          <div class="formula-box">
+            <span class="fx-label">Para fixar, o neurônio</span>
+            z = w1·x1 + w2·x2 + w3·x3 + b   →   saída = ReLU(z) = max(0, z)
+          </div>
+          <div class="callout">
+            <strong>Não decore, entenda:</strong> saiba explicar o que cada termo faz. Numa questão de cálculo, monte a expressão antes de substituir os números.
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Guia de Estudos, Prova 2, SI T18</div>
+          <div class="footer-page">06</div>
+        </div>
+      </section>
+
+      <!-- ========== 07. COM, AVALIAÇÃO E DISSERTATIVAS ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Computação, avaliação e questões abertas</h2>
+        </div>
+        <div class="slide-body">
+          <div class="study-grid col-3">
+            <div class="study-card a-com">
+              <span class="sc-tag">Saiba argumentar</span>
+              <h4>Avaliar classificadores</h4>
+              <ul>
+                <li>Por que acurácia, sozinha, engana em classes desbalanceadas</li>
+                <li>Precisão, recall e F1, o que cada uma mede</li>
+                <li>Métricas por classe, atenção à classe minoritária</li>
+                <li>Confusão entre classes, por exemplo a classe neutra</li>
+              </ul>
+            </div>
+            <div class="study-card a-com">
+              <span class="sc-tag">Saiba comparar</span>
+              <h4>Clássico vs redes neurais</h4>
+              <ul>
+                <li>Representação dos dados de entrada em cada abordagem</li>
+                <li>Papel da engenharia de atributos em cada caso</li>
+                <li>Vantagens das redes neurais e dos modelos clássicos</li>
+                <li>Trade-offs, interpretabilidade, custo e volume de dados</li>
+              </ul>
+            </div>
+            <div class="study-card a-com">
+              <span class="sc-tag">Prepare a escrita</span>
+              <h4>Como responder dissertativa</h4>
+              <ul>
+                <li>Responda item por item, na ordem pedida</li>
+                <li>Dê exemplos concretos, evite frases genéricas</li>
+                <li>Quando pedir trade-off, traga vantagem e limitação</li>
+                <li>Justifique por que não existe modelo único ideal</li>
+              </ul>
+            </div>
+          </div>
+          <div class="callout">
+            <strong>Fio condutor das abertas:</strong> escolha de métrica e de modelo depende do contexto e do custo do erro. Mostre que você pensa no problema, não só no número.
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Guia de Estudos, Prova 2, SI T18</div>
+          <div class="footer-page">07</div>
+        </div>
+      </section>
+
+      <!-- ========== 08. SEPARADOR MATEMÁTICA ========== -->
+      <section class="section-slide">
+        <span class="section-number">Eixo 02, Matemática</span>
+        <h2>A conta por trás do modelo</h2>
+        <p class="section-description">Probabilidade, Bayes, geometria de vetores e avaliação. Aqui a fórmula precisa estar na ponta da língua.</p>
+      </section>
+
+      <!-- ========== 09. MTF, PROBABILIDADE E BAYES ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Matemática, probabilidade e Bayes</h2>
+        </div>
+        <div class="slide-body">
+          <div class="study-grid">
+            <div class="study-card a-mtf">
+              <span class="sc-tag">Revise</span>
+              <h4>Probabilidade aplicada a texto</h4>
+              <ul>
+                <li>Probabilidade conjunta e probabilidade condicional</li>
+                <li>Frequência relativa de uma palavra dentro de uma classe</li>
+                <li>Interpretar P(palavra | classe) como evidência</li>
+                <li>Cuidado com conclusões apressadas a partir de contagens</li>
+              </ul>
+            </div>
+            <div class="study-card a-mtf">
+              <span class="sc-tag">Saiba aplicar</span>
+              <h4>Teorema de Bayes</h4>
+              <ul>
+                <li>Priori, verossimilhança e posteriori, quem é quem</li>
+                <li>Por que P(A|B) é diferente de P(B|A)</li>
+                <li>Calcular P(classe | palavra) a partir do corpus</li>
+                <li>Por que termos raros não devem ser simplesmente descartados</li>
+              </ul>
+            </div>
+          </div>
+          <div class="formula-box">
+            <span class="fx-label">Para fixar, Bayes</span>
+            P(classe | palavra) = [ P(palavra | classe) · P(classe) ] / P(palavra)
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Guia de Estudos, Prova 2, SI T18</div>
+          <div class="footer-page">09</div>
+        </div>
+      </section>
+
+      <!-- ========== 10. MTF, VETORES ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Matemática, vetores e embeddings</h2>
+        </div>
+        <div class="slide-body">
+          <div class="study-grid">
+            <div class="study-card a-mtf">
+              <span class="sc-tag">Saiba calcular</span>
+              <h4>Similaridade de cosseno</h4>
+              <ul>
+                <li>Produto interno dividido pelo produto das normas</li>
+                <li>Invariância à magnitude, vetores proporcionais têm cosseno 1</li>
+                <li>Efeito de zerar ou dobrar componentes na direção do vetor</li>
+                <li>Por que cosseno mede direção, não tamanho</li>
+              </ul>
+            </div>
+            <div class="study-card a-mtf">
+              <span class="sc-tag">Entenda a geometria</span>
+              <h4>Espaço de embeddings</h4>
+              <ul>
+                <li>Produto interno, distância euclidiana e ângulo entre vetores</li>
+                <li>Palavras próximas em sentido ficam próximas no espaço</li>
+                <li>Palavras opostas tendem a ângulos maiores</li>
+                <li>Relacionar sinal do produto interno com similaridade</li>
+              </ul>
+            </div>
+          </div>
+          <div class="formula-box">
+            <span class="fx-label">Para fixar, cosseno</span>
+            cos(θ) = (a · b) / ( ||a|| · ||b|| )      ||v|| = raiz( v1² + v2² + … )
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Guia de Estudos, Prova 2, SI T18</div>
+          <div class="footer-page">10</div>
+        </div>
+      </section>
+
+      <!-- ========== 11. MTF, MATRIZ DE CONFUSÃO E ENTROPIA ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Matemática, avaliação e entropia</h2>
+        </div>
+        <div class="slide-body">
+          <div class="study-grid">
+            <div class="study-card a-mtf">
+              <span class="sc-tag">Saiba calcular</span>
+              <h4>Matriz de confusão</h4>
+              <ul>
+                <li>Verdadeiros e falsos positivos e negativos</li>
+                <li>Acurácia, precisão, recall e F1, todas as fórmulas</li>
+                <li>Escolher a métrica conforme o custo do erro no negócio</li>
+                <li>Falso positivo versus falso negativo, qual dói mais</li>
+              </ul>
+            </div>
+            <div class="study-card a-mtf">
+              <span class="sc-tag">Revise, semana 10</span>
+              <h4>Entropia e ganho de informação</h4>
+              <ul>
+                <li>Entropia como medida de incerteza</li>
+                <li>Ganho de informação ao dividir os dados por um atributo</li>
+                <li>Ligação com árvores de decisão</li>
+                <li>Conteúdo dos autoestudos de 22 de junho</li>
+              </ul>
+            </div>
+          </div>
+          <div class="formula-box">
+            <span class="fx-label">Para fixar, métricas</span>
+            Precisão = VP / (VP + FP)      Recall = VP / (VP + FN)      F1 = 2 · (P · R) / (P + R)
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Guia de Estudos, Prova 2, SI T18</div>
+          <div class="footer-page">11</div>
+        </div>
+      </section>
+
+      <!-- ========== 12. SEPARADOR NEGÓCIOS ========== -->
+      <section class="section-slide">
+        <span class="section-number">Eixo 03, Negócios</span>
+        <h2>Do funil à plataforma</h2>
+        <p class="section-description">Gestão de leads e CRM, experiência do cliente e modelos de negócio em rede.</p>
+      </section>
+
+      <!-- ========== 13. NEG ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Negócios, conceitos-chave</h2>
+        </div>
+        <div class="slide-body">
+          <div class="study-grid col-3">
+            <div class="study-card a-neg">
+              <span class="sc-tag">Revise</span>
+              <h4>Funil e CRM</h4>
+              <ul>
+                <li>Etapas do funil e conversão entre elas</li>
+                <li>MQL e SQL, lead qualificado por marketing e por vendas</li>
+                <li>ICP, perfil de cliente ideal</li>
+                <li>Por que muito lead no topo não vira venda</li>
+              </ul>
+            </div>
+            <div class="study-card a-neg">
+              <span class="sc-tag">Revise</span>
+              <h4>Experiência do cliente</h4>
+              <ul>
+                <li>CX versus atendimento pontual</li>
+                <li>NPS e CES, o que cada um mede</li>
+                <li>Jornada do cliente e momentos da verdade</li>
+                <li>LTV, valor do cliente ao longo do tempo</li>
+              </ul>
+            </div>
+            <div class="study-card a-neg">
+              <span class="sc-tag">Entenda</span>
+              <h4>Plataformas e rede</h4>
+              <ul>
+                <li>Efeito de rede e mercados de dois lados</li>
+                <li>Problema do ovo e da galinha</li>
+                <li>Custo de mudança e barreiras de entrada</li>
+                <li>Externalidades negativas em plataformas</li>
+              </ul>
+            </div>
+          </div>
+          <div class="callout">
+            <strong>Conexão:</strong> os autoestudos de 17 e 24 de junho cobrem direto esses temas, métricas de marketing e mercados de dois lados.
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Guia de Estudos, Prova 2, SI T18</div>
+          <div class="footer-page">13</div>
+        </div>
+      </section>
+
+      <!-- ========== 14. SEPARADOR LIDERANÇA ========== -->
+      <section class="section-slide">
+        <span class="section-number">Eixo 04, Liderança</span>
+        <h2>Argumentar e negociar</h2>
+        <p class="section-description">Reconhecer bons argumentos, evitar falácias e negociar com método.</p>
+      </section>
+
+      <!-- ========== 15. LID ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Liderança, conceitos-chave</h2>
+        </div>
+        <div class="slide-body">
+          <div class="study-grid">
+            <div class="study-card a-lid">
+              <span class="sc-tag">Saiba reconhecer</span>
+              <h4>Argumentação e falácias</h4>
+              <ul>
+                <li>Um bom argumento tem premissas verdadeiras, relevantes e suficientes</li>
+                <li>Correlação não implica causalidade, cuidado com correlações espúrias</li>
+                <li>Identificar falácias comuns em um texto</li>
+                <li>Distinguir argumento sólido de retórica vazia</li>
+              </ul>
+            </div>
+            <div class="study-card a-lid">
+              <span class="sc-tag">Revise</span>
+              <h4>Negociação</h4>
+              <ul>
+                <li>Os quatro princípios de Harvard</li>
+                <li>Pessoas, separar a pessoa do problema</li>
+                <li>Interesses, atender os dois lados, não posições</li>
+                <li>Opções e critérios objetivos para o acordo</li>
+              </ul>
+            </div>
+          </div>
+          <div class="callout">
+            <strong>Como cai:</strong> normalmente em forma de caso, com falas de pessoas. Avalie cada fala pelos critérios de bom argumento e pela boa prática de negociação.
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Guia de Estudos, Prova 2, SI T18</div>
+          <div class="footer-page">15</div>
+        </div>
+      </section>
+
+      <!-- ========== 16. SEPARADOR UX ========== -->
+      <section class="section-slide">
+        <span class="section-number">Eixo 05, User Experience</span>
+        <h2>Mostrar dados sem enganar</h2>
+        <p class="section-description">Escolher a visualização certa e comunicar resultados de modelos com honestidade.</p>
+      </section>
+
+      <!-- ========== 17. UX ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>UX, conceitos-chave</h2>
+        </div>
+        <div class="slide-body">
+          <div class="study-grid">
+            <div class="study-card a-uex">
+              <span class="sc-tag">Saiba escolher</span>
+              <h4>Visualização de dados categóricos</h4>
+              <ul>
+                <li>Comparar proporções entre grupos de tamanhos muito diferentes</li>
+                <li>Por que barras empilhadas 100% normalizam a comparação</li>
+                <li>Limites de gráficos de pizza, dispersão e linhas para categóricos</li>
+                <li>Evitar que o volume bruto gere leitura enganosa</li>
+              </ul>
+            </div>
+            <div class="study-card a-uex">
+              <span class="sc-tag">Saiba comunicar</span>
+              <h4>Resultados de modelos</h4>
+              <ul>
+                <li>Comunicar modelo desbalanceado sem inflar a acurácia</li>
+                <li>Mostrar balanço de classes junto à matriz de confusão</li>
+                <li>Adequar o painel ao usuário de negócio</li>
+                <li>Evitar excessos visuais que distraem ou assustam</li>
+              </ul>
+            </div>
+          </div>
+          <div class="callout">
+            <strong>Princípio guia:</strong> a melhor visualização é a que responde à pergunta de decisão sem distorcer a realidade dos dados.
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Guia de Estudos, Prova 2, SI T18</div>
+          <div class="footer-page">17</div>
+        </div>
+      </section>
+
+      <!-- ========== 18. SEPARADOR ESTRATÉGIA ========== -->
+      <section class="section-slide">
+        <span class="section-number">Reta final</span>
+        <h2>Plano de estudo</h2>
+        <p class="section-description">Como organizar os dias até a sexta-feira da prova.</p>
+      </section>
+
+      <!-- ========== 19. CHECKLIST ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Checklist de preparação</h2>
+        </div>
+        <div class="slide-body">
+          <div class="rules-grid">
+            <div class="rule-card">
+              <span class="rule-num">Passo 1</span>
+              <h5>Refaça as fórmulas</h5>
+              <p>Bayes, suavização de Laplace, cosseno, precisão, recall e F1, e o forward pass do neurônio.</p>
+            </div>
+            <div class="rule-card">
+              <span class="rule-num">Passo 2</span>
+              <h5>Releia seus notebooks</h5>
+              <p>BoW, Naive Bayes, Word2Vec e a avaliação dos modelos das Sprints 2 a 4.</p>
+            </div>
+            <div class="rule-card">
+              <span class="rule-num">Passo 3</span>
+              <h5>Faça os autoestudos</h5>
+              <p>Entropia e árvores, argumentação e falácias, métricas de marketing e mercados de dois lados.</p>
+            </div>
+            <div class="rule-card">
+              <span class="rule-num">Passo 4</span>
+              <h5>Pratique cálculo na mão</h5>
+              <p>Monte um exemplo pequeno de Bayes, de cosseno e de matriz de confusão e resolva sem olhar.</p>
+            </div>
+            <div class="rule-card">
+              <span class="rule-num">Passo 5</span>
+              <h5>Treine as dissertativas</h5>
+              <p>Escreva respostas curtas comparando clássico e redes neurais e justificando escolha de métrica.</p>
+            </div>
+            <div class="rule-card">
+              <span class="rule-num">Passo 6</span>
+              <h5>Descanse antes</h5>
+              <p>Durma bem na quinta. Na sexta, leve calculadora simples e gerencie o tempo entre as questões.</p>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Guia de Estudos, Prova 2, SI T18</div>
+          <div class="footer-page">19</div>
+        </div>
+      </section>
+
+      <!-- ========== 20. FECHAMENTO ========== -->
+      <section class="title-slide">
+        <span class="brand-mark">inteli</span>
+        <h1>Bons estudos!</h1>
+        <p class="subtitle">
+          Estude pelos conceitos, pratique com exemplos próprios e chegue tranquilo na sexta. Você construiu tudo isso ao longo do módulo.
+        </p>
+        <div class="aula-meta">
+          <span class="aula-number">Guia de Estudos</span>
+          <span class="aula-date">Prova 2, 19 de junho de 2026</span>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/zoom/zoom.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/notes/notes.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/search/search.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/highlight/highlight.min.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      plugins: [RevealZoom, RevealNotes, RevealSearch, RevealHighlight],
+      transition: 'slide',
+      transitionSpeed: 'default',
+      width: 1280,
+      height: 800,
+      margin: 0.04,
+    });
+  </script>
+</body>
+</html>

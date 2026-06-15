@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1280, initial-scale=1.0" />
+  <title>Sprint Planning 5, Módulo 6 SI T18</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/theme/white.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css" />
+  <link rel="stylesheet" href="assets/css/inteli-theme.css" />
+
+  <style>
+    /* ---------- Calendário (componente do deck) ---------- */
+    .reveal .cal-head {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.5rem;
+      margin-bottom: 0.35rem;
+    }
+    .reveal .cal-head span {
+      font-family: var(--inteli-mono);
+      font-size: 0.6em;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--inteli-gray-dark);
+      text-align: center;
+    }
+    .reveal .cal-weeklabel {
+      font-size: 0.62em;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--inteli-coral);
+      margin: 0.7rem 0 0.35rem 0;
+    }
+    .reveal .calendario {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.5rem;
+    }
+    .reveal .cal-day {
+      background: var(--inteli-white);
+      border: 2px solid var(--inteli-gray-light);
+      border-top: 4px solid var(--eixo-color, var(--inteli-gray-dark));
+      border-radius: 10px;
+      padding: 0.55rem 0.6rem 0.6rem 0.6rem;
+      display: flex;
+      flex-direction: column;
+      min-height: 118px;
+    }
+    .reveal .cal-day .cal-num {
+      font-family: var(--inteli-mono);
+      font-size: 1.05em;
+      font-weight: 700;
+      color: var(--inteli-purple);
+      line-height: 1;
+    }
+    .reveal .cal-day .cal-eixo {
+      align-self: flex-start;
+      margin: 0.35rem 0;
+      font-size: 0.5em;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--inteli-white);
+      background: var(--eixo-color, var(--inteli-gray-dark));
+      padding: 0.12rem 0.4rem;
+      border-radius: 5px;
+    }
+    .reveal .cal-day .cal-title {
+      font-size: 0.6em;
+      line-height: 1.3;
+      color: var(--inteli-purple);
+      font-weight: 600;
+    }
+    .reveal .cal-day.is-key { background: #fff4f4; border-color: var(--inteli-coral); }
+    .reveal .cal-day .cal-flag {
+      margin-top: auto;
+      font-size: 0.5em;
+      font-weight: 700;
+      color: var(--inteli-coral);
+      letter-spacing: 0.04em;
+    }
+    .e-com { --eixo-color: var(--inteli-dark-green); }
+    .e-mtf { --eixo-color: var(--inteli-lilac); }
+    .e-neg { --eixo-color: var(--inteli-coral); }
+    .e-uex { --eixo-color: var(--inteli-green); }
+    .e-lid { --eixo-color: var(--inteli-purple); }
+    .e-ori { --eixo-color: var(--inteli-gray-dark); }
+
+    /* ---------- Slide por dia ---------- */
+    .reveal .dia-grid {
+      display: grid;
+      grid-template-columns: 230px 1fr;
+      gap: 1.4rem;
+      align-items: start;
+    }
+    .reveal .dia-date {
+      background: var(--inteli-purple);
+      border-radius: 16px;
+      padding: 1.2rem 1.1rem;
+      color: var(--inteli-white);
+      border-top: 6px solid var(--eixo-color, var(--inteli-gray-dark));
+    }
+    .reveal .dia-date .dia-weekday {
+      font-family: var(--inteli-mono);
+      font-size: 0.7em;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--inteli-lilac);
+    }
+    .reveal .dia-date .dia-num {
+      font-size: 2.6em;
+      font-weight: 800;
+      line-height: 1;
+      margin: 0.1rem 0;
+    }
+    .reveal .dia-date .dia-month {
+      font-size: 0.75em;
+      color: var(--inteli-lilac-soft);
+    }
+    .reveal .dia-date .dia-eixo {
+      display: inline-block;
+      margin-top: 0.9rem;
+      font-size: 0.6em;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      background: var(--eixo-color, var(--inteli-gray-dark));
+      color: var(--inteli-white);
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+    }
+    .reveal .dia-date .dia-prof {
+      margin-top: 0.8rem;
+      font-size: 0.66em;
+      line-height: 1.35;
+      color: var(--inteli-lilac-soft);
+    }
+    .reveal .dia-content h3 {
+      margin: 0 0 0.2rem 0;
+      font-size: 1.05em;
+      color: var(--inteli-purple);
+    }
+    .reveal .dia-content .dia-tag {
+      font-size: 0.62em;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--inteli-coral);
+    }
+    .reveal .dia-content .dia-foco {
+      background: var(--inteli-lilac-soft);
+      border-left: 4px solid var(--inteli-dark-green);
+      border-radius: 10px;
+      padding: 0.7rem 0.9rem;
+      font-size: 0.72em;
+      line-height: 1.5;
+      margin: 0.8rem 0;
+      color: var(--inteli-purple);
+    }
+    .reveal .dia-content .dia-auto {
+      font-size: 0.68em;
+      color: var(--inteli-gray-dark);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin: 0.4rem 0 0.2rem 0;
+    }
+    .reveal .dia-content ul { margin: 0.2rem 0 0 0; padding-left: 1.1rem; }
+    .reveal .dia-content ul li { font-size: 0.72em; line-height: 1.45; margin-bottom: 0.18rem; }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ========== 01. CAPA ========== -->
+      <section class="title-slide">
+        <span class="brand-mark">inteli</span>
+        <h1>Sprint Planning 5</h1>
+        <p class="subtitle">Módulo 6 de Sistemas de Informação, Turma T18, 2026/1B</p>
+        <div class="aula-meta">
+          <span class="aula-number">Reta final do módulo</span>
+          <span class="aula-date">15 de junho de 2026</span>
+        </div>
+      </section>
+
+      <!-- ========== 02. AGENDA ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Agenda do encontro</h2>
+        </div>
+        <div class="slide-body">
+          <ol class="agenda-list">
+            <li>Onde estamos, status do projeto ao fim da Sprint 4</li>
+            <li>Calendário das duas últimas semanas, dia a dia</li>
+            <li>Avaliações individuais da Sprint 5, terça e quarta</li>
+            <li>Prova 2, data, formato e como se preparar</li>
+            <li>Entregáveis finais, deploy, documentação e apresentação</li>
+            <li>Combinados para fechar o módulo com qualidade</li>
+          </ol>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Sprint Planning 5, SI T18</div>
+          <div class="footer-page">02</div>
+        </div>
+      </section>
+
+      <!-- ========== 03. SEPARADOR, ONDE ESTAMOS ========== -->
+      <section class="section-slide">
+        <span class="section-number">Bloco 01, Onde estamos</span>
+        <h2>A última volta da pista</h2>
+        <p class="section-description">Quatro sprints construíram a solução. A Sprint 5 amarra deploy, documentação e a apresentação para a ZAMP.</p>
+      </section>
+
+      <!-- ========== 04. STATUS DO MÓDULO ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>De onde viemos, para onde vamos</h2>
+        </div>
+        <div class="slide-body">
+          <div class="sprint-overview">
+            <div class="sprint-mini s1">
+              <h4>Sprint 1</h4>
+              <div class="sprint-dates">Concluída</div>
+              <ul>
+                <li>Negócio e UX</li>
+                <li>Personas e user stories</li>
+              </ul>
+            </div>
+            <div class="sprint-mini s2">
+              <h4>Sprint 2</h4>
+              <div class="sprint-dates">Concluída</div>
+              <ul>
+                <li>Bag of Words</li>
+                <li>Naive Bayes</li>
+              </ul>
+            </div>
+            <div class="sprint-mini s3">
+              <h4>Sprint 3</h4>
+              <div class="sprint-dates">Concluída</div>
+              <ul>
+                <li>Word2Vec</li>
+                <li>Avaliação individual 1</li>
+              </ul>
+            </div>
+            <div class="sprint-mini s4">
+              <h4>Sprint 4</h4>
+              <div class="sprint-dates">Concluída</div>
+              <ul>
+                <li>API e interface</li>
+                <li>Apresentação parcial</li>
+              </ul>
+            </div>
+            <div class="sprint-mini s5">
+              <h4>Sprint 5</h4>
+              <div class="sprint-dates">15 a 26/06</div>
+              <ul>
+                <li>Prova 2</li>
+                <li>Deploy + docs</li>
+                <li>Apresentação final</li>
+              </ul>
+            </div>
+          </div>
+          <div class="callout">
+            <strong>Sprint Goal:</strong> publicar o melhor modelo em produção, documentar a solução de ponta a ponta e entregar uma apresentação final que conecte negócio, PLN e implementação.
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Sprint Planning 5, SI T18</div>
+          <div class="footer-page">04</div>
+        </div>
+      </section>
+
+      <!-- ========== 05. SEPARADOR, CALENDÁRIO ========== -->
+      <section class="section-slide">
+        <span class="section-number">Bloco 02, Calendário</span>
+        <h2>Duas semanas, dez dias</h2>
+        <p class="section-description">Visão de calendário das semanas 09 e 10 e, na sequência, um slide para cada dia.</p>
+      </section>
+
+      <!-- ========== 06. CALENDÁRIO, VISÃO GERAL ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Calendário das semanas 09 e 10</h2>
+        </div>
+        <div class="slide-body">
+          <div class="cal-head">
+            <span>Segunda</span><span>Terça</span><span>Quarta</span><span>Quinta</span><span>Sexta</span>
+          </div>
+          <div class="cal-weeklabel">Semana 09, 15 a 19 de junho</div>
+          <div class="calendario">
+            <div class="cal-day e-ori">
+              <span class="cal-num">15</span>
+              <span class="cal-eixo">ORI</span>
+              <span class="cal-title">Sprint Planning 5</span>
+            </div>
+            <div class="cal-day e-com is-key">
+              <span class="cal-num">16</span>
+              <span class="cal-eixo">COM</span>
+              <span class="cal-title">Revisão do módulo</span>
+              <span class="cal-flag">Avaliação individual</span>
+            </div>
+            <div class="cal-day e-neg is-key">
+              <span class="cal-num">17</span>
+              <span class="cal-eixo">NEG</span>
+              <span class="cal-title">Métricas de marketing digital</span>
+              <span class="cal-flag">Avaliação individual</span>
+            </div>
+            <div class="cal-day e-ori">
+              <span class="cal-num">18</span>
+              <span class="cal-eixo">ORI</span>
+              <span class="cal-title">Masterclass, IA com Watson</span>
+            </div>
+            <div class="cal-day e-ori is-key">
+              <span class="cal-num">19</span>
+              <span class="cal-eixo">ORI</span>
+              <span class="cal-title">Prova 2</span>
+              <span class="cal-flag">Avaliação</span>
+            </div>
+          </div>
+          <div class="cal-weeklabel">Semana 10, 22 a 26 de junho</div>
+          <div class="calendario">
+            <div class="cal-day e-mtf">
+              <span class="cal-num">22</span>
+              <span class="cal-eixo">MTF</span>
+              <span class="cal-title">Entropia e ganho de informação</span>
+            </div>
+            <div class="cal-day e-lid">
+              <span class="cal-num">23</span>
+              <span class="cal-eixo">LID</span>
+              <span class="cal-title">Argumentação e falácias</span>
+            </div>
+            <div class="cal-day e-neg">
+              <span class="cal-num">24</span>
+              <span class="cal-eixo">NEG</span>
+              <span class="cal-title">Marketplace e two-sided market</span>
+            </div>
+            <div class="cal-day e-ori">
+              <span class="cal-num">25</span>
+              <span class="cal-eixo">ORI</span>
+              <span class="cal-title">Revisão da apresentação final</span>
+            </div>
+            <div class="cal-day e-ori is-key">
+              <span class="cal-num">26</span>
+              <span class="cal-eixo">ORI</span>
+              <span class="cal-title">Apresentação final e Retro 5</span>
+              <span class="cal-flag">Entrega</span>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Sprint Planning 5, SI T18</div>
+          <div class="footer-page">06</div>
+        </div>
+      </section>
+
+      <!-- ========== 07. DIA 15/06 ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Segunda, 15 de junho</h2>
+        </div>
+        <div class="slide-body">
+          <div class="dia-grid">
+            <div class="dia-date e-ori">
+              <div class="dia-weekday">Segunda</div>
+              <div class="dia-num">15</div>
+              <div class="dia-month">junho de 2026</div>
+              <span class="dia-eixo">ORI</span>
+              <div class="dia-prof">José Romualdo da Costa Filho</div>
+            </div>
+            <div class="dia-content">
+              <span class="dia-tag">Orientação</span>
+              <h3>Sprint Planning 5</h3>
+              <div class="dia-foco">
+                <strong>Foco do dia:</strong> planejar a última sprint. Distribuir as tarefas de deploy, documentação e apresentação final, e abrir as issues no GitLab com DoR e DoD claros.
+              </div>
+              <ul>
+                <li>Revisar o que ficou pendente da Sprint 4</li>
+                <li>Definir quem cuida do deploy do melhor modelo</li>
+                <li>Combinar o roteiro da apresentação para a ZAMP</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Sprint Planning 5, SI T18</div>
+          <div class="footer-page">07</div>
+        </div>
+      </section>
+
+      <!-- ========== 08. DIA 16/06 ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Terça, 16 de junho</h2>
+        </div>
+        <div class="slide-body">
+          <div class="dia-grid">
+            <div class="dia-date e-com">
+              <div class="dia-weekday">Terça</div>
+              <div class="dia-num">16</div>
+              <div class="dia-month">junho de 2026</div>
+              <span class="dia-eixo">COM</span>
+              <div class="dia-prof">Bryan Kano Ferreira</div>
+            </div>
+            <div class="dia-content">
+              <span class="dia-tag">Computação, revisão do módulo</span>
+              <h3>Revisão do módulo e avaliação geral</h3>
+              <div class="dia-foco">
+                <strong>Atenção:</strong> começam as avaliações individuais da Sprint 5. A revisão do módulo é a melhor preparação direta para a Prova 2 de sexta.
+              </div>
+              <ul>
+                <li>Fechamento dos conceitos de PLN vistos nas cinco sprints</li>
+                <li>Avaliação geral, dúvidas abertas para a turma</li>
+                <li>Arguição individual da Sprint 5, primeira parte da turma</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Sprint Planning 5, SI T18</div>
+          <div class="footer-page">08</div>
+        </div>
+      </section>
+
+      <!-- ========== 09. DIA 17/06 ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Quarta, 17 de junho</h2>
+        </div>
+        <div class="slide-body">
+          <div class="dia-grid">
+            <div class="dia-date e-neg">
+              <div class="dia-weekday">Quarta</div>
+              <div class="dia-num">17</div>
+              <div class="dia-month">junho de 2026</div>
+              <span class="dia-eixo">NEG</span>
+              <div class="dia-prof">Rafael Ricardo Jacomossi</div>
+            </div>
+            <div class="dia-content">
+              <span class="dia-tag">Negócios</span>
+              <h3>Métricas de marketing digital</h3>
+              <div class="dia-foco">
+                <strong>Atenção:</strong> segue a avaliação individual da Sprint 5, segunda parte da turma.
+              </div>
+              <div class="dia-auto">Autoestudos</div>
+              <ul>
+                <li>12 métricas de marketing digital para acompanhar em 2023</li>
+                <li>Growth hacking, o que é e guia prático para aplicar</li>
+                <li>Inbound e Outbound Marketing, diferenças e exemplos</li>
+                <li>Métricas de marketing digital, principais indicadores</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Sprint Planning 5, SI T18</div>
+          <div class="footer-page">09</div>
+        </div>
+      </section>
+
+      <!-- ========== 10. DIA 18/06 ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Quinta, 18 de junho</h2>
+        </div>
+        <div class="slide-body">
+          <div class="dia-grid">
+            <div class="dia-date e-ori">
+              <div class="dia-weekday">Quinta</div>
+              <div class="dia-num">18</div>
+              <div class="dia-month">junho de 2026</div>
+              <span class="dia-eixo">ORI</span>
+              <div class="dia-prof">José Romualdo da Costa Filho</div>
+            </div>
+            <div class="dia-content">
+              <span class="dia-tag">Masterclass</span>
+              <h3>Inteligência Artificial utilizando Watson</h3>
+              <div class="dia-foco">
+                <strong>Foco do dia:</strong> ver IA aplicada na prática com a plataforma Watson, conectando os conceitos do módulo a uma ferramenta de mercado.
+              </div>
+              <ul>
+                <li>Demonstração de serviços de IA e PLN em nuvem</li>
+                <li>Ponte entre o que a turma construiu e produtos reais</li>
+                <li>Boa oportunidade para inspirar a apresentação final</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Sprint Planning 5, SI T18</div>
+          <div class="footer-page">10</div>
+        </div>
+      </section>
+
+      <!-- ========== 11. DIA 19/06 ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Sexta, 19 de junho</h2>
+        </div>
+        <div class="slide-body">
+          <div class="dia-grid">
+            <div class="dia-date e-ori" style="--eixo-color: var(--inteli-coral);">
+              <div class="dia-weekday">Sexta</div>
+              <div class="dia-num">19</div>
+              <div class="dia-month">junho de 2026</div>
+              <span class="dia-eixo" style="background: var(--inteli-coral);">PROVA</span>
+              <div class="dia-prof">José Romualdo da Costa Filho</div>
+            </div>
+            <div class="dia-content">
+              <span class="dia-tag">Avaliação somativa</span>
+              <h3>Prova 2 do módulo</h3>
+              <div class="dia-foco">
+                <strong>Peso:</strong> a prova vale 20% da nota do módulo e cobre os seis eixos. Use o guia de estudos da Prova 2 para revisar de forma dirigida.
+              </div>
+              <ul>
+                <li>Questões de Computação, Matemática, Negócios, Liderança e UX</li>
+                <li>Mistura de múltipla escolha e questões dissertativas</li>
+                <li>Chegar descansado, levar calculadora simples e atenção ao tempo</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Sprint Planning 5, SI T18</div>
+          <div class="footer-page">11</div>
+        </div>
+      </section>
+
+      <!-- ========== 12. DIA 22/06 ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Segunda, 22 de junho</h2>
+        </div>
+        <div class="slide-body">
+          <div class="dia-grid">
+            <div class="dia-date e-mtf">
+              <div class="dia-weekday">Segunda</div>
+              <div class="dia-num">22</div>
+              <div class="dia-month">junho de 2026</div>
+              <span class="dia-eixo">MTF</span>
+              <div class="dia-prof">Maria Cristina Nogueira Gramani</div>
+            </div>
+            <div class="dia-content">
+              <span class="dia-tag">Matemática</span>
+              <h3>Entropia, ganho de informação e aplicações em PLN</h3>
+              <div class="dia-foco">
+                <strong>Foco do dia:</strong> entender entropia e ganho de informação como base das árvores de decisão e da seleção de atributos em texto.
+              </div>
+              <div class="dia-auto">Autoestudos</div>
+              <ul>
+                <li>Videoaula, o que é entropia, Data Science Descomplicado</li>
+                <li>Vídeo, árvore de decisão, como funciona, Didática Tech</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Sprint Planning 5, SI T18</div>
+          <div class="footer-page">12</div>
+        </div>
+      </section>
+
+      <!-- ========== 13. DIA 23/06 ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Terça, 23 de junho</h2>
+        </div>
+        <div class="slide-body">
+          <div class="dia-grid">
+            <div class="dia-date e-lid">
+              <div class="dia-weekday">Terça</div>
+              <div class="dia-num">23</div>
+              <div class="dia-month">junho de 2026</div>
+              <span class="dia-eixo">LID</span>
+              <div class="dia-prof">Laíza Ribeiro Silva</div>
+            </div>
+            <div class="dia-content">
+              <span class="dia-tag">Liderança</span>
+              <h3>Argumentação, falácias e correlações espúrias</h3>
+              <div class="dia-foco">
+                <strong>Foco do dia:</strong> separar bons argumentos de falácias e reconhecer correlações espúrias, habilidade direta para defender a solução na apresentação final.
+              </div>
+              <div class="dia-auto">Autoestudos</div>
+              <ul>
+                <li>O que é um argumento?</li>
+                <li>Como identificar um bom argumento?</li>
+                <li>7 falácias lógicas para detectar argumento infundado</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Sprint Planning 5, SI T18</div>
+          <div class="footer-page">13</div>
+        </div>
+      </section>
+
+      <!-- ========== 14. DIA 24/06 ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Quarta, 24 de junho</h2>
+        </div>
+        <div class="slide-body">
+          <div class="dia-grid">
+            <div class="dia-date e-neg">
+              <div class="dia-weekday">Quarta</div>
+              <div class="dia-num">24</div>
+              <div class="dia-month">junho de 2026</div>
+              <span class="dia-eixo">NEG</span>
+              <div class="dia-prof">Rafael Ricardo Jacomossi</div>
+            </div>
+            <div class="dia-content">
+              <span class="dia-tag">Negócios</span>
+              <h3>Novos modelos, marketplace e two-sided market</h3>
+              <div class="dia-foco">
+                <strong>Foco do dia:</strong> entender efeito de rede, plataformas e mercados de dois lados, modelos que sustentam negócios digitais escaláveis.
+              </div>
+              <div class="dia-auto">Autoestudos</div>
+              <ul>
+                <li>Prime Day and the broad reach of Amazon's ecosystem</li>
+                <li>Two-Sided Market, Definition and Examples</li>
+                <li>Why Some Platforms Thrive and Others Don't</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Sprint Planning 5, SI T18</div>
+          <div class="footer-page">14</div>
+        </div>
+      </section>
+
+      <!-- ========== 15. DIA 25/06 ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Quinta, 25 de junho</h2>
+        </div>
+        <div class="slide-body">
+          <div class="dia-grid">
+            <div class="dia-date e-ori">
+              <div class="dia-weekday">Quinta</div>
+              <div class="dia-num">25</div>
+              <div class="dia-month">junho de 2026</div>
+              <span class="dia-eixo">ORI</span>
+              <div class="dia-prof">José Romualdo da Costa Filho</div>
+            </div>
+            <div class="dia-content">
+              <span class="dia-tag">Orientação</span>
+              <h3>Revisão da apresentação final</h3>
+              <div class="dia-foco">
+                <strong>Foco do dia:</strong> ensaio da apresentação para a ZAMP. Ajustar narrativa, tempo de fala, demonstração do modelo em produção e divisão entre os integrantes.
+              </div>
+              <ul>
+                <li>Ensaio cronometrado, todos falam ao menos uma vez</li>
+                <li>Checagem do deploy e da demo ao vivo</li>
+                <li>Feedback do orientador antes da entrega final</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Sprint Planning 5, SI T18</div>
+          <div class="footer-page">15</div>
+        </div>
+      </section>
+
+      <!-- ========== 16. DIA 26/06 ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Sexta, 26 de junho</h2>
+        </div>
+        <div class="slide-body">
+          <div class="dia-grid">
+            <div class="dia-date e-ori" style="--eixo-color: var(--inteli-green);">
+              <div class="dia-weekday">Sexta</div>
+              <div class="dia-num">26</div>
+              <div class="dia-month">junho de 2026</div>
+              <span class="dia-eixo" style="background: var(--inteli-dark-green);">FINAL</span>
+              <div class="dia-prof">José Romualdo da Costa Filho</div>
+            </div>
+            <div class="dia-content">
+              <span class="dia-tag">Entrega do módulo</span>
+              <h3>Apresentação final e Sprint Retrospective 5</h3>
+              <div class="dia-foco">
+                <strong>Dia da entrega:</strong> apresentação da solução para o parceiro, com deploy do melhor modelo no ar e documentação publicada. Fecha com a retrospectiva do módulo.
+              </div>
+              <ul>
+                <li>Apresentação final para a ZAMP</li>
+                <li>Deploy do melhor modelo demonstrado ao vivo</li>
+                <li>Documentação da solução entregue no repositório</li>
+                <li>Sprint Retrospective 5, o que levamos do módulo</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Sprint Planning 5, SI T18</div>
+          <div class="footer-page">16</div>
+        </div>
+      </section>
+
+      <!-- ========== 17. SEPARADOR, AVALIAÇÕES INDIVIDUAIS ========== -->
+      <section class="section-slide">
+        <span class="section-number">Bloco 03, Avaliação individual</span>
+        <h2>Arguições da Sprint 5</h2>
+        <p class="section-description">Acontecem nesta terça e quarta. Reserve a agenda e venha preparado para falar do que construiu.</p>
+      </section>
+
+      <!-- ========== 18. AVALIAÇÕES INDIVIDUAIS, DESTAQUE ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Avaliações individuais, 16 e 17 de junho</h2>
+        </div>
+        <div class="slide-body">
+          <div class="dia-grid" style="grid-template-columns: 1fr 1fr;">
+            <div class="dia-date e-com" style="border-radius: 16px;">
+              <div class="dia-weekday">Terça</div>
+              <div class="dia-num">16</div>
+              <div class="dia-month">junho de 2026</div>
+              <span class="dia-eixo">Avaliação individual</span>
+              <div class="dia-prof">Primeira parte da turma, em paralelo à revisão do módulo</div>
+            </div>
+            <div class="dia-date e-neg" style="border-radius: 16px;">
+              <div class="dia-weekday">Quarta</div>
+              <div class="dia-num">17</div>
+              <div class="dia-month">junho de 2026</div>
+              <span class="dia-eixo">Avaliação individual</span>
+              <div class="dia-prof">Segunda parte da turma, em paralelo às métricas de marketing</div>
+            </div>
+          </div>
+          <div class="callout">
+            <strong>Como nos preparamos:</strong> a arguição segue o mesmo formato para toda a turma e cobre os artefatos da Sprint 5. Os três critérios são aprendizagem (60%), planejamento (20%) e contribuição (20%). Traga clareza sobre o que você fez e por quê, com evidências no GitLab.
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Sprint Planning 5, SI T18</div>
+          <div class="footer-page">18</div>
+        </div>
+      </section>
+
+      <!-- ========== 19. SEPARADOR, PROVA 2 ========== -->
+      <section class="section-slide">
+        <span class="section-number">Bloco 04, Prova 2</span>
+        <h2>Sexta é dia de prova</h2>
+        <p class="section-description">Vale 20% da nota e cobre os seis eixos do módulo. O guia de estudos mostra o que revisar.</p>
+      </section>
+
+      <!-- ========== 20. PROVA 2, COBERTURA ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>O que a Prova 2 cobre</h2>
+        </div>
+        <div class="slide-body">
+          <div class="concept-cards">
+            <div class="concept-card">
+              <h4>Computação</h4>
+              <p>Pré-processamento, vetorização (BoW, TF-IDF, Word2Vec, embeddings), Naive Bayes, neurônio e redes neurais, métricas.</p>
+            </div>
+            <div class="concept-card">
+              <h4>Matemática</h4>
+              <p>Probabilidade, Teorema de Bayes, similaridade de cosseno, embeddings e geometria, matriz de confusão.</p>
+            </div>
+            <div class="concept-card">
+              <h4>Negócios</h4>
+              <p>Funil e CRM, Customer Experience, efeito de rede e mercados de dois lados, métricas de marketing.</p>
+            </div>
+            <div class="concept-card">
+              <h4>Liderança</h4>
+              <p>Argumentação e falácias, correlações espúrias, negociação pelos quatro princípios de Harvard.</p>
+            </div>
+            <div class="concept-card">
+              <h4>User Experience</h4>
+              <p>Visualização de dados categóricos e comunicação honesta de modelos desbalanceados.</p>
+            </div>
+            <div class="concept-card">
+              <h4>Formato</h4>
+              <p>Questões de múltipla escolha e questões dissertativas. Algumas pedem cálculo, outras pedem argumentação.</p>
+            </div>
+          </div>
+          <div class="callout">
+            <strong>Como se preparar:</strong> abra o <strong>Guia de Estudos da Prova 2</strong>, disponível na página de aulas. Ele organiza, por eixo, os conceitos a revisar, sem dar as questões nem as respostas.
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Sprint Planning 5, SI T18</div>
+          <div class="footer-page">20</div>
+        </div>
+      </section>
+
+      <!-- ========== 21. SEPARADOR, ENTREGÁVEIS ========== -->
+      <section class="section-slide">
+        <span class="section-number">Bloco 05, Entregáveis finais</span>
+        <h2>O que precisa estar pronto</h2>
+        <p class="section-description">Três entregas fecham o módulo: deploy do melhor modelo, documentação da solução e apresentação final.</p>
+      </section>
+
+      <!-- ========== 22. ENTREGÁVEIS, VISÃO GERAL ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Entregáveis da Sprint 5</h2>
+        </div>
+        <div class="slide-body">
+          <div class="escopo-grid">
+            <div class="escopo-card">
+              <span class="escopo-tag">Entrega 1</span>
+              <h4>Deploy do melhor modelo</h4>
+              <ul>
+                <li>Escolher o modelo com melhor desempenho entre os construídos</li>
+                <li>Publicar em ambiente acessível, com interface de consumo</li>
+                <li>Demonstração ao vivo funcionando na apresentação</li>
+                <li>Justificar a escolha com métricas, não com achismo</li>
+              </ul>
+            </div>
+            <div class="escopo-card">
+              <span class="escopo-tag">Entrega 2</span>
+              <h4>Documentação da solução</h4>
+              <ul>
+                <li>Negócio, UX, modelo de PLN e implementação em um só fio</li>
+                <li>Como rodar, como o modelo foi treinado e avaliado</li>
+                <li>Limitações conhecidas e próximos passos</li>
+                <li>Repositório público organizado e legível</li>
+              </ul>
+            </div>
+            <div class="escopo-card">
+              <span class="escopo-tag">Entrega 3</span>
+              <h4>Apresentação final</h4>
+              <ul>
+                <li>Narrativa que conecta problema, solução e resultado</li>
+                <li>Demo do modelo em produção</li>
+                <li>Todos os integrantes falam, tempo ensaiado</li>
+                <li>Linguagem para o parceiro, não só para a banca</li>
+              </ul>
+            </div>
+          </div>
+          <div class="callout">
+            <strong>Critério de qualidade:</strong> a banca espera coerência entre os artefatos das cinco sprints. A apresentação final não é um novo projeto, é a história do que foi construído, contada com clareza.
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Sprint Planning 5, SI T18</div>
+          <div class="footer-page">22</div>
+        </div>
+      </section>
+
+      <!-- ========== 23. COMBINADOS ========== -->
+      <section class="content-slide">
+        <div class="top-bar"></div>
+        <span class="inteli-logo-header">inteli</span>
+        <div class="slide-title-area">
+          <div class="accent-bar"></div>
+          <h2>Combinados para a reta final</h2>
+        </div>
+        <div class="slide-body">
+          <div class="two-col">
+            <div>
+              <h5>Projeto</h5>
+              <ul>
+                <li>Abrir as issues de deploy, docs e apresentação ainda hoje</li>
+                <li>Fluxo contínuo de commits, sem concentrar tudo na véspera</li>
+                <li>Revisar a documentação com olhos de quem nunca viu o projeto</li>
+                <li>Testar o deploy antes do dia da apresentação</li>
+              </ul>
+            </div>
+            <div>
+              <h5>Avaliação e prova</h5>
+              <ul>
+                <li>Preparar-se para a arguição individual de terça e quarta</li>
+                <li>Estudar pelo guia da Prova 2, eixo por eixo</li>
+                <li>Cumprir os autoestudos das semanas 09 e 10</li>
+                <li>Pedir ajuda cedo, não na última hora</li>
+              </ul>
+            </div>
+          </div>
+          <div class="callout">
+            <strong>Lembrete:</strong> o Fator de Participação multiplica a nota final do módulo. Presença e engajamento nos rituais desta reta final contam.
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="footer-bar">Sprint Planning 5, SI T18</div>
+          <div class="footer-page">23</div>
+        </div>
+      </section>
+
+      <!-- ========== 24. FECHAMENTO ========== -->
+      <section class="title-slide">
+        <span class="brand-mark">inteli</span>
+        <h1>Reta final, vamos juntos!</h1>
+        <p class="subtitle">
+          Próximos passos: abrir as issues da Sprint 5, estudar pelo guia da Prova 2 e ensaiar a apresentação para a ZAMP.
+        </p>
+        <div class="aula-meta">
+          <span class="aula-number">Sprint Planning 5</span>
+          <span class="aula-date">15 a 26 de junho de 2026</span>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/zoom/zoom.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/notes/notes.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/search/search.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/highlight/highlight.min.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      plugins: [RevealZoom, RevealNotes, RevealSearch, RevealHighlight],
+      transition: 'slide',
+      transitionSpeed: 'default',
+      width: 1280,
+      height: 800,
+      margin: 0.04,
+    });
+  </script>
+</body>
+</html>
