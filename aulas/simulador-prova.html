@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Simulador da Prova · Módulo 6 · SI06 · T18 · inteli</title>
+  <meta name="description" content="Simulador de revisão para a prova do Módulo 6 (SI06, T18). Questões no estilo da prova, com feedback e racional." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      /* Paleta Graduação Inteli */
+      --roxo: #2e2640;
+      --roxo-fundo: #1d1829;
+      --coral: #ff4545;
+      --lilas: #90a5e5;
+      --lilas-suave: #dfe5f8;
+      --verde: #89cea5;
+      --verde-escuro: #066d73;
+      --cinza-claro: #e6eaeb;
+      --cinza-medio: #caced6;
+      --cinza-escuro: #b2b6bf;
+      --branco: #ffffff;
+      --corpo: #3a3a4a;
+      --secundario: #757575;
+      --bg-soft: #f6f6f8;
+
+      --acerto: #2e9e6b;
+      --acerto-bg: #e7f6ee;
+      --erro: #e23b3b;
+      --erro-bg: #fdeaea;
+
+      --font: 'Manrope', -apple-system, system-ui, sans-serif;
+      --mono: 'Space Mono', monospace;
+
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(29, 24, 41, 0.12);
+      --shadow-soft: 0 2px 10px rgba(29, 24, 41, 0.08);
+    }
+
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+    html, body {
+      margin: 0; padding: 0;
+      font-family: var(--font);
+      color: var(--corpo);
+      background: var(--cinza-claro);
+      line-height: 1.55;
+      overscroll-behavior-y: contain;
+    }
+
+    .wrap {
+      max-width: 540px;
+      margin: 0 auto;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    /* ---------- Topo ---------- */
+    .topbar {
+      background: var(--roxo);
+      color: var(--branco);
+      padding: 16px 20px calc(16px + env(safe-area-inset-top, 0)) 20px;
+      padding-top: max(16px, env(safe-area-inset-top, 0));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+    .brand {
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+      position: relative;
+      display: inline-block;
+      color: var(--branco);
+    }
+    .brand .dot { color: var(--coral); }
+    .topbar .ctx {
+      font-family: var(--mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--lilas);
+      text-align: right;
+      line-height: 1.4;
+    }
+
+    .progress {
+      height: 5px;
+      background: rgba(255,255,255,0.12);
+      position: sticky;
+      top: 0;
+      z-index: 19;
+    }
+    .progress > i {
+      display: block;
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--lilas), var(--verde));
+      transition: width 0.35s ease;
+    }
+
+    main { flex: 1; padding: 20px; }
+
+    /* ---------- Botões ---------- */
+    .btn {
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: 16px;
+      border: none;
+      border-radius: 999px;
+      padding: 15px 22px;
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.2s ease, background 0.2s ease;
+      width: 100%;
+    }
+    .btn:active { transform: scale(0.98); }
+    .btn-primary { background: var(--coral); color: var(--branco); box-shadow: 0 8px 18px rgba(255,69,69,0.28); }
+    .btn-roxo { background: var(--roxo); color: var(--branco); }
+    .btn-ghost { background: transparent; color: var(--roxo); border: 1.5px solid var(--cinza-medio); }
+    .btn[disabled] { opacity: 0.45; cursor: not-allowed; box-shadow: none; }
+
+    .label {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--coral);
+    }
+
+    /* ---------- Home ---------- */
+    .hero h1 {
+      font-size: 28px;
+      line-height: 1.15;
+      color: var(--roxo);
+      margin: 10px 0 8px;
+      letter-spacing: -0.02em;
+    }
+    .hero p { color: var(--secundario); margin: 0 0 18px; font-size: 15px; }
+    .accent-bar { width: 56px; height: 4px; background: var(--coral); border-radius: 4px; margin: 4px 0 14px; }
+
+    .panel {
+      background: var(--branco);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 16px;
+    }
+    .panel h2 { font-size: 16px; color: var(--roxo); margin: 0 0 4px; }
+    .panel .sub { font-size: 13px; color: var(--secundario); margin: 0 0 14px; }
+
+    .bar-row { margin-bottom: 12px; }
+    .bar-row .top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-bottom: 5px; }
+    .bar-row .nm { font-size: 13px; font-weight: 600; color: var(--corpo); }
+    .bar-row .vl { font-family: var(--mono); font-size: 13px; font-weight: 700; color: var(--roxo); }
+    .track { height: 9px; background: var(--cinza-claro); border-radius: 6px; overflow: hidden; }
+    .track > i { display: block; height: 100%; border-radius: 6px; }
+    .bar-row.crit .vl { color: var(--coral); }
+    .bar-row .tagmini {
+      display: inline-block; font-family: var(--mono); font-size: 9px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.05em; color: var(--coral);
+      border: 1px solid var(--coral); border-radius: 5px; padding: 1px 5px; margin-left: 6px; vertical-align: middle;
+    }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 6px; }
+    .chip {
+      font-size: 13px; font-weight: 600;
+      padding: 9px 14px; border-radius: 999px;
+      border: 1.5px solid var(--cinza-medio);
+      background: var(--branco); color: var(--corpo);
+      cursor: pointer; transition: all 0.15s ease;
+    }
+    .chip.on { background: var(--roxo); color: var(--branco); border-color: var(--roxo); }
+    .chip .ct { opacity: 0.6; font-family: var(--mono); font-size: 11px; margin-left: 4px; }
+
+    .howto { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; color: var(--secundario); margin-bottom: 8px; }
+    .howto .ic { font-size: 18px; line-height: 1.2; }
+
+    /* ---------- Deck / Cards ---------- */
+    #deck {
+      position: relative;
+      min-height: 60vh;
+      margin-bottom: 14px;
+      touch-action: pan-y;
+    }
+    .qcard {
+      background: var(--branco);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px 18px 18px;
+      width: 100%;
+      will-change: transform;
+    }
+    .qhead { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+    .area-chip {
+      font-family: var(--mono); font-size: 10px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      padding: 4px 9px; border-radius: 6px; color: var(--branco);
+    }
+    .a-comp { background: var(--verde-escuro); }
+    .a-mat  { background: var(--roxo); }
+    .a-lid  { background: var(--lilas); color: var(--roxo); }
+    .a-neg  { background: var(--verde); color: var(--roxo); }
+    .a-ux   { background: #b06ab3; }
+    .foco-flag {
+      font-family: var(--mono); font-size: 9px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.05em; color: var(--coral); border: 1px solid var(--coral);
+      border-radius: 5px; padding: 2px 6px;
+    }
+    .qnum { font-family: var(--mono); font-size: 11px; color: var(--cinza-escuro); }
+
+    .tema { font-size: 12px; color: var(--secundario); margin-bottom: 6px; font-weight: 600; }
+    .enunciado { font-size: 15.5px; color: var(--corpo); margin-bottom: 16px; }
+    .enunciado p { margin: 0 0 9px; }
+    .enunciado .code {
+      font-family: var(--mono); font-size: 13.5px; background: var(--bg-soft);
+      border-radius: 8px; padding: 9px 11px; margin: 9px 0; display: block; white-space: pre-wrap;
+      border-left: 3px solid var(--lilas);
+    }
+    .enunciado .afirm { margin: 4px 0; padding-left: 4px; }
+    .enunciado table { border-collapse: collapse; margin: 10px 0; font-size: 13px; width: 100%; }
+    .enunciado th, .enunciado td { border: 1px solid var(--cinza-medio); padding: 6px 8px; text-align: center; }
+    .enunciado th { background: var(--roxo); color: var(--branco); font-weight: 700; }
+    .enunciado th.rowh, .enunciado td.rowh { background: var(--lilas-suave); color: var(--roxo); font-weight: 700; }
+
+    .alts { display: flex; flex-direction: column; gap: 9px; }
+    .alt {
+      display: flex; gap: 11px; align-items: flex-start;
+      border: 1.5px solid var(--cinza-medio);
+      border-radius: 12px; padding: 12px 13px;
+      cursor: pointer; background: var(--branco);
+      transition: border-color 0.15s ease, background 0.15s ease;
+      font-size: 14.5px;
+    }
+    .alt:active { background: var(--bg-soft); }
+    .alt .key {
+      flex: 0 0 26px; height: 26px; border-radius: 8px;
+      background: var(--cinza-claro); color: var(--roxo);
+      font-weight: 800; font-size: 13px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .alt .txt { flex: 1; }
+    .alt .rat {
+      display: none; margin-top: 8px; font-size: 13px; line-height: 1.5;
+      padding-top: 8px; border-top: 1px dashed var(--cinza-medio); color: var(--secundario);
+    }
+    /* estados pós-resposta */
+    .alts.answered .alt { cursor: default; }
+    .alt.correct { border-color: var(--acerto); background: var(--acerto-bg); }
+    .alt.correct .key { background: var(--acerto); color: #fff; }
+    .alt.wrong { border-color: var(--erro); background: var(--erro-bg); }
+    .alt.wrong .key { background: var(--erro); color: #fff; }
+    .alts.answered .alt.correct .rat,
+    .alts.answered .alt.wrong .rat { display: block; }
+    .alt.correct .rat { color: #1f6b48; }
+    .alt.wrong .rat { color: #a32a2a; }
+    .alts.answered .alt.dim { opacity: 0.6; }
+
+    .verdict {
+      display: none; margin-top: 14px; border-radius: 12px; padding: 12px 14px; font-size: 14px; font-weight: 600;
+    }
+    .verdict.show { display: block; }
+    .verdict.ok { background: var(--acerto-bg); color: #1f6b48; }
+    .verdict.no { background: var(--erro-bg); color: #a32a2a; }
+
+    /* Revisão */
+    .rev-points { list-style: none; padding: 0; margin: 6px 0 0; }
+    .rev-points li {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 11px 0; border-bottom: 1px solid var(--cinza-claro); font-size: 14.5px;
+    }
+    .rev-points li:last-child { border-bottom: none; }
+    .rev-points .pk {
+      flex: 0 0 22px; height: 22px; border-radius: 6px; background: var(--lilas-suave); color: var(--roxo);
+      display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 12px;
+    }
+    .rev-points b { color: var(--roxo); }
+
+    /* nav */
+    .navrow { display: flex; gap: 10px; margin-top: 6px; }
+    .navrow .btn { width: auto; flex: 1; }
+    .swipe-hint { text-align: center; font-size: 12px; color: var(--cinza-escuro); margin: 10px 0 0; font-family: var(--mono); }
+
+    /* ---------- Resultado ---------- */
+    .score-big { text-align: center; padding: 8px 0 4px; }
+    .score-big .n { font-size: 56px; font-weight: 800; color: var(--roxo); line-height: 1; letter-spacing: -0.03em; }
+    .score-big .n .pct { font-size: 26px; color: var(--coral); }
+    .score-big .cap { font-size: 14px; color: var(--secundario); margin-top: 4px; }
+    .ring { display:block; margin: 0 auto 6px; }
+
+    .area-res { margin-top: 4px; }
+    .rec {
+      background: var(--lilas-suave); border-radius: 12px; padding: 14px; margin-top: 6px; font-size: 14px; color: var(--roxo);
+    }
+    .rec b { color: var(--roxo); }
+
+    .footer { text-align: center; font-size: 11px; color: var(--cinza-escuro); padding: 16px; font-family: var(--mono); }
+    .hidden { display: none !important; }
+
+    @media (min-width: 560px) {
+      main { padding: 28px; }
+      .hero h1 { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="progress"><i id="progbar"></i></div>
+    <header class="topbar">
+      <span class="brand">inteli<span class="dot">.</span></span>
+      <span class="ctx">Simulador · Prova<br>Módulo 6 · SI06 · T18</span>
+    </header>
+
+    <main>
+      <!-- ===================== HOME ===================== -->
+      <section id="home">
+        <div class="hero">
+          <span class="label">Revisão para a prova</span>
+          <h1>Simulador da Prova · Módulo 6</h1>
+          <div class="accent-bar"></div>
+          <p>Questões novas no estilo da prova, cobrindo PLN, redes neurais, matemática, liderança, negócios e UX. Toque numa alternativa e receba na hora o feedback com o racional de cada opção.</p>
+        </div>
+
+        <div class="panel">
+          <span class="label">Onde a turma mais perdeu pontos</span>
+          <h2>Panorama do módulo</h2>
+          <p class="sub">Médias agregadas e anônimas das atividades (n=19). Quanto menor a barra, mais vale revisar o tema.</p>
+          <div id="panorama"></div>
+        </div>
+
+        <div class="panel">
+          <h2>Escolha o foco</h2>
+          <p class="sub">Comece por todas as áreas ou mire onde a turma ficou mais fraca.</p>
+          <div class="chips" id="chips"></div>
+        </div>
+
+        <div class="panel">
+          <div class="howto"><span class="ic">👆</span><span>Toque na alternativa para responder e ver o racional.</span></div>
+          <div class="howto"><span class="ic">👉</span><span>Arraste o card para o lado (ou use os botões) para passar de questão.</span></div>
+          <div class="howto"><span class="ic">📊</span><span>No fim, veja seu acerto por tema e o que reforçar.</span></div>
+        </div>
+
+        <button class="btn btn-primary" id="startBtn">Começar simulado</button>
+      </section>
+
+      <!-- ===================== QUIZ ===================== -->
+      <section id="quiz" class="hidden">
+        <div id="deck"></div>
+        <div class="navrow">
+          <button class="btn btn-ghost" id="prevBtn">← Anterior</button>
+          <button class="btn btn-roxo" id="nextBtn">Próxima →</button>
+        </div>
+        <p class="swipe-hint">arraste o card ⟷ para navegar</p>
+      </section>
+
+      <!-- ===================== RESULTADO ===================== -->
+      <section id="result" class="hidden">
+        <span class="label">Resultado</span>
+        <h1 style="color:var(--roxo);margin:8px 0 14px;font-size:26px;">Como você foi</h1>
+        <div class="panel">
+          <div class="score-big">
+            <canvas id="ring" class="ring" width="132" height="132"></canvas>
+            <div class="n" id="scoreN">0<span class="pct">%</span></div>
+            <div class="cap" id="scoreCap"></div>
+          </div>
+        </div>
+        <div class="panel">
+          <span class="label">Acerto por área</span>
+          <h2>Seu desempenho</h2>
+          <div class="area-res" id="areaRes"></div>
+        </div>
+        <div class="panel">
+          <span class="label">Plano de revisão</span>
+          <h2>O que reforçar</h2>
+          <div class="rec" id="rec"></div>
+        </div>
+        <div class="navrow">
+          <button class="btn btn-ghost" id="reviewBtn">Rever questões</button>
+          <button class="btn btn-primary" id="restartBtn">Refazer</button>
+        </div>
+      </section>
+    </main>
+
+    <div class="footer">inteli<span style="color:var(--coral)">.</span> · Módulo 6 · Aplicação baseada em PLN · T18 · 2026.1B</div>
+  </div>
+
+  <script>
+  /* ============================================================
+     BANCO DE QUESTÕES: questões NOVAS, no estilo da prova.
+     Cenários e números diferentes dos da prova original,
+     para revisar os conceitos sem entregar o gabarito da prova.
+     ============================================================ */
+  const AREAS = {
+    comp: { nome: "Computação", cls: "a-comp" },
+    mat:  { nome: "Matemática", cls: "a-mat" },
+    lid:  { nome: "Liderança",  cls: "a-lid" },
+    neg:  { nome: "Negócios",   cls: "a-neg" },
+    ux:   { nome: "UX",         cls: "a-ux" }
+  };
+
+  // Panorama anônimo (médias agregadas das atividades do módulo, n=19)
+  const PANORAMA = [
+    { nm: "Matemática: métricas e classificação", v: 5.5, crit: true },
+    { nm: "Apresentação / comunicação", v: 6.2 },
+    { nm: "Plataforma web de classificação", v: 6.5 },
+    { nm: "Modelos básicos de classificação", v: 6.7 },
+    { nm: "Matemática: representação vetorial", v: 6.9 },
+    { nm: "Modelos de redes neurais", v: 6.9 }
+  ];
+
+  const Q = [
+    /* ---------------- MATEMÁTICA ---------------- */
+    {
+      area:"mat", foco:true, tema:"Probabilidade em um corpus de texto",
+      enunciado:`<p>Um sistema de PLN é treinado com um corpus de <b>600 avaliações</b> de restaurantes: 400 positivas e 200 negativas. A palavra <b>"ótimo"</b> aparece em 160 avaliações positivas e em 20 negativas.</p>
+      <p>Analise as afirmações:</p>
+      <p class="afirm">I. P(avaliação positiva ∩ contém "ótimo") = 0,27.</p>
+      <p class="afirm">II. A frequência relativa de "ótimo" nas avaliações negativas é 0,10.</p>
+      <p class="afirm">III. Como "ótimo" aparece em 180 das 600 avaliações, ele ocorre com a mesma probabilidade em positivas e negativas.</p>
+      <p class="afirm">IV. P("ótimo" | positiva) ser maior que P("ótimo" | negativa) indica que "ótimo" é evidência a favor da classe positiva.</p>`,
+      alts:[
+        {t:"I, II e IV.", ok:true, r:'I: 160/600 ≈ 0,27. II: 20/200 = 0,10. IV: P("ótimo"|pos)=0,40 > P("ótimo"|neg)=0,10, logo é evidência da classe positiva. As três batem.'},
+        {t:"I e III.", ok:false, r:'III é falsa: 160/400 = 0,40 nas positivas contra 20/200 = 0,10 nas negativas. Não é a mesma probabilidade.'},
+        {t:"II e III.", ok:false, r:"II é verdadeira, mas III é falsa (probabilidades condicionais bem diferentes entre as classes)."},
+        {t:"I e IV.", ok:false, r:"I e IV são verdadeiras, mas II também é (20/200 = 0,10). A resposta precisa incluir II."},
+        {t:"I, II, III e IV.", ok:false, r:"III é falsa, então não pode ser \"todas\"."}
+      ]
+    },
+    {
+      area:"mat", foco:true, tema:"Teorema de Bayes (Naive Bayes)",
+      enunciado:`<p>O SAC treinou um Naive Bayes com <b>500 mensagens</b>: 350 classificadas como spam (S) e 150 como legítimas (L). A palavra <b>"grátis"</b> aparece em 140 mensagens de spam e em 6 legítimas.</p>
+      <p>Analise as afirmações:</p>
+      <p class="afirm">I. A probabilidade a priori P(S) estimada do corpus é 0,70.</p>
+      <p class="afirm">II. Pelo Teorema de Bayes, P(S | "grátis") = P("grátis" | S); os dois valores são intercambiáveis.</p>
+      <p class="afirm">III. P(S | "grátis") ≈ 0,96.</p>
+      <p class="afirm">IV. Como "grátis" aparece só 6 vezes entre as legítimas, deve ser descartada do modelo por frequência baixa.</p>`,
+      alts:[
+        {t:"I e III.", ok:true, r:'I: 350/500 = 0,70. III: P("grátis"|S)=0,40 e P("grátis"|L)=0,04, então P(S|"grátis") = (0,40·0,70) / (0,40·0,70 + 0,04·0,30) = 0,28/0,292 ≈ 0,96.'},
+        {t:"I apenas.", ok:false, r:"I é verdadeira, mas III também é (cálculo de Bayes dá ≈ 0,96)."},
+        {t:"II e IV.", ok:false, r:"II confunde posterior com verossimilhança (não são intercambiáveis). IV é falsa: termos raros podem ser muito informativos."},
+        {t:"I, II e III.", ok:false, r:"I e III estão certas, mas II é falsa: P(S|x) e P(x|S) são grandezas distintas."},
+        {t:"I, III e IV.", ok:false, r:"I e III certas, mas IV é falsa: a baixa frequência de \"grátis\" nas legítimas é justamente o que a torna discriminativa."}
+      ]
+    },
+    {
+      area:"mat", foco:true, tema:"Similaridade de cosseno (TF-IDF)",
+      enunciado:`<p>Documentos são representados como vetores TF-IDF sobre o vocabulário {preço, qualidade, entrega}:</p>
+      <span class="code">d1 = (4, 0, 3)
+d2 = (0, 6, 0)
+d3 = (8, 0, 6)</span>
+      <p>Analise as afirmações sobre a similaridade de cosseno:</p>
+      <p class="afirm">I. cos(d1, d2) = 0, pois os vetores não compartilham termos.</p>
+      <p class="afirm">II. cos(d1, d3) = 1,00, pois d3 = 2·d1 e a medida é invariante à magnitude.</p>
+      <p class="afirm">III. Multiplicar todas as componentes de d1 por 3 aumentaria cos(d1, d3).</p>
+      <p class="afirm">IV. Para vetores TF-IDF com componentes não negativas, o cosseno fica no intervalo [0, 1].</p>`,
+      alts:[
+        {t:"I, II e IV.", ok:true, r:"I: produto interno 0 → cosseno 0. II: d3 é múltiplo de d1, então mesma direção → cosseno 1. IV: sem componentes negativas, o ângulo vai de 0° a 90°, logo cosseno entre 0 e 1."},
+        {t:"I e III.", ok:false, r:"III é falsa: o cosseno é invariante à escala, então multiplicar d1 por 3 não muda nada (continua 1)."},
+        {t:"II e IV.", ok:false, r:"II e IV são verdadeiras, mas I também é (vetores sem termos em comum têm cosseno 0)."},
+        {t:"I, III e IV.", ok:false, r:"III é falsa (invariância à escala). I e IV estão corretas."},
+        {t:"I, II, III e IV.", ok:false, r:"III é falsa, então não pode ser \"todas\"."}
+      ]
+    },
+    {
+      area:"mat", foco:true, tema:"Espaço de embeddings",
+      enunciado:`<p>Em um modelo treinado sobre avaliações, os embeddings simplificados (ℝ²) de quatro palavras são:</p>
+      <span class="code">v("ótimo")    = ( 0,8 ;  0,9)
+v("terrível") = (-0,7 ; -0,8)
+v("bom")      = ( 0,6 ;  0,7)
+v("ruim")     = (-0,5 ; -0,6)</span>
+      <p>Sobre a estrutura desse espaço vetorial, é <b>correto</b> afirmar:</p>`,
+      alts:[
+        {t:'O ângulo entre v("ótimo") e v("bom") é menor do que entre v("ótimo") e v("terrível"), indicando maior similaridade semântica entre "ótimo" e "bom".', ok:true, r:'v("ótimo") e v("bom") apontam quase na mesma direção (cosseno ≈ 1, ângulo ≈ 0°); já v("ótimo")·v("terrível") < 0, ângulo > 90°. Palavras de sentido próximo ficam próximas no espaço.'},
+        {t:'O produto interno entre v("ótimo") e v("terrível") é positivo, indicando proximidade semântica.', ok:false, r:"O produto interno é 0,8·(-0,7)+0,9·(-0,8) = -1,28 (negativo). Vetores em direções opostas → sentidos opostos."},
+        {t:'A distância euclidiana entre "ótimo" e "bom" é maior do que entre "ótimo" e "terrível".', ok:false, r:'É o contrário: "ótimo" e "bom" estão muito mais próximos do que "ótimo" e "terrível".'},
+        {t:'A similaridade de cosseno entre v("ótimo") e v("terrível") é próxima de 1, pois ambos têm módulo elevado.', ok:false, r:"Cosseno não depende do módulo, e aqui é próximo de -1 (vetores opostos), não de 1."},
+        {t:"Palavras de sentido oposto geram vetores ortogonais (90°) no espaço de embeddings.", ok:false, r:"Sentidos opostos tendem a vetores em direção oposta (~180°, cosseno ≈ -1), não ortogonais. Ortogonal (90°) indicaria ausência de relação."}
+      ]
+    },
+    {
+      area:"mat", foco:true, tema:"Matriz de confusão: precisão",
+      enunciado:`<p>Um modelo classifica avaliações como positiva/negativa. Testado em 200 avaliações:</p>
+      <table>
+        <tr><th></th><th>Predito Positivo</th><th>Predito Negativo</th></tr>
+        <tr><td class="rowh">Real Positivo</td><td>70</td><td>30</td></tr>
+        <tr><td class="rowh">Real Negativo</td><td>15</td><td>85</td></tr>
+      </table>
+      <p>A equipe considera que o erro mais custoso é classificar uma avaliação <b>negativa como positiva (falso positivo)</b>. Qual métrica monitorar e qual o valor?</p>`,
+      alts:[
+        {t:"Precisão ≈ 0,82, proporção de predições positivas que de fato são positivas, penalizando os falsos positivos.", ok:true, r:"Precisão = VP/(VP+FP) = 70/(70+15) = 70/85 ≈ 0,82. Como o erro caro é o falso positivo, a precisão é a métrica certa."},
+        {t:"Recall = 0,70, proporção de positivos reais identificados.", ok:false, r:"O recall (70/100 = 0,70) trata dos falsos negativos, não dos falsos positivos. Valor certo, métrica errada para esse risco."},
+        {t:"Acurácia = 0,775, percentual geral de acertos.", ok:false, r:"Acurácia = (70+85)/200 = 0,775, mas ela mistura todos os erros e não isola o falso positivo."},
+        {t:"F1 ≈ 0,76, equilibra precisão e recall, sendo sempre a melhor métrica.", ok:false, r:"O F1 (≈ 0,76) é útil, mas o \"sempre a melhor\" é falso: quando um tipo de erro é mais caro, escolhe-se precisão ou recall."},
+        {t:"Precisão ≈ 0,70, igual à proporção de positivos reais.", ok:false, r:"Confunde precisão com recall. Precisão aqui é 0,82, não 0,70."}
+      ]
+    },
+    {
+      area:"mat", foco:true, tema:"Matriz de confusão: recall",
+      enunciado:`<p>Um modelo de triagem classifica exames como "doente"/"saudável". Testado em 300 exames:</p>
+      <table>
+        <tr><th></th><th>Predito Doente</th><th>Predito Saudável</th></tr>
+        <tr><td class="rowh">Real Doente</td><td>120</td><td>30</td></tr>
+        <tr><td class="rowh">Real Saudável</td><td>20</td><td>130</td></tr>
+      </table>
+      <p>Aqui o erro mais custoso é classificar um <b>doente como saudável (falso negativo)</b>, pois ele deixa de ser tratado. Qual métrica monitorar e qual o valor?</p>`,
+      alts:[
+        {t:"Recall = 0,80, proporção de doentes reais corretamente identificados, penalizando os falsos negativos.", ok:true, r:"Recall = VP/(VP+FN) = 120/(120+30) = 120/150 = 0,80. Como o erro caro é o falso negativo, o recall é a métrica certa."},
+        {t:"Precisão ≈ 0,86, proporção de predições \"doente\" corretas.", ok:false, r:"Precisão = 120/(120+20) ≈ 0,86 trata dos falsos positivos. Aqui o risco é o falso negativo → recall."},
+        {t:"Acurácia ≈ 0,83, percentual geral de acertos.", ok:false, r:"Acurácia = 250/300 ≈ 0,83, mas não isola o falso negativo, que é o erro crítico."},
+        {t:"Recall ≈ 0,86, proporção de predições positivas corretas.", ok:false, r:"A definição dada é de precisão. O recall correto é 0,80, não 0,86."},
+        {t:"Especificidade = 0,80, negativos corretamente classificados.", ok:false, r:"Especificidade = 130/150 ≈ 0,87 e foca nos negativos. Para o falso negativo na classe doente, use recall."}
+      ]
+    },
+    {
+      area:"mat", foco:true, tema:"Acurácia em base desbalanceada",
+      enunciado:`<p>Um detector de fraude é treinado com 98% de transações legítimas e 2% fraudulentas. Um modelo que classifica <b>todas</b> as transações como legítimas obtém 98% de acurácia.</p>
+      <p>Qual afirmação é correta?</p>`,
+      alts:[
+        {t:"Em bases desbalanceadas a acurácia engana; recall e F1 da classe minoritária revelam que esse modelo não detecta nenhuma fraude (recall = 0).", ok:true, r:"Acertar só a classe majoritária dá acurácia alta, mas o recall da fraude é 0 (nenhuma fraude detectada). Por isso usamos precisão, recall e F1 por classe."},
+        {t:"A acurácia de 98% confirma que o modelo é excelente para detectar fraudes.", ok:false, r:"Ele não detecta nenhuma fraude. A acurácia alta vem só do peso da classe majoritária."},
+        {t:"A acurácia é sempre a métrica mais confiável, independentemente da distribuição.", ok:false, r:"Justamente em bases desbalanceadas a acurácia é a métrica menos confiável."},
+        {t:"Como a fraude é rara, a classe deve ser removida do treinamento.", ok:false, r:"Remover a classe de interesse elimina o objetivo do modelo. O caminho é reamostragem, pesos de classe ou métricas adequadas."},
+        {t:"Precisão e recall são equivalentes em qualquer cenário.", ok:false, r:"São métricas distintas: precisão olha os falsos positivos, recall olha os falsos negativos."}
+      ]
+    },
+
+    /* ---------------- COMPUTAÇÃO ---------------- */
+    {
+      area:"comp", foco:true, tema:"Naive Bayes com suavização de Laplace",
+      enunciado:`<p>Em um classificador <b>Naive Bayes Multinomial</b> com suavização de Laplace (α = 1), a classe "Positivo" tem <b>8 palavras no total</b> e o vocabulário tem <b>5 palavras distintas</b>. A palavra "rápido" aparece <b>2 vezes</b> nas avaliações positivas.</p>
+      <p>Qual é P("rápido" | Positivo) com a suavização?</p>`,
+      alts:[
+        {t:"3/13 ≈ 0,23", ok:true, r:"Laplace: P = (contagem + α) / (total + α·|V|) = (2 + 1) / (8 + 1·5) = 3/13 ≈ 0,23. Soma α no numerador e α·|V| no denominador."},
+        {t:"2/8 = 0,25", ok:false, r:"É a probabilidade sem suavização. A suavização de Laplace soma α em cima e α·|V| embaixo."},
+        {t:"3/8 ≈ 0,375", ok:false, r:"Somou α no numerador mas esqueceu de somar α·|V| no denominador."},
+        {t:"2/13 ≈ 0,15", ok:false, r:"Aplicou o denominador suavizado mas esqueceu de somar α no numerador."},
+        {t:"1/5 = 0,20", ok:false, r:"Usou só o tamanho do vocabulário, ignorando as contagens da classe."}
+      ]
+    },
+    {
+      area:"comp", foco:false, tema:"Pré-processamento e negação",
+      enunciado:`<p>Uma equipe de análise de sentimentos removeu as palavras <b>"não"</b> e <b>"nunca"</b> dos textos por estarem em uma lista padrão de stopwords.</p>
+      <p>Sobre o impacto dessa decisão, qual afirmação é a mais adequada?</p>`,
+      alts:[
+        {t:'A remoção pode prejudicar o modelo, pois inverte a polaridade de frases como "não recomendo" e "nunca mais compro".', ok:true, r:"Em análise de sentimentos, negações carregam alta carga semântica. Removê-las transforma \"não gostei\" em \"gostei\"."},
+        {t:'A remoção não afeta o desempenho, pois "não" e "nunca" têm baixa carga semântica.', ok:false, r:"O oposto: em sentimentos a negação é decisiva para a polaridade."},
+        {t:"A remoção afeta só modelos de frequência, sem impacto em Transformers.", ok:false, r:"Se o token é apagado da entrada, qualquer modelo perde a informação, inclusive Transformers."},
+        {t:"A remoção é sempre desejável, pois reduz dimensionalidade sem alterar o significado.", ok:false, r:"Reduz dimensionalidade, mas aqui altera o significado, então não é desejável."},
+        {t:"A remoção melhora a generalização ao eliminar termos muito frequentes.", ok:false, r:"Eliminar termos frequentes pode ajudar em alguns casos, mas não quando eles invertem o sentido da frase."}
+      ]
+    },
+    {
+      area:"comp", foco:true, tema:"Vetorização e similaridade semântica",
+      enunciado:`<p>Uma equipe classifica artigos médicos e nota que documentos com os termos <b>"médico", "clínico" e "facultativo"</b> costumam tratar do mesmo tema, mesmo quando essas palavras <b>nunca aparecem juntas</b> no mesmo documento.</p>
+      <p>Considerando só as propriedades das técnicas de vetorização, qual tem maior potencial de reconhecer essa similaridade semântica?</p>`,
+      alts:[
+        {t:"Embeddings (Word2Vec / Transformers): representações distribuídas aproximam palavras semanticamente relacionadas no espaço vetorial, mesmo sem coocorrência direta.", ok:true, r:"Embeddings capturam semântica distribucional: palavras usadas em contextos parecidos ficam próximas, mesmo sem aparecer no mesmo documento."},
+        {t:"Bag-of-Words, pois preserva a frequência integral dos termos.", ok:false, r:"BoW trata cada palavra como dimensão independente, então \"médico\" e \"clínico\" ficam ortogonais, sem relação semântica."},
+        {t:"TF-IDF, pois reduz o peso de termos frequentes e identifica sinônimos automaticamente.", ok:false, r:"TF-IDF reponderá frequências, mas não captura sinonímia: termos distintos continuam dimensões independentes."},
+        {t:"BoW e TF-IDF têm o mesmo potencial que embeddings quando o corpus é grande.", ok:false, r:"Mesmo com muito dado, BoW/TF-IDF não criam proximidade entre palavras distintas que não coocorrem."},
+        {t:"Nenhuma técnica captura relações semânticas entre palavras distintas.", ok:false, r:"Embeddings fazem exatamente isso, então a afirmação é falsa."}
+      ]
+    },
+    {
+      area:"comp", foco:true, tema:"Neurônio artificial e ReLU",
+      enunciado:`<p>A saída de um neurônio é z = w₁x₁ + w₂x₂ + w₃x₃ + b, seguida de ReLU(z) = max(0, z). Considere:</p>
+      <span class="code">x = (2, 3, 1)
+w = (1, -1, 4)
+b = -2</span>
+      <p>Assinale a alternativa correta.</p>`,
+      alts:[
+        {t:"O neurônio será ativado, pois z = 1 e ReLU(1) = 1 (valor positivo é preservado).", ok:true, r:"z = 1·2 + (-1)·3 + 4·1 + (-2) = 2 - 3 + 4 - 2 = 1. Como z > 0, ReLU(1) = 1 e o neurônio ativa."},
+        {t:"O neurônio não será ativado, pois há um peso negativo.", ok:false, r:"Um peso negativo não bloqueia a ativação; o que importa é o sinal da soma ponderada total (aqui z = 1 > 0)."},
+        {t:"O neurônio não será ativado, pois z = -1 e ReLU(-1) = 0.", ok:false, r:"O cálculo de z está errado: 2 - 3 + 4 - 2 = 1, não -1."},
+        {t:"O neurônio será ativado, pois a ReLU transforma qualquer valor negativo em positivo.", ok:false, r:"A ReLU zera valores negativos (max(0,z)); ela não os torna positivos."},
+        {t:"z = 8, pois somam-se entradas e pesos.", ok:false, r:"A soma é ponderada (entrada × peso) e inclui o viés, não a soma simples de entradas e pesos."}
+      ]
+    },
+    {
+      area:"comp", foco:true, tema:"Operação do neurônio e papel do viés",
+      enunciado:`<p>Em uma rede neural, antes de aplicar a função de ativação, o que o neurônio calcula e qual o papel do <b>viés (bias)</b>?</p>`,
+      alts:[
+        {t:"A soma ponderada das entradas pelos respectivos pesos, somada ao viés, que desloca o limiar de ativação independentemente das entradas.", ok:true, r:"z = Σ(wᵢxᵢ) + b. O viés é um termo constante que desloca a fronteira de decisão, permitindo ativar mesmo quando as entradas são zero."},
+        {t:"A média aritmética das entradas; o viés serve para normalizar os dados.", ok:false, r:"Não é média: cada entrada é multiplicada por seu peso e somada. O viés não normaliza."},
+        {t:"A multiplicação de todas as entradas entre si; o viés multiplica o resultado.", ok:false, r:"As entradas não são multiplicadas entre si, e o viés é somado, não multiplicado."},
+        {t:"A soma das entradas e dos pesos separadamente; o viés é a maior das entradas.", ok:false, r:"Entradas e pesos são combinados por produto, não somados em separado; o viés é um parâmetro aprendido, não uma entrada."},
+        {t:"A divisão de cada entrada pelo seu peso; o viés é descartado na ativação.", ok:false, r:"A operação é produto (não divisão) e o viés entra na soma antes da ativação."}
+      ]
+    },
+    {
+      area:"comp", foco:true, tema:"ML clássico × redes neurais em PLN",
+      enunciado:`<p>Sobre as diferenças entre modelos clássicos de ML (Naive Bayes, SVM, Regressão Logística) e redes neurais profundas aplicadas a PLN, qual afirmação é correta?</p>`,
+      alts:[
+        {t:"Modelos clássicos costumam exigir engenharia de atributos manual (ex.: TF-IDF), enquanto redes neurais aprendem representações direto dos dados, em geral ao custo de mais dados e poder computacional.", ok:true, r:"Essa é a diferença central: feature engineering manual nos clássicos × representações aprendidas nas redes, que exigem mais dados e computação."},
+        {t:"Redes neurais são sempre superiores aos modelos clássicos em qualquer cenário.", ok:false, r:"Com poucos dados ou necessidade de interpretabilidade, modelos clássicos costumam vencer."},
+        {t:"Modelos clássicos não conseguem classificar texto.", ok:false, r:"Naive Bayes, SVM e Regressão Logística são amplamente usados em classificação de texto."},
+        {t:"Redes neurais são sempre mais interpretáveis que modelos clássicos.", ok:false, r:"Em geral é o contrário: modelos clássicos tendem a ser mais interpretáveis."},
+        {t:"Modelos clássicos exigem mais dados de treinamento do que redes neurais profundas.", ok:false, r:"O oposto: redes profundas costumam exigir muito mais dados."}
+      ]
+    },
+    {
+      area:"comp", foco:false, tema:"Pré-processamento de texto",
+      enunciado:`<p>Sobre etapas de pré-processamento em PLN, qual afirmação é correta?</p>`,
+      alts:[
+        {t:'O stemming corta sufixos por regras (ex.: "correndo" → "corr"), podendo gerar radicais que não são palavras, enquanto a lematização reduz à forma canônica do dicionário (ex.: "correndo" → "correr"), em geral mais custosa.', ok:true, r:"Stemming é heurístico e rápido (pode gerar não-palavras); lematização usa léxico/morfologia para chegar ao lema, sendo mais precisa e mais cara."},
+        {t:"Tokenização e remoção de stopwords são a mesma operação.", ok:false, r:"Tokenização divide o texto em unidades; remoção de stopwords descarta palavras pouco informativas. São etapas distintas."},
+        {t:"Stemming é sempre mais preciso que lematização.", ok:false, r:"Stemming é mais grosseiro; a lematização tende a ser mais precisa."},
+        {t:"A normalização (lowercase, remoção de acentos) nunca afeta o resultado do modelo.", ok:false, r:"Pode afetar bastante, inclusive juntando ou separando tokens que mudam o significado."},
+        {t:"Stopwords são as palavras mais informativas do texto.", ok:false, r:"Stopwords são justamente as menos informativas (artigos, preposições), embora a negação seja uma exceção importante."}
+      ]
+    },
+
+    /* ---------------- LIDERANÇA ---------------- */
+    {
+      area:"lid", foco:false, tema:"Argumentação e correlação espúria",
+      enunciado:`<p>Em um projeto de PLN para uma rede de farmácias, dois integrantes opinam:</p>
+      <p class="afirm"><i>Pedro:</i> "Modelos de PLN treinados com avaliações rotuladas capturam ironia e contexto que notas de 1 a 5 não expressam; portanto, gerarão insights mais acionáveis que a análise manual."</p>
+      <p class="afirm"><i>Bia:</i> "Desde que passamos a postar mais no Instagram, as vendas subiram. Logo, o Instagram é a causa do aumento das vendas."</p>
+      <p>Avalie os argumentos:</p>`,
+      alts:[
+        {t:"Pedro apresenta premissas relevantes e suficientes para a conclusão; Bia comete uma correlação espúria ao inferir causa a partir de simultaneidade temporal, sem controlar outras variáveis.", ok:true, r:"Pedro sustenta a conclusão com uma propriedade técnica plausível do PLN. Bia confunde correlação temporal com causalidade, uma clássica correlação espúria."},
+        {t:"Ambos apresentam bons argumentos baseados em dados observáveis.", ok:false, r:"A fala da Bia não é um bom argumento: salta de coincidência temporal para causa."},
+        {t:"Bia apresenta argumento empiricamente fundamentado; Pedro comete falácia.", ok:false, r:"Está invertido: a fragilidade lógica está no raciocínio causal da Bia."},
+        {t:"Ambos cometem correlação espúria.", ok:false, r:"Pedro não infere causa a partir de coincidência; seu argumento é sobre uma capacidade do modelo."},
+        {t:"Nenhum dos dois apresenta argumento ou correlação relevante.", ok:false, r:"Pedro tem um argumento estruturado e a Bia ilustra bem uma correlação espúria."}
+      ]
+    },
+    {
+      area:"lid", foco:false, tema:"Negociação: 4 Princípios de Harvard",
+      enunciado:`<p>Surge um conflito: a equipe de dados quer ampliar o escopo (3 modelos extras + dashboard avançado), enquanto o ponto focal do parceiro quer manter o MVP para entregar no prazo.</p>
+      <p>Pelos 4 Princípios de Harvard (pessoas, interesses, opções, critérios), qual conduta é a mais adequada?</p>`,
+      alts:[
+        {t:"Separar as pessoas do problema, identificar os interesses de cada lado (prazo para o parceiro, qualidade técnica para a equipe) e buscar opções que atendam aos dois, como priorizar o MVP e registrar as melhorias como escopo futuro, usando critérios objetivos.", ok:true, r:"Aplica os quatro princípios: foco em interesses (não em posições), geração de opções de ganho mútuo e uso de critérios objetivos."},
+        {t:"A equipe deve ceder totalmente, pois o cliente sempre tem razão.", ok:false, r:"Ceder por completo ignora os interesses técnicos legítimos e não é negociação por princípios."},
+        {t:"O ponto focal deve aceitar tudo, pois completude vale mais que prazo.", ok:false, r:"Inverte o problema e ignora o interesse de prazo do parceiro."},
+        {t:"A negociação deve ser evitada e o conflito resolvido só por critérios técnicos.", ok:false, r:"Evitar a negociação descarta os interesses do parceiro e o relacionamento."},
+        {t:"A equipe deve implementar as melhorias sem avisar o ponto focal.", ok:false, r:"Agir sem transparência quebra a confiança e fere o princípio de separar pessoas do problema de forma colaborativa."}
+      ]
+    },
+
+    /* ---------------- NEGÓCIOS ---------------- */
+    {
+      area:"neg", foco:false, tema:"CRM e funil de leads",
+      enunciado:`<p>Uma SaaS adotou um CRM e notou aumento de leads no topo do funil, mas conversão surpreendentemente baixa para "Oportunidade Qualificada para Vendas" (SQL).</p>
+      <p>Qual é a causa mais provável a investigar primeiro?</p>`,
+      alts:[
+        {t:"As campanhas estão gerando grande volume de leads fora do perfil de cliente ideal (ICP), o que explica o alto volume inicial e a baixa qualificação para vendas.", ok:true, r:"Muito lead no topo + baixa conversão para SQL é o padrão clássico de leads desqualificados, fora do ICP."},
+        {t:"O CRM está com falha técnica que impede o registro de leads.", ok:false, r:"Contradiz o enunciado, que descreve aumento de leads registrados."},
+        {t:"A equipe de vendas é grande demais para o volume atual.", ok:false, r:"Tamanho da equipe não explica a baixa qualificação dos leads."},
+        {t:"Os critérios de qualificação estão frouxos demais, deixando passar leads ruins.", ok:false, r:"Critério frouxo geraria muitos SQLs (e não poucos). O sintoma aqui é o oposto."},
+        {t:"O produto não tem mercado.", ok:false, r:"É uma conclusão exagerada e não sustentada apenas pelo comportamento do funil."}
+      ]
+    },
+    {
+      area:"neg", foco:false, tema:"CRM, retenção e receita",
+      enunciado:`<p>Após um ano de CRM, com boa adesão da equipe, uma empresa não viu crescer a retenção nem a receita vinda de clientes existentes.</p>
+      <p>Qual o fator mais provável a revisar?</p>`,
+      alts:[
+        {t:"A cultura organizacional trata o CRM apenas como registro de atividades, e não como plataforma estratégica de relacionamento, engajamento e fidelização.", ok:true, r:"Sem usar o CRM para nutrir relacionamento (cross/upsell, jornada, personalização), ele vira só um cadastro e não move retenção nem receita."},
+        {t:"O CRM deveria ser evitado, pois nenhuma empresa melhora retenção com CRM.", ok:false, r:"Generalização falsa; CRMs bem usados impactam retenção."},
+        {t:"A equipe não aderiu ao sistema.", ok:false, r:"O enunciado afirma justamente que houve boa adesão."},
+        {t:"Retenção não tem relação com uso de CRM.", ok:false, r:"Tem relação direta quando o CRM apoia o relacionamento ao longo da jornada."},
+        {t:"O problema é exclusivamente o preço do software.", ok:false, r:"Preço da ferramenta não explica falta de impacto em retenção."}
+      ]
+    },
+    {
+      area:"neg", foco:false, tema:"Efeito de rede em plataformas",
+      enunciado:`<p>Em modelos de plataforma (marketplaces, apps de mobilidade), o valor para um novo usuário depende de quantos outros já usam o serviço (efeito de rede).</p>
+      <p>Analise as afirmações:</p>
+      <p class="afirm">I. O "problema do ovo e da galinha" exige atrair simultaneamente os dois lados (oferta e demanda) para a proposta de valor ser percebida.</p>
+      <p class="afirm">II. A estratégia deve focar exclusivamente em adquirir o lado da demanda, pois a oferta se ajusta sozinha, sem governança.</p>
+      <p class="afirm">III. O efeito de rede cria barreiras de entrada: quanto maior a base, maior o custo de mudança para o usuário migrar.</p>
+      <p class="afirm">IV. É preciso gerir externalidades negativas (ruído, queda de qualidade de terceiros) sob pena de degradar a experiência e causar abandono.</p>`,
+      alts:[
+        {t:"I, III e IV.", ok:true, r:"I, III e IV descrevem corretamente dinâmicas de plataforma. II é falsa: ambos os lados precisam de estímulo e governança."},
+        {t:"I e II.", ok:false, r:"II é falsa: a oferta não se ajusta sozinha; ela exige governança e incentivos."},
+        {t:"III e IV.", ok:false, r:"III e IV estão certas, mas I também (problema do ovo e da galinha é real)."},
+        {t:"I, II e III.", ok:false, r:"II é falsa, então essa combinação não serve."},
+        {t:"I, II, III e IV.", ok:false, r:"II é falsa, logo não pode ser \"todas\"."}
+      ]
+    },
+    {
+      area:"neg", foco:false, tema:"Customer Experience (NPS e CES)",
+      enunciado:`<p>Um e-commerce tem NPS alto (80, zona de excelência), mas perde clientes. Ao olhar o CES, descobre que a troca de produto exige 4 ligações e ida aos correios.</p>
+      <p>Avalie as afirmações:</p>
+      <p class="afirm">I. Um NPS alto, isolado, pode ser "vaidoso" se não cruzado com outras métricas: o cliente gosta da marca, mas para de comprar por alto esforço operacional.</p>
+      <p class="afirm">II. Reduzir o esforço do cliente (CES) impacta diretamente a retenção, pois conveniência costuma ser diferencial competitivo sustentável.</p>
+      <p class="afirm">III. Mapear a jornada permite identificar que o "momento da verdade" da troca gera experiência negativa, comprometendo o LTV.</p>
+      <p class="afirm">IV. Para melhorar o CX, basta focar exclusivamente em treinamento de empatia do SAC, já que experiência é puramente subjetiva.</p>`,
+      alts:[
+        {t:"I, II e III.", ok:true, r:"I, II e III conectam corretamente NPS, CES, jornada e LTV. IV é falsa: empatia ajuda, mas não resolve o atrito operacional do processo de troca."},
+        {t:"I e IV.", ok:false, r:"IV é falsa: reduzir empatia a única alavanca ignora o atrito do processo."},
+        {t:"II e III.", ok:false, r:"II e III estão certas, mas I também (NPS isolado pode enganar)."},
+        {t:"II, III e IV.", ok:false, r:"IV é falsa, então essa combinação não serve."},
+        {t:"I, II, III e IV.", ok:false, r:"IV é falsa, logo não pode ser \"todas\"."}
+      ]
+    },
+
+    /* ---------------- UX ---------------- */
+    {
+      area:"ux", foco:false, tema:"Visualização de dados categóricos",
+      enunciado:`<p>Uma equipe de UX precisa comparar a <b>proporção</b> de tipos de reclamação (interface, cobrança, desempenho) entre três planos de assinatura, sendo que o plano Gratuito tem <b>10× mais usuários</b> que os demais.</p>
+      <p>Qual a melhor estratégia de visualização para comparar proporções sem que a disparidade de volume distorça a leitura?</p>`,
+      alts:[
+        {t:"Gráfico de barras empilhadas 100% (100% stacked bar) por plano: normaliza os dados e permite comparar proporções independentemente do volume absoluto de cada grupo.", ok:true, r:"Ao normalizar cada plano para 100%, compara-se a composição relativa sem que o tamanho do grupo distorça a leitura."},
+        {t:"Gráfico de dispersão com um ponto por usuário e jittering.", ok:false, r:"Milhares de pontos sobrepostos não comunicam proporções de dados categóricos."},
+        {t:"Gráfico de linhas, pois sugere progressão entre as categorias.", ok:false, r:"Linhas sugerem continuidade/ordem entre categorias discretas, o que é enganoso aqui."},
+        {t:"Barras com contagem absoluta, pois o volume bruto é o único indicador confiável.", ok:false, r:"Com Gratuito 10× maior, a contagem absoluta esconde as proporções dos planos menores."},
+        {t:"Um único gráfico de pizza com todas as categorias e planos juntos.", ok:false, r:"Misturar tudo em uma pizza fica ilegível e impede a comparação entre planos."}
+      ]
+    },
+    {
+      area:"ux", foco:true, tema:"Dashboard para modelo desbalanceado",
+      enunciado:`<p>Um modelo de risco de crédito foi treinado com 95% de adimplentes e 5% de inadimplentes. O primeiro protótipo do dashboard exibia só <b>"Acurácia: 95%"</b>, e o diretor aprovou achando o modelo ótimo, mas ele falha em detectar inadimplentes.</p>
+      <p>Qual a melhor estratégia de design e comunicação de resultados?</p>`,
+      alts:[
+        {t:"Exibir o balanço de classes (proporção adimplente/inadimplente) junto com a matriz de confusão, deixando evidente a diferença de tamanho dos grupos e que o modelo basicamente prevê a classe majoritária.", ok:true, r:"O balanço de classes contextualiza a acurácia e a matriz de confusão mostra onde estão os erros (os inadimplentes não detectados). Comunicação honesta e intuitiva."},
+        {t:"Manter só a acurácia de 95% na tela, pois executivos precisam de respostas simples.", ok:false, r:"Foi exatamente o que induziu o erro de leitura. Simplificar não pode significar enganar."},
+        {t:"Mostrar gráficos 3D de dispersão com todos os vetores e hiperparâmetros do modelo.", ok:false, r:"Sobrecarrega o usuário de negócio com detalhe técnico irrelevante para a decisão."},
+        {t:"Substituir o painel por relatórios de texto gerados por IA detalhando resíduos.", ok:false, r:"Texto denso esconde justamente o ponto visual mais importante: o desequilíbrio entre classes."},
+        {t:"Disparar alertas sonoros e flashes vermelhos a cada erro do modelo em tempo real.", ok:false, r:"Alarmes não comunicam a distribuição de desempenho nem ajudam na decisão estratégica."}
+      ]
+    },
+
+    /* ---------------- REVISÃO (dissertativas) ---------------- */
+    {
+      area:"comp", foco:true, tema:"Revisão: Métricas e a classe Neutra", tipo:"revisao",
+      intro:"Questão dissertativa da prova vira card de revisão. Estes são os pontos que uma boa resposta cobre sobre avaliação de classificadores de sentimento com 3 classes (Positivo, Negativo, Neutro), quando a Neutra é confundida com as demais.",
+      pontos:[
+        "<b>Por que a acurácia, sozinha, não basta:</b> com classes desbalanceadas ou alta confusão da Neutra, um modelo pode ter acurácia alta acertando só as classes dominantes, mascarando o fraco desempenho na Neutra.",
+        "<b>Três métricas adequadas:</b> Precisão (das predições de uma classe, quantas estão certas), Recall/Revocação (dos exemplos reais de uma classe, quantos foram recuperados) e F1-score (média harmônica de precisão e recall, equilibra os dois). Apoie-se também na matriz de confusão e no F1 por classe / macro.",
+        "<b>Por que elas informam mais:</b> avaliam classe a classe (inclusive a Neutra) e revelam onde estão os erros (por exemplo, Neutro sendo confundido com Positivo), o que a acurácia global esconde.",
+        "<b>Três métodos para o desbalanceamento/confusão:</b> (1) reamostragem (oversampling da minoria, ex.: SMOTE / undersampling da maioria); (2) pesos de classe na função de perda; (3) revisar a definição e a rotulagem da classe Neutra (ou usar limiares / opção de abstenção).",
+        "<b>Trade-offs:</b> oversampling pode causar overfitting; undersampling descarta dados úteis; pesos exigem ajuste fino; redefinir a Neutra muda o próprio problema.",
+        "<b>Por que não há solução universal:</b> a melhor escolha depende da distribuição dos dados, do custo de cada tipo de erro no negócio, do volume disponível e do objetivo (priorizar precisão ou recall). Sempre há trade-off."
+      ]
+    },
+    {
+      area:"comp", foco:true, tema:"Revisão: ML clássico × Redes neurais", tipo:"revisao",
+      intro:"Pontos que uma boa resposta dissertativa cobre ao comparar modelos clássicos de ML e redes neurais profundas em PLN.",
+      pontos:[
+        "<b>Representação da entrada:</b> clássicos usam vetores esparsos construídos à mão (BoW, TF-IDF); redes neurais usam embeddings densos aprendidos e, no caso dos Transformers, contextualizados.",
+        "<b>Engenharia de atributos:</b> central nos clássicos (definir features, n-grams, etc.); nas redes, as representações são aprendidas automaticamente a partir dos dados.",
+        "<b>Vantagens das redes:</b> capturam contexto e semântica, aprendem features sozinhas e atingem o estado da arte em tarefas como tradução e sistemas conversacionais.",
+        "<b>Vantagens dos clássicos:</b> mais interpretáveis, mais rápidos e baratos, funcionam bem com poucos dados e são simples de treinar e implantar.",
+        "<b>Trade-offs:</b> interpretabilidade (clássicos ganham) × desempenho (redes em geral ganham); custo computacional e volume de dados (redes exigem muito mais).",
+        "<b>Por que não escolher só pela acurácia:</b> é preciso pesar interpretabilidade, custo, latência, dados disponíveis, manutenção e o custo dos erros no contexto de negócio."
+      ]
+    }
+  ];
+
+  /* ============================================================
+     APP
+     ============================================================ */
+  const $ = (s) => document.querySelector(s);
+  const state = { deck: [], idx: 0, answers: {}, mode: "all" };
+
+  function shuffle(a){ const r=a.slice(); for(let i=r.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1)); [r[i],r[j]]=[r[j],r[i]];} return r; }
+
+  /* ---- Home: panorama + chips ---- */
+  function renderPanorama(){
+    const max = 10;
+    $("#panorama").innerHTML = PANORAMA.map(p=>{
+      const w = Math.round((p.v/max)*100);
+      const color = p.crit ? "var(--coral)" : (p.v < 6.6 ? "var(--lilas)" : "var(--verde)");
+      return `<div class="bar-row ${p.crit?'crit':''}">
+        <div class="top"><span class="nm">${p.nm}${p.crit?'<span class="tagmini">foco</span>':''}</span><span class="vl">${p.v.toFixed(1).replace('.',',')}</span></div>
+        <div class="track"><i style="width:${w}%;background:${color}"></i></div>
+      </div>`;
+    }).join("");
+  }
+
+  function counts(){
+    const c = { all: Q.length };
+    for(const k in AREAS){ c[k] = Q.filter(q=>q.area===k).length; }
+    return c;
+  }
+  function renderChips(){
+    const c = counts();
+    const items = [["all","Todas"],...Object.entries(AREAS).map(([k,v])=>[k,v.nome])];
+    $("#chips").innerHTML = items.map(([k,nm])=>
+      `<button class="chip ${k===state.mode?'on':''}" data-mode="${k}">${nm}<span class="ct">${c[k]}</span></button>`
+    ).join("");
+    $("#chips").querySelectorAll(".chip").forEach(ch=>{
+      ch.onclick = ()=>{ state.mode = ch.dataset.mode; renderChips(); };
+    });
+  }
+
+  /* ---- Quiz ---- */
+  function buildDeck(){
+    let pool = state.mode==="all" ? Q.slice() : Q.filter(q=>q.area===state.mode);
+    state.deck = shuffle(pool).map((q,i)=>{
+      const card = {...q, _i:i};
+      if(q.tipo!=="revisao"){ card.alts = shuffle(q.alts); }
+      return card;
+    });
+    state.idx = 0;
+    state.answers = {};
+  }
+
+  function areaChip(q){
+    return `<span class="area-chip ${AREAS[q.area].cls}">${AREAS[q.area].nome}</span>`;
+  }
+
+  function cardHTML(q, n, total){
+    const head = `<div class="qhead">
+      <div style="display:flex;gap:7px;align-items:center;flex-wrap:wrap">${areaChip(q)}${q.foco?'<span class="foco-flag">foco da turma</span>':''}</div>
+      <span class="qnum">${n}/${total}</span>
+    </div>
+    <div class="tema">${q.tema}</div>`;
+
+    if(q.tipo==="revisao"){
+      const pts = q.pontos.map((p,i)=>`<li><span class="pk">${i+1}</span><span>${p}</span></li>`).join("");
+      return `<div class="qcard" id="card">${head}
+        <div class="enunciado"><span class="label" style="display:block;margin-bottom:6px">Card de revisão</span>${q.intro}</div>
+        <ul class="rev-points">${pts}</ul>
+      </div>`;
+    }
+
+    const ansIdx = state.answers[q._i];
+    const answered = ansIdx !== undefined;
+    const keys = ["A","B","C","D","E","F"];
+    const alts = q.alts.map((a,i)=>{
+      let cls = "alt";
+      if(answered){
+        if(a.ok) cls += " correct";
+        else if(i===ansIdx) cls += " wrong";
+        else cls += " dim";
+      }
+      return `<div class="${cls}" data-i="${i}">
+        <span class="key">${keys[i]}</span>
+        <span class="txt">${a.t}<span class="rat">${a.r}</span></span>
+      </div>`;
+    }).join("");
+
+    let verdict = "";
+    if(answered){
+      const ok = q.alts[ansIdx].ok;
+      verdict = `<div class="verdict show ${ok?'ok':'no'}">${ok?'✓ Acertou!':'✗ Não foi dessa vez.'} Veja o racional de cada alternativa acima.</div>`;
+    }
+
+    return `<div class="qcard" id="card">${head}
+      <div class="enunciado">${q.enunciado}</div>
+      <div class="alts ${answered?'answered':''}" id="alts">${alts}</div>
+      ${verdict}
+    </div>`;
+  }
+
+  function renderCard(){
+    const total = state.deck.length;
+    const q = state.deck[state.idx];
+    $("#deck").innerHTML = cardHTML(q, state.idx+1, total);
+    $("#progbar").style.width = ((state.idx)/(total))*100 + "%";
+
+    // answer handlers
+    const alts = $("#alts");
+    if(alts && state.answers[q._i]===undefined){
+      alts.querySelectorAll(".alt").forEach(el=>{
+        el.onclick = ()=>{
+          state.answers[q._i] = parseInt(el.dataset.i,10);
+          renderCard();
+        };
+      });
+    }
+    // nav buttons
+    $("#prevBtn").disabled = state.idx===0;
+    $("#nextBtn").textContent = state.idx===total-1 ? "Ver resultado ✓" : "Próxima →";
+    bindSwipe();
+  }
+
+  function go(delta){
+    const total = state.deck.length;
+    const next = state.idx + delta;
+    if(next < 0) return;
+    if(next >= total){ showResult(); return; }
+    state.idx = next;
+    renderCard();
+  }
+
+  /* ---- Swipe (estilo Tinder) ---- */
+  function bindSwipe(){
+    const card = $("#card");
+    if(!card) return;
+    let sx=0, sy=0, dx=0, dy=0, dragging=false, decided=false, horiz=false;
+    const start=(x,y)=>{ sx=x; sy=y; dx=0; dy=0; dragging=true; decided=false; horiz=false; card.style.transition="none"; };
+    const move=(x,y)=>{
+      if(!dragging) return;
+      dx=x-sx; dy=y-sy;
+      if(!decided){
+        if(Math.abs(dx)>10 || Math.abs(dy)>10){ decided=true; horiz=Math.abs(dx)>Math.abs(dy); }
+      }
+      if(horiz){
+        card.style.transform = `translateX(${dx}px) rotate(${dx/28}deg)`;
+        card.style.opacity = 1 - Math.min(Math.abs(dx)/600, 0.35);
+      }
+    };
+    const end=()=>{
+      if(!dragging) return; dragging=false;
+      card.style.transition="transform 0.28s ease, opacity 0.28s ease";
+      const TH=90;
+      if(horiz && Math.abs(dx)>TH){
+        const dir = dx>0?1:-1;
+        card.style.transform = `translateX(${dir*window.innerWidth}px) rotate(${dir*18}deg)`;
+        card.style.opacity = 0;
+        setTimeout(()=>{ go(dir>0?1:-1); }, 180);
+      } else {
+        card.style.transform=""; card.style.opacity=1;
+      }
+    };
+    card.addEventListener("touchstart",e=>start(e.touches[0].clientX,e.touches[0].clientY),{passive:true});
+    card.addEventListener("touchmove",e=>{ move(e.touches[0].clientX,e.touches[0].clientY); },{passive:true});
+    card.addEventListener("touchend",end);
+    // mouse (desktop)
+    card.addEventListener("mousedown",e=>{ if(e.target.closest('.alt')) return; start(e.clientX,e.clientY); });
+    window.addEventListener("mousemove",e=>{ if(dragging) move(e.clientX,e.clientY); });
+    window.addEventListener("mouseup",end);
+  }
+
+  /* ---- Resultado ---- */
+  function showResult(){
+    $("#progbar").style.width = "100%";
+    const mcq = state.deck.filter(q=>q.tipo!=="revisao");
+    const total = mcq.length;
+    let correct = 0;
+    const byArea = {};
+    mcq.forEach(q=>{
+      const a = state.answers[q._i];
+      const ok = a!==undefined && q.alts[a].ok;
+      if(ok) correct++;
+      const k=q.area;
+      byArea[k] = byArea[k] || {ok:0,n:0};
+      byArea[k].n++; if(ok) byArea[k].ok++;
+    });
+    const pct = total? Math.round((correct/total)*100) : 0;
+
+    show("result");
+    $("#scoreN").innerHTML = `${pct}<span class="pct">%</span>`;
+    $("#scoreCap").textContent = `${correct} de ${total} questões de múltipla escolha`;
+    drawRing(pct);
+
+    // por área
+    const order = Object.keys(byArea).sort((a,b)=> (byArea[a].ok/byArea[a].n) - (byArea[b].ok/byArea[b].n));
+    $("#areaRes").innerHTML = order.map(k=>{
+      const r=byArea[k]; const p=Math.round((r.ok/r.n)*100);
+      const color = p>=70?"var(--verde)":(p>=50?"var(--lilas)":"var(--coral)");
+      return `<div class="bar-row"><div class="top"><span class="nm">${AREAS[k].nome}</span><span class="vl">${r.ok}/${r.n}</span></div>
+      <div class="track"><i style="width:${p}%;background:${color}"></i></div></div>`;
+    }).join("");
+
+    // recomendação
+    const weak = order.filter(k=> (byArea[k].ok/byArea[k].n) < 0.7).map(k=>AREAS[k].nome);
+    let rec;
+    if(weak.length===0){
+      rec = `Mandou bem em todas as áreas. Para fechar com chave de ouro, reveja os cards marcados como <b>foco da turma</b>, que foi onde a turma mais perdeu pontos no módulo (matemática de métricas e de representação vetorial).`;
+    } else {
+      rec = `Vale reforçar: <b>${weak.join(", ")}</b>. Lembre que a turma ficou mais fraca em <b>matemática (métricas/matriz de confusão e representação vetorial)</b> e em <b>redes neurais</b>. Comece por aí e refaça os cards de <b>foco da turma</b>.`;
+    }
+    $("#rec").innerHTML = rec;
+  }
+
+  function drawRing(pct){
+    const c = $("#ring"); if(!c) return;
+    const ctx = c.getContext("2d");
+    const cx=66, cy=66, r=54;
+    ctx.clearRect(0,0,132,132);
+    ctx.lineWidth=12; ctx.lineCap="round";
+    ctx.beginPath(); ctx.arc(cx,cy,r,0,Math.PI*2); ctx.strokeStyle="#e6eaeb"; ctx.stroke();
+    const col = pct>=70? "#89cea5" : (pct>=50? "#90a5e5" : "#ff4545");
+    ctx.beginPath(); ctx.arc(cx,cy,r,-Math.PI/2, -Math.PI/2 + Math.PI*2*(pct/100)); ctx.strokeStyle=col; ctx.stroke();
+  }
+
+  /* ---- Navegação de telas ---- */
+  function show(id){
+    ["home","quiz","result"].forEach(s=>$("#"+s).classList.toggle("hidden", s!==id));
+    window.scrollTo(0,0);
+  }
+
+  function startQuiz(){
+    buildDeck();
+    show("quiz");
+    renderCard();
+  }
+
+  // eventos
+  $("#startBtn").onclick = startQuiz;
+  $("#restartBtn").onclick = ()=>{ show("home"); $("#progbar").style.width="0%"; };
+  $("#reviewBtn").onclick = ()=>{ state.idx=0; show("quiz"); renderCard(); };
+  $("#prevBtn").onclick = ()=>go(-1);
+  $("#nextBtn").onclick = ()=>go(1);
+  document.addEventListener("keydown",e=>{
+    if($("#quiz").classList.contains("hidden")) return;
+    if(e.key==="ArrowRight") go(1);
+    if(e.key==="ArrowLeft") go(-1);
+  });
+
+  // init
+  renderPanorama();
+  renderChips();
+  </script>
+</body>
+</html>
